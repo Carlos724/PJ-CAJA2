@@ -1,0 +1,11 @@
+C:\Users\ale\Documents\PJ Caja2\PJ CAJA 2\bin\Debug\PJ CAJA 2.exe.config
+C:\Users\ale\Documents\PJ Caja2\PJ CAJA 2\bin\Debug\PJ CAJA 2.exe
+C:\Users\ale\Documents\PJ Caja2\PJ CAJA 2\bin\Debug\PJ CAJA 2.pdb
+C:\Users\ale\Documents\PJ Caja2\PJ CAJA 2\obj\Debug\PJ CAJA 2.csproj.AssemblyReference.cache
+C:\Users\ale\Documents\PJ Caja2\PJ CAJA 2\obj\Debug\PJ_CAJA_2.frmInicioSesion.resources
+C:\Users\ale\Documents\PJ Caja2\PJ CAJA 2\obj\Debug\PJ_CAJA_2.Properties.Resources.resources
+C:\Users\ale\Documents\PJ Caja2\PJ CAJA 2\obj\Debug\PJ CAJA 2.csproj.GenerateResource.cache
+C:\Users\ale\Documents\PJ Caja2\PJ CAJA 2\obj\Debug\PJ CAJA 2.csproj.CoreCompileInputs.cache
+C:\Users\ale\Documents\PJ Caja2\PJ CAJA 2\obj\Debug\PJ CAJA 2.exe
+C:\Users\ale\Documents\PJ Caja2\PJ CAJA 2\obj\Debug\PJ CAJA 2.pdb
+C:\Users\ale\Documents\PJ Caja2\PJ CAJA 2\obj\Debug\PJ_CAJA_2.frmMenu.resources
