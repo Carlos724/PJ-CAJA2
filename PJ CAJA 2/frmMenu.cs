@@ -30,7 +30,8 @@ namespace PJ_CAJA_2
             tmrHora.Interval = 1000;
             tmrHora.Start();
         }
-
+        //## BOTÓNES ##
+        //Botónes de venta y compra, solo deciden que clase de operacion se lleva a cabo
         private void btnVenta_Click(object sender, EventArgs e)
         {
             ClaseOp = "V";
@@ -42,14 +43,16 @@ namespace PJ_CAJA_2
             ClaseOp = "C";
             pnlElegirDes.Visible = true;
         }
-
+        
+        //Botón SinDesglose para una venta/compra directa
         private void btnSinDes_Click(object sender, EventArgs e)
         {
+            pnlElegirDes.Visible = false;
             if (ClaseOp == "V")
             {
                 lblTransSin.Text = "VENTA DIRECTA";
-                lblCantidad.Text = "PESOS:";
-                lblConversion.Text = "DOLARES:";
+                lblCantidad.Text = "PESOS RECIBIDOS:";
+                lblConversion.Text = "DOLARES A ENTREGAR:";
 
                 dblTC = Properties.Settings.Default.dblTCVenta_;
                 txtTC.Text = dblTC.ToString();
@@ -57,8 +60,8 @@ namespace PJ_CAJA_2
             else
             {
                 lblTransSin.Text = "COMPRA DIRECTA";
-                lblCantidad.Text = "DOLARES:";
-                lblConversion.Text = "PESOS:";
+                lblCantidad.Text = "DOLARES RECIBIDOS:";
+                lblConversion.Text = "PESOS A ENTREGAR:";
 
                 dblTC = Properties.Settings.Default.dblTCCompra_;
                 txtTC.Text = dblTC.ToString();
@@ -66,6 +69,33 @@ namespace PJ_CAJA_2
             pnlTransaccionSin.Visible = true;
             txtCantidad.Focus();
         }
+
+        //Botón para corregir la cantidad escrita
+        private void btnNoContiSin_Click(object sender, EventArgs e)
+        {
+            pnlContinuarSin.Visible = false;
+            txtCantidad.Focus();
+        }
+
+        //Te permite ingresar una cantidad distinta en tipo de cambio
+        private void btnEspContiSin_Click(object sender, EventArgs e)
+        {
+            pnlContinuarSin.Visible = false;
+            txtTC.Focus();
+        }
+
+        //Continuar el proceso, permitiendo el ingreso del pago
+        private void btnSiContiSin_Click(object sender, EventArgs e)
+        {
+            pnlContinuarSin.Visible = false;
+            txtPago.Enabled = true;
+            txtCambio.Enabled = true;
+            txtPago.Focus();
+        }
+
+        
+
+        //## EVENTOS ## 
 
         private void tmrHora_Tick(object sender, EventArgs e)
         {
@@ -79,10 +109,11 @@ namespace PJ_CAJA_2
             txtConversion.Text = dblConversion.ToString();
             pnlContinuarSin.Visible = true;
             btnSiContiSin.Focus();
+
         }
 
         private void txtTC_Leave(object sender, EventArgs e)
-        {
+        {/*
             switch (ClaseOp)
             {
                 case "V":
@@ -90,8 +121,35 @@ namespace PJ_CAJA_2
                     {
                         dblTC = double.Parse(txtTC.Text);
                     }
+                    else
+                    {
+                        MessageBox.Show("LIMITE TIPO ESPECIAL", "El tipo especial supero el limite de rango, asegurate de escribirlo correctamente", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtTC.Focus();
+                    }
+                    break;
 
+                case "C":
+                    if (double.Parse(txtTC.Text) > dblTC && double.Parse(txtTC.Text) <= dblTC + 0.4)
+                    {
+                        dblTC = double.Parse(txtTC.Text);
+                    }
+                    else
+                    {
+                        MessageBox.Show("LIMITE TIPO ESPECIAL", "El tipo especial supero el limite de rango, asegurate de escribirlo correctamente", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtTC.Focus();
+                    }
+                    break;
+            }*/
 
+            if ((ClaseOp == "V" && double.Parse(txtTC.Text) < dblTC && double.Parse(txtTC.Text) >= dblTC - 0.4) ||
+                (ClaseOp == "C" && double.Parse(txtTC.Text) > dblTC && double.Parse(txtTC.Text) <= dblTC + 0.4))
+            {
+                dblTC = double.Parse(txtTC.Text);
+            }
+            else
+            {
+                MessageBox.Show("LIMITE TIPO ESPECIAL", "El tipo especial supero el limite de rango, asegurate de escribirlo correctamente", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtTC.Focus();
             }
             dblConversion = Conversion(dblCantidad, dblTC);
             txtConversion.Text = dblConversion.ToString();
@@ -99,7 +157,16 @@ namespace PJ_CAJA_2
             btnSiContiSin.Focus();
         }
 
+        private void txtPago_Leave(object sender, EventArgs e)
+        {
+            dblCambio = dblCantidad - dblPago;
+            txtCambio.Text = dblCambio.ToString();
+            pnlConSinFin.Visible = true;
+        }
 
+
+        //## METODOS ##
+        
         double Conversion(double miCantidad, double miTC)
         {
             
@@ -114,29 +181,20 @@ namespace PJ_CAJA_2
             }
         }
 
-        private void btnNoContiSin_Click(object sender, EventArgs e)
+        private void btnNoSinFin_Click(object sender, EventArgs e)
         {
-            pnlContinuarSin.Visible = false;
-            txtCantidad.Focus();
-        }
-
-        private void btnSiContiSin_Click(object sender, EventArgs e)
-        {
-            txtPago.Enabled = true;
-            txtCambio.Enabled = true;
+            pnlConSinFin.Visible = false;
             txtPago.Focus();
         }
 
-        private void txtPago_Leave(object sender, EventArgs e)
+        private void btnCancSinFin_Click(object sender, EventArgs e)
         {
-            dblCambio = dblCantidad - dblPago;
-            txtCambio.Text = dblCambio.ToString();
-            pnlConSinFin.Visible=true;
+            pnlTransaccionSin.Visible = false;
         }
 
-        private void btnEspContiSin_Click(object sender, EventArgs e)
+        private void btnCancContSin_Click(object sender, EventArgs e)
         {
-            txtTC.Focus();
+            pnlTransaccionSin.Visible = false;
         }
     }
 }

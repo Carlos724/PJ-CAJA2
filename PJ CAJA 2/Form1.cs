@@ -21,7 +21,7 @@ namespace PJ_CAJA_2
             timer1.Start();            
         }
 
-        //BOTÓNES
+        //## BOTÓNES ##
         //Iniciar la caja, hace visible el panel de tipos de cambio
         private void btnIniciar_Click(object sender, EventArgs e)
         {

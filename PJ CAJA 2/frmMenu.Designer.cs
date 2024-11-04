@@ -53,6 +53,10 @@ namespace PJ_CAJA_2
             this.btnNoContiSin = new System.Windows.Forms.Button();
             this.btnSiContiSin = new System.Windows.Forms.Button();
             this.lblContinuarSin = new System.Windows.Forms.Label();
+            this.txtCambio = new System.Windows.Forms.TextBox();
+            this.txtPago = new System.Windows.Forms.TextBox();
+            this.lblCambio = new System.Windows.Forms.Label();
+            this.lblPago = new System.Windows.Forms.Label();
             this.txtConversion = new System.Windows.Forms.TextBox();
             this.txtTC = new System.Windows.Forms.TextBox();
             this.lblConversion = new System.Windows.Forms.Label();
@@ -67,10 +71,6 @@ namespace PJ_CAJA_2
             this.btnNoSinFin = new System.Windows.Forms.Button();
             this.btnSiSinFin = new System.Windows.Forms.Button();
             this.lblConSinFin = new System.Windows.Forms.Label();
-            this.txtCambio = new System.Windows.Forms.TextBox();
-            this.txtPago = new System.Windows.Forms.TextBox();
-            this.lblCambio = new System.Windows.Forms.Label();
-            this.lblPago = new System.Windows.Forms.Label();
             this.pnlMenu.SuspendLayout();
             this.pnlElegirDes.SuspendLayout();
             this.pnlTransaccionSin.SuspendLayout();
@@ -186,6 +186,7 @@ namespace PJ_CAJA_2
             // 
             // pnlMenu
             // 
+            this.pnlMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlMenu.Controls.Add(this.pnlElegirDes);
             this.pnlMenu.Controls.Add(this.lblTCVenta);
             this.pnlMenu.Controls.Add(this.lblVenta);
@@ -256,21 +257,22 @@ namespace PJ_CAJA_2
             this.pnlTransaccionSin.Controls.Add(this.lblCantidad);
             this.pnlTransaccionSin.Controls.Add(this.lblTransSin);
             this.pnlTransaccionSin.Controls.Add(this.txtCantidad);
-            this.pnlTransaccionSin.Location = new System.Drawing.Point(361, 115);
+            this.pnlTransaccionSin.Location = new System.Drawing.Point(265, 115);
             this.pnlTransaccionSin.Name = "pnlTransaccionSin";
-            this.pnlTransaccionSin.Size = new System.Drawing.Size(419, 400);
+            this.pnlTransaccionSin.Size = new System.Drawing.Size(515, 400);
             this.pnlTransaccionSin.TabIndex = 12;
             this.pnlTransaccionSin.Visible = false;
             // 
             // pnlContinuarSin
             // 
+            this.pnlContinuarSin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlContinuarSin.Controls.Add(this.btnCancContSin);
             this.pnlContinuarSin.Controls.Add(this.btnEspContiSin);
             this.pnlContinuarSin.Controls.Add(this.btnNoContiSin);
             this.pnlContinuarSin.Controls.Add(this.btnSiContiSin);
             this.pnlContinuarSin.Controls.Add(this.lblContinuarSin);
             this.pnlContinuarSin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlContinuarSin.Location = new System.Drawing.Point(42, 248);
+            this.pnlContinuarSin.Location = new System.Drawing.Point(96, 259);
             this.pnlContinuarSin.Name = "pnlContinuarSin";
             this.pnlContinuarSin.Size = new System.Drawing.Size(335, 100);
             this.pnlContinuarSin.TabIndex = 17;
@@ -283,6 +285,7 @@ namespace PJ_CAJA_2
             this.btnCancContSin.TabIndex = 17;
             this.btnCancContSin.Text = "Cancelar";
             this.btnCancContSin.UseVisualStyleBackColor = true;
+            this.btnCancContSin.Click += new System.EventHandler(this.btnCancContSin_Click);
             // 
             // btnEspContiSin
             // 
@@ -323,33 +326,71 @@ namespace PJ_CAJA_2
             this.lblContinuarSin.TabIndex = 13;
             this.lblContinuarSin.Text = "¿Continuar?";
             // 
+            // txtCambio
+            // 
+            this.txtCambio.Enabled = false;
+            this.txtCambio.Location = new System.Drawing.Point(283, 309);
+            this.txtCambio.Name = "txtCambio";
+            this.txtCambio.Size = new System.Drawing.Size(152, 31);
+            this.txtCambio.TabIndex = 20;
+            this.txtCambio.Text = "00.00";
+            // 
+            // txtPago
+            // 
+            this.txtPago.Enabled = false;
+            this.txtPago.Location = new System.Drawing.Point(283, 259);
+            this.txtPago.Name = "txtPago";
+            this.txtPago.Size = new System.Drawing.Size(152, 31);
+            this.txtPago.TabIndex = 19;
+            this.txtPago.Text = "00.00";
+            // 
+            // lblCambio
+            // 
+            this.lblCambio.AutoSize = true;
+            this.lblCambio.Location = new System.Drawing.Point(168, 312);
+            this.lblCambio.Name = "lblCambio";
+            this.lblCambio.Size = new System.Drawing.Size(100, 25);
+            this.lblCambio.TabIndex = 18;
+            this.lblCambio.Text = "CAMBIO:";
+            // 
+            // lblPago
+            // 
+            this.lblPago.AutoSize = true;
+            this.lblPago.Location = new System.Drawing.Point(190, 262);
+            this.lblPago.Name = "lblPago";
+            this.lblPago.Size = new System.Drawing.Size(78, 25);
+            this.lblPago.TabIndex = 17;
+            this.lblPago.Text = "PAGO:";
+            // 
             // txtConversion
             // 
-            this.txtConversion.Location = new System.Drawing.Point(229, 163);
+            this.txtConversion.Location = new System.Drawing.Point(298, 163);
             this.txtConversion.Name = "txtConversion";
             this.txtConversion.Size = new System.Drawing.Size(152, 31);
             this.txtConversion.TabIndex = 16;
+            this.txtConversion.Text = "00.00";
             // 
             // txtTC
             // 
-            this.txtTC.Location = new System.Drawing.Point(229, 113);
+            this.txtTC.Location = new System.Drawing.Point(298, 113);
             this.txtTC.Name = "txtTC";
             this.txtTC.Size = new System.Drawing.Size(152, 31);
             this.txtTC.TabIndex = 15;
+            this.txtTC.Text = "00.00";
             // 
             // lblConversion
             // 
             this.lblConversion.AutoSize = true;
-            this.lblConversion.Location = new System.Drawing.Point(78, 159);
+            this.lblConversion.Location = new System.Drawing.Point(32, 166);
             this.lblConversion.Name = "lblConversion";
-            this.lblConversion.Size = new System.Drawing.Size(138, 50);
+            this.lblConversion.Size = new System.Drawing.Size(260, 25);
             this.lblConversion.TabIndex = 14;
-            this.lblConversion.Text = "DOLARES A \r\nENTREGAR:";
+            this.lblConversion.Text = "DOLARES A ENTREGAR:";
             // 
             // lblTC
             // 
             this.lblTC.AutoSize = true;
-            this.lblTC.Location = new System.Drawing.Point(27, 116);
+            this.lblTC.Location = new System.Drawing.Point(103, 116);
             this.lblTC.Name = "lblTC";
             this.lblTC.Size = new System.Drawing.Size(189, 25);
             this.lblTC.TabIndex = 13;
@@ -358,7 +399,7 @@ namespace PJ_CAJA_2
             // lblCantidad
             // 
             this.lblCantidad.AutoSize = true;
-            this.lblCantidad.Location = new System.Drawing.Point(14, 67);
+            this.lblCantidad.Location = new System.Drawing.Point(83, 67);
             this.lblCantidad.Name = "lblCantidad";
             this.lblCantidad.Size = new System.Drawing.Size(209, 25);
             this.lblCantidad.TabIndex = 12;
@@ -367,7 +408,7 @@ namespace PJ_CAJA_2
             // lblTransSin
             // 
             this.lblTransSin.AutoSize = true;
-            this.lblTransSin.Location = new System.Drawing.Point(118, 23);
+            this.lblTransSin.Location = new System.Drawing.Point(187, 23);
             this.lblTransSin.Name = "lblTransSin";
             this.lblTransSin.Size = new System.Drawing.Size(179, 25);
             this.lblTransSin.TabIndex = 11;
@@ -375,10 +416,11 @@ namespace PJ_CAJA_2
             // 
             // txtCantidad
             // 
-            this.txtCantidad.Location = new System.Drawing.Point(229, 64);
+            this.txtCantidad.Location = new System.Drawing.Point(298, 64);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(152, 31);
             this.txtCantidad.TabIndex = 0;
+            this.txtCantidad.Text = "00.00";
             this.txtCantidad.Leave += new System.EventHandler(this.txtCantidad_Leave);
             // 
             // tmrHora
@@ -396,6 +438,7 @@ namespace PJ_CAJA_2
             // 
             // pnlConSinFin
             // 
+            this.pnlConSinFin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlConSinFin.Controls.Add(this.btnCancSinFin);
             this.pnlConSinFin.Controls.Add(this.btnNoSinFin);
             this.pnlConSinFin.Controls.Add(this.btnSiSinFin);
@@ -405,6 +448,7 @@ namespace PJ_CAJA_2
             this.pnlConSinFin.Name = "pnlConSinFin";
             this.pnlConSinFin.Size = new System.Drawing.Size(253, 100);
             this.pnlConSinFin.TabIndex = 18;
+            this.pnlConSinFin.Visible = false;
             // 
             // btnCancSinFin
             // 
@@ -414,6 +458,7 @@ namespace PJ_CAJA_2
             this.btnCancSinFin.TabIndex = 17;
             this.btnCancSinFin.Text = "Cancelar";
             this.btnCancSinFin.UseVisualStyleBackColor = true;
+            this.btnCancSinFin.Click += new System.EventHandler(this.btnCancSinFin_Click);
             // 
             // btnNoSinFin
             // 
@@ -423,6 +468,7 @@ namespace PJ_CAJA_2
             this.btnNoSinFin.TabIndex = 15;
             this.btnNoSinFin.Text = "No";
             this.btnNoSinFin.UseVisualStyleBackColor = true;
+            this.btnNoSinFin.Click += new System.EventHandler(this.btnNoSinFin_Click);
             // 
             // btnSiSinFin
             // 
@@ -441,40 +487,6 @@ namespace PJ_CAJA_2
             this.lblConSinFin.Size = new System.Drawing.Size(100, 20);
             this.lblConSinFin.TabIndex = 13;
             this.lblConSinFin.Text = "¿Continuar?";
-            // 
-            // txtCambio
-            // 
-            this.txtCambio.Enabled = false;
-            this.txtCambio.Location = new System.Drawing.Point(229, 308);
-            this.txtCambio.Name = "txtCambio";
-            this.txtCambio.Size = new System.Drawing.Size(152, 31);
-            this.txtCambio.TabIndex = 20;
-            // 
-            // txtPago
-            // 
-            this.txtPago.Enabled = false;
-            this.txtPago.Location = new System.Drawing.Point(229, 258);
-            this.txtPago.Name = "txtPago";
-            this.txtPago.Size = new System.Drawing.Size(152, 31);
-            this.txtPago.TabIndex = 19;
-            // 
-            // lblCambio
-            // 
-            this.lblCambio.AutoSize = true;
-            this.lblCambio.Location = new System.Drawing.Point(114, 311);
-            this.lblCambio.Name = "lblCambio";
-            this.lblCambio.Size = new System.Drawing.Size(100, 25);
-            this.lblCambio.TabIndex = 18;
-            this.lblCambio.Text = "CAMBIO:";
-            // 
-            // lblPago
-            // 
-            this.lblPago.AutoSize = true;
-            this.lblPago.Location = new System.Drawing.Point(136, 261);
-            this.lblPago.Name = "lblPago";
-            this.lblPago.Size = new System.Drawing.Size(78, 25);
-            this.lblPago.TabIndex = 17;
-            this.lblPago.Text = "PAGO:";
             // 
             // frmMenu
             // 
