@@ -71,11 +71,23 @@ namespace PJ_CAJA_2
             this.btnNoSinFin = new System.Windows.Forms.Button();
             this.btnSiSinFin = new System.Windows.Forms.Button();
             this.lblConSinFin = new System.Windows.Forms.Label();
+            this.pnlSumadora = new System.Windows.Forms.Panel();
+            this.lblSumadora = new System.Windows.Forms.Label();
+            this.txtSuma1 = new System.Windows.Forms.TextBox();
+            this.txtSuma2 = new System.Windows.Forms.TextBox();
+            this.txtSuma3 = new System.Windows.Forms.TextBox();
+            this.txtSuma4 = new System.Windows.Forms.TextBox();
+            this.txtSuma5 = new System.Windows.Forms.TextBox();
+            this.txtSuma6 = new System.Windows.Forms.TextBox();
+            this.btnImprimir = new System.Windows.Forms.Button();
+            this.btnAceptar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.pnlMenu.SuspendLayout();
             this.pnlElegirDes.SuspendLayout();
             this.pnlTransaccionSin.SuspendLayout();
             this.pnlContinuarSin.SuspendLayout();
             this.pnlConSinFin.SuspendLayout();
+            this.pnlSumadora.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnVenta
@@ -109,6 +121,7 @@ namespace PJ_CAJA_2
             this.btnSumadora.TabIndex = 2;
             this.btnSumadora.Text = "[F11] SUMADORA";
             this.btnSumadora.UseVisualStyleBackColor = true;
+            this.btnSumadora.Click += new System.EventHandler(this.btnSumadora_Click);
             // 
             // btnEntSal
             // 
@@ -276,6 +289,7 @@ namespace PJ_CAJA_2
             this.pnlContinuarSin.Name = "pnlContinuarSin";
             this.pnlContinuarSin.Size = new System.Drawing.Size(335, 100);
             this.pnlContinuarSin.TabIndex = 17;
+            this.pnlContinuarSin.Visible = false;
             // 
             // btnCancContSin
             // 
@@ -343,6 +357,7 @@ namespace PJ_CAJA_2
             this.txtPago.Size = new System.Drawing.Size(152, 31);
             this.txtPago.TabIndex = 19;
             this.txtPago.Text = "00.00";
+            this.txtPago.Leave += new System.EventHandler(this.txtPago_Leave);
             // 
             // lblCambio
             // 
@@ -377,6 +392,7 @@ namespace PJ_CAJA_2
             this.txtTC.Size = new System.Drawing.Size(152, 31);
             this.txtTC.TabIndex = 15;
             this.txtTC.Text = "00.00";
+            this.txtTC.Leave += new System.EventHandler(this.txtTC_Leave_1);
             // 
             // lblConversion
             // 
@@ -478,6 +494,7 @@ namespace PJ_CAJA_2
             this.btnSiSinFin.TabIndex = 14;
             this.btnSiSinFin.Text = "Si";
             this.btnSiSinFin.UseVisualStyleBackColor = true;
+            this.btnSiSinFin.Click += new System.EventHandler(this.btnSiSinFin_Click);
             // 
             // lblConSinFin
             // 
@@ -488,11 +505,116 @@ namespace PJ_CAJA_2
             this.lblConSinFin.TabIndex = 13;
             this.lblConSinFin.Text = "¿Continuar?";
             // 
+            // pnlSumadora
+            // 
+            this.pnlSumadora.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlSumadora.Controls.Add(this.btnCancelar);
+            this.pnlSumadora.Controls.Add(this.btnAceptar);
+            this.pnlSumadora.Controls.Add(this.btnImprimir);
+            this.pnlSumadora.Controls.Add(this.txtSuma6);
+            this.pnlSumadora.Controls.Add(this.txtSuma5);
+            this.pnlSumadora.Controls.Add(this.txtSuma4);
+            this.pnlSumadora.Controls.Add(this.txtSuma3);
+            this.pnlSumadora.Controls.Add(this.txtSuma2);
+            this.pnlSumadora.Controls.Add(this.txtSuma1);
+            this.pnlSumadora.Controls.Add(this.lblSumadora);
+            this.pnlSumadora.Location = new System.Drawing.Point(334, 139);
+            this.pnlSumadora.Name = "pnlSumadora";
+            this.pnlSumadora.Size = new System.Drawing.Size(480, 332);
+            this.pnlSumadora.TabIndex = 19;
+            this.pnlSumadora.Visible = false;
+            // 
+            // lblSumadora
+            // 
+            this.lblSumadora.AutoSize = true;
+            this.lblSumadora.Location = new System.Drawing.Point(179, 13);
+            this.lblSumadora.Name = "lblSumadora";
+            this.lblSumadora.Size = new System.Drawing.Size(147, 25);
+            this.lblSumadora.TabIndex = 20;
+            this.lblSumadora.Text = "SUMADORAS";
+            // 
+            // txtSuma1
+            // 
+            this.txtSuma1.Location = new System.Drawing.Point(137, 53);
+            this.txtSuma1.Name = "txtSuma1";
+            this.txtSuma1.Size = new System.Drawing.Size(199, 31);
+            this.txtSuma1.TabIndex = 21;
+            this.txtSuma1.Text = "00.00";
+            // 
+            // txtSuma2
+            // 
+            this.txtSuma2.Location = new System.Drawing.Point(137, 96);
+            this.txtSuma2.Name = "txtSuma2";
+            this.txtSuma2.Size = new System.Drawing.Size(199, 31);
+            this.txtSuma2.TabIndex = 22;
+            this.txtSuma2.Text = "00.00";
+            // 
+            // txtSuma3
+            // 
+            this.txtSuma3.Location = new System.Drawing.Point(137, 137);
+            this.txtSuma3.Name = "txtSuma3";
+            this.txtSuma3.Size = new System.Drawing.Size(199, 31);
+            this.txtSuma3.TabIndex = 23;
+            this.txtSuma3.Text = "00.00";
+            // 
+            // txtSuma4
+            // 
+            this.txtSuma4.Location = new System.Drawing.Point(137, 183);
+            this.txtSuma4.Name = "txtSuma4";
+            this.txtSuma4.Size = new System.Drawing.Size(199, 31);
+            this.txtSuma4.TabIndex = 24;
+            this.txtSuma4.Text = "00.00";
+            // 
+            // txtSuma5
+            // 
+            this.txtSuma5.Location = new System.Drawing.Point(137, 227);
+            this.txtSuma5.Name = "txtSuma5";
+            this.txtSuma5.Size = new System.Drawing.Size(199, 31);
+            this.txtSuma5.TabIndex = 25;
+            this.txtSuma5.Text = "00.00";
+            // 
+            // txtSuma6
+            // 
+            this.txtSuma6.ForeColor = System.Drawing.Color.DarkRed;
+            this.txtSuma6.Location = new System.Drawing.Point(137, 275);
+            this.txtSuma6.Name = "txtSuma6";
+            this.txtSuma6.Size = new System.Drawing.Size(199, 31);
+            this.txtSuma6.TabIndex = 26;
+            this.txtSuma6.Text = "00.00";
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Location = new System.Drawing.Point(358, 46);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(106, 44);
+            this.btnImprimir.TabIndex = 27;
+            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            // 
+            // btnAceptar
+            // 
+            this.btnAceptar.Location = new System.Drawing.Point(358, 220);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(106, 44);
+            this.btnAceptar.TabIndex = 28;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(358, 270);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(106, 46);
+            this.btnCancelar.TabIndex = 29;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1134, 680);
+            this.Controls.Add(this.pnlSumadora);
             this.Controls.Add(this.pnlConSinFin);
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.pnlTransaccionSin);
@@ -503,6 +625,7 @@ namespace PJ_CAJA_2
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "frmMenu";
             this.Text = "MENU";
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmMenu_KeyPress);
             this.pnlMenu.ResumeLayout(false);
             this.pnlMenu.PerformLayout();
             this.pnlElegirDes.ResumeLayout(false);
@@ -513,6 +636,8 @@ namespace PJ_CAJA_2
             this.pnlContinuarSin.PerformLayout();
             this.pnlConSinFin.ResumeLayout(false);
             this.pnlConSinFin.PerformLayout();
+            this.pnlSumadora.ResumeLayout(false);
+            this.pnlSumadora.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -561,5 +686,16 @@ namespace PJ_CAJA_2
         private System.Windows.Forms.Button btnNoSinFin;
         private System.Windows.Forms.Button btnSiSinFin;
         private System.Windows.Forms.Label lblConSinFin;
+        private System.Windows.Forms.Panel pnlSumadora;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.TextBox txtSuma6;
+        private System.Windows.Forms.TextBox txtSuma5;
+        private System.Windows.Forms.TextBox txtSuma4;
+        private System.Windows.Forms.TextBox txtSuma3;
+        private System.Windows.Forms.TextBox txtSuma2;
+        private System.Windows.Forms.TextBox txtSuma1;
+        private System.Windows.Forms.Label lblSumadora;
     }
 }

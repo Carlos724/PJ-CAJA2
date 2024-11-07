@@ -26,7 +26,7 @@ namespace PJ_CAJA_2
             lblUsuario.Text = Properties.Settings.Default.strUsuario_;
             lblTCCompra.Text = Properties.Settings.Default.dblTCCompra_.ToString();
             lblTCVenta.Text = Properties.Settings.Default.dblTCVenta_.ToString();
-            lblFecha.Text= DateTime.Now.ToString("dd/MM/yy");
+            lblFecha.Text = DateTime.Now.ToString("dd/MM/yy");
             tmrHora.Interval = 1000;
             tmrHora.Start();
         }
@@ -36,6 +36,7 @@ namespace PJ_CAJA_2
         {
             ClaseOp = "V";
             pnlElegirDes.Visible = true;
+
         }
 
         private void btnCompra_Click(object sender, EventArgs e)
@@ -43,29 +44,36 @@ namespace PJ_CAJA_2
             ClaseOp = "C";
             pnlElegirDes.Visible = true;
         }
-        
+
         //Botón SinDesglose para una venta/compra directa
         private void btnSinDes_Click(object sender, EventArgs e)
         {
             pnlElegirDes.Visible = false;
             if (ClaseOp == "V")
             {
+                //Se ajusta para una venta directa
                 lblTransSin.Text = "VENTA DIRECTA";
                 lblCantidad.Text = "PESOS RECIBIDOS:";
                 lblConversion.Text = "DOLARES A ENTREGAR:";
 
+                //Acomodo de las etiquetas
+                lblCantidad.Location = new Point(83, 67);
+                lblConversion.Location = new Point(32, 166);
                 dblTC = Properties.Settings.Default.dblTCVenta_;
-                txtTC.Text = dblTC.ToString();
             }
             else
             {
+                //Se ajusta para una compra directa
                 lblTransSin.Text = "COMPRA DIRECTA";
                 lblCantidad.Text = "DOLARES RECIBIDOS:";
                 lblConversion.Text = "PESOS A ENTREGAR:";
 
+                //Acomodo de las etiquetas
+                lblCantidad.Location = new Point(60, 67);
+                lblConversion.Location = new Point(60, 166);
                 dblTC = Properties.Settings.Default.dblTCCompra_;
-                txtTC.Text = dblTC.ToString();
             }
+            txtTC.Text = dblTC.ToString();
             pnlTransaccionSin.Visible = true;
             txtCantidad.Focus();
         }
@@ -93,7 +101,17 @@ namespace PJ_CAJA_2
             txtPago.Focus();
         }
 
-        
+        //Sumadora
+        private void btnSumadora_Click(object sender, EventArgs e)
+        {
+            foreach (Control miControl in pnlMenu.Controls)
+            {
+                miControl.Enabled = false;
+            }
+            pnlSumadora.Visible = true;
+            txtSuma1.Focus();
+        }
+
 
         //## EVENTOS ## 
 
@@ -112,7 +130,7 @@ namespace PJ_CAJA_2
 
         }
 
-        private void txtTC_Leave(object sender, EventArgs e)
+        private void txtTC_Leave_1(object sender, EventArgs e)
         {/*
             switch (ClaseOp)
             {
@@ -145,11 +163,13 @@ namespace PJ_CAJA_2
                 (ClaseOp == "C" && double.Parse(txtTC.Text) > dblTC && double.Parse(txtTC.Text) <= dblTC + 0.4))
             {
                 dblTC = double.Parse(txtTC.Text);
+                MessageBox.Show("SALIO BIEN");
             }
             else
             {
-                MessageBox.Show("LIMITE TIPO ESPECIAL", "El tipo especial supero el limite de rango, asegurate de escribirlo correctamente", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El tipo especial supero el limite de rango, asegurate de escribirlo correctamente", "LIMITE TIPO ESPECIAL", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtTC.Focus();
+                return;
             }
             dblConversion = Conversion(dblCantidad, dblTC);
             txtConversion.Text = dblConversion.ToString();
@@ -166,10 +186,10 @@ namespace PJ_CAJA_2
 
 
         //## METODOS ##
-        
+
         double Conversion(double miCantidad, double miTC)
         {
-            
+
             switch (ClaseOp)
             {
                 case "V":
@@ -189,12 +209,28 @@ namespace PJ_CAJA_2
 
         private void btnCancSinFin_Click(object sender, EventArgs e)
         {
+            pnlConSinFin.Visible = false;
             pnlTransaccionSin.Visible = false;
         }
 
         private void btnCancContSin_Click(object sender, EventArgs e)
         {
             pnlTransaccionSin.Visible = false;
+        }
+
+        private void btnSiSinFin_Click(object sender, EventArgs e)
+        {
+            pnlConSinFin.Visible = false;
+            pnlTransaccionSin.Visible = false;
+            /*
+             AQUI IMPRIME Y GUARDA LA OPERACION
+             
+             
+             */
+        }
+
+        private void frmMenu_KeyPress(object sender, KeyPressEventArgs e)
+        {   
         }
     }
 }

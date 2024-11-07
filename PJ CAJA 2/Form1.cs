@@ -28,7 +28,7 @@ namespace PJ_CAJA_2
             Properties.Settings.Default.strUsuario_ = txtUsuario.Text;
             Properties.Settings.Default.Save();
             pnlTiposCambio.Visible = true;
-           
+            txtCompra.Focus();
         }
 
         //Aceptar tipos de cambio, guarda las variables y hace visible el panel de inicios
@@ -39,6 +39,7 @@ namespace PJ_CAJA_2
             Properties.Settings.Default.Save();
             pnlInicios.Visible = true;
             pnlTiposCambio.Visible = false;
+            txtCpP.Focus();
         }
 
         //Aceptar los inicios, guarda las variables y abre el menu de operaciones
