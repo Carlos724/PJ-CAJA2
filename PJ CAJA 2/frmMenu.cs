@@ -14,7 +14,6 @@ namespace PJ_CAJA_2
     {
         //Variable para definir venta u operacion
         string ClaseOp = "O";
-
         double dblCantidad;
         double dblConversion;
         double dblCambio;
@@ -229,8 +228,69 @@ namespace PJ_CAJA_2
              */
         }
 
-        private void frmMenu_KeyPress(object sender, KeyPressEventArgs e)
-        {   
+        private void frmMenu_Load(object sender, EventArgs e)
+        {
+            this.MaximumSize = SystemInformation.PrimaryMonitorMaximizedWindowSize;
+            this.WindowState = FormWindowState.Maximized;
+            Taskbar.Hide();
+        }
+
+        private void frmMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = e.CloseReason == CloseReason.UserClosing;
+        }
+
+        private void txtSuma1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Down)
+            {
+                txtSuma2.Focus();
+            }
+
+        }
+
+        private void txtSuma2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Up)
+            {
+                txtSuma1.Focus();
+            }
+            if (e.KeyCode == Keys.Down)
+            {
+                txtSuma3.Focus();
+            }
+        }
+
+        private void txtSuma3_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Up)
+            {
+                txtSuma2.Focus();
+            }
+            if (e.KeyCode == Keys.Down)
+            {
+                txtSuma4.Focus();
+            }
+        }
+
+        private void txtSuma4_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Up)
+            {
+                txtSuma3.Focus();
+            }
+            if (e.KeyCode == Keys.Down)
+            {
+                txtSuma5.Focus();
+            }
+        }
+
+        private void txtSuma5_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Up)
+            {
+                txtSuma4.Focus();
+            }
         }
     }
 }
