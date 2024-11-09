@@ -42,17 +42,12 @@ namespace PJ_CAJA_2
             this.lblVenta = new System.Windows.Forms.Label();
             this.lblTCVenta = new System.Windows.Forms.Label();
             this.pnlMenu = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pnlElegirDes = new System.Windows.Forms.Panel();
             this.lblDes = new System.Windows.Forms.Label();
             this.btnSinDes = new System.Windows.Forms.Button();
             this.btnConDes = new System.Windows.Forms.Button();
             this.pnlTransaccionSin = new System.Windows.Forms.Panel();
-            this.pnlContinuarSin = new System.Windows.Forms.Panel();
-            this.btnCancContSin = new System.Windows.Forms.Button();
-            this.btnEspContiSin = new System.Windows.Forms.Button();
-            this.btnNoContiSin = new System.Windows.Forms.Button();
-            this.btnSiContiSin = new System.Windows.Forms.Button();
-            this.lblContinuarSin = new System.Windows.Forms.Label();
             this.txtCambio = new System.Windows.Forms.TextBox();
             this.txtPago = new System.Windows.Forms.TextBox();
             this.lblCambio = new System.Windows.Forms.Label();
@@ -64,6 +59,23 @@ namespace PJ_CAJA_2
             this.lblCantidad = new System.Windows.Forms.Label();
             this.lblTransSin = new System.Windows.Forms.Label();
             this.txtCantidad = new System.Windows.Forms.TextBox();
+            this.pnlSumadora = new System.Windows.Forms.Panel();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnAceptar = new System.Windows.Forms.Button();
+            this.btnImprimir = new System.Windows.Forms.Button();
+            this.txtSuma6 = new System.Windows.Forms.TextBox();
+            this.txtSuma5 = new System.Windows.Forms.TextBox();
+            this.txtSuma4 = new System.Windows.Forms.TextBox();
+            this.txtSuma3 = new System.Windows.Forms.TextBox();
+            this.txtSuma2 = new System.Windows.Forms.TextBox();
+            this.txtSuma1 = new System.Windows.Forms.TextBox();
+            this.lblSumadora = new System.Windows.Forms.Label();
+            this.pnlContinuarSin = new System.Windows.Forms.Panel();
+            this.btnCancContSin = new System.Windows.Forms.Button();
+            this.btnEspContiSin = new System.Windows.Forms.Button();
+            this.btnNoContiSin = new System.Windows.Forms.Button();
+            this.btnSiContiSin = new System.Windows.Forms.Button();
+            this.lblContinuarSin = new System.Windows.Forms.Label();
             this.tmrHora = new System.Windows.Forms.Timer(this.components);
             this.lblFecha = new System.Windows.Forms.Label();
             this.pnlConSinFin = new System.Windows.Forms.Panel();
@@ -113,8 +125,23 @@ namespace PJ_CAJA_2
             this.txtCpP = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlMenu.SuspendLayout();
+            this.lblHora = new System.Windows.Forms.Label();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.pnlMenu = new System.Windows.Forms.Panel();
+            this.lblTCVenta = new System.Windows.Forms.Label();
+            this.lblVenta = new System.Windows.Forms.Label();
+            this.lblTCCompra = new System.Windows.Forms.Label();
+            this.lblCompra = new System.Windows.Forms.Label();
+            this.btnListOperaciones = new System.Windows.Forms.Button();
+            this.btnEntSal = new System.Windows.Forms.Button();
+            this.btnSumadora = new System.Windows.Forms.Button();
+            this.btnCompra = new System.Windows.Forms.Button();
+            this.btnVenta = new System.Windows.Forms.Button();
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.groupBox1.SuspendLayout();
             this.pnlElegirDes.SuspendLayout();
             this.pnlTransaccionSin.SuspendLayout();
+            this.pnlSumadora.SuspendLayout();
             this.pnlContinuarSin.SuspendLayout();
             this.pnlConSinFin.SuspendLayout();
             this.pnlSumadora.SuspendLayout();
@@ -123,6 +150,7 @@ namespace PJ_CAJA_2
             this.grpEntSal.SuspendLayout();
             this.grpDolares.SuspendLayout();
             this.grpPesos.SuspendLayout();
+            this.pnlMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnVenta
@@ -234,11 +262,33 @@ namespace PJ_CAJA_2
             this.lblTCVenta.TabIndex = 10;
             this.lblTCVenta.Text = "00.00";
             // 
+            // tmrHora
+            // 
+            this.tmrHora.Tick += new System.EventHandler(this.tmrHora_Tick);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox1.Controls.Add(this.pnlElegirDes);
+            this.groupBox1.Controls.Add(this.pnlTransaccionSin);
+            this.groupBox1.Controls.Add(this.pnlSumadora);
+            this.groupBox1.Controls.Add(this.pnlContinuarSin);
+            this.groupBox1.Controls.Add(this.pnlConSinFin);
+            this.groupBox1.Controls.Add(this.lblHora);
+            this.groupBox1.Controls.Add(this.lblUsuario);
+            this.groupBox1.Controls.Add(this.pnlMenu);
+            this.groupBox1.Controls.Add(this.lblFecha);
+            this.groupBox1.Location = new System.Drawing.Point(34, 32);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1091, 603);
+            this.groupBox1.TabIndex = 21;
+            this.groupBox1.TabStop = false;
+            // 
             // pnlMenu
             // 
             this.pnlMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlMenu.Controls.Add(this.lblTCVenta);
             this.pnlMenu.Controls.Add(this.pnlElegirDes);
+            this.pnlMenu.Controls.Add(this.lblTCVenta);
             this.pnlMenu.Controls.Add(this.lblVenta);
             this.pnlMenu.Controls.Add(this.lblTCCompra);
             this.pnlMenu.Controls.Add(this.lblCompra);
@@ -258,7 +308,7 @@ namespace PJ_CAJA_2
             this.pnlElegirDes.Controls.Add(this.lblDes);
             this.pnlElegirDes.Controls.Add(this.btnSinDes);
             this.pnlElegirDes.Controls.Add(this.btnConDes);
-            this.pnlElegirDes.Location = new System.Drawing.Point(141, 92);
+            this.pnlElegirDes.Location = new System.Drawing.Point(32, 268);
             this.pnlElegirDes.Name = "pnlElegirDes";
             this.pnlElegirDes.Size = new System.Drawing.Size(379, 151);
             this.pnlElegirDes.TabIndex = 12;
@@ -295,7 +345,6 @@ namespace PJ_CAJA_2
             // pnlTransaccionSin
             // 
             this.pnlTransaccionSin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlTransaccionSin.Controls.Add(this.pnlContinuarSin);
             this.pnlTransaccionSin.Controls.Add(this.txtCambio);
             this.pnlTransaccionSin.Controls.Add(this.txtPago);
             this.pnlTransaccionSin.Controls.Add(this.lblCambio);
@@ -307,7 +356,7 @@ namespace PJ_CAJA_2
             this.pnlTransaccionSin.Controls.Add(this.lblCantidad);
             this.pnlTransaccionSin.Controls.Add(this.lblTransSin);
             this.pnlTransaccionSin.Controls.Add(this.txtCantidad);
-            this.pnlTransaccionSin.Location = new System.Drawing.Point(265, 115);
+            this.pnlTransaccionSin.Location = new System.Drawing.Point(306, 75);
             this.pnlTransaccionSin.Name = "pnlTransaccionSin";
             this.pnlTransaccionSin.Size = new System.Drawing.Size(515, 400);
             this.pnlTransaccionSin.TabIndex = 12;
@@ -500,7 +549,7 @@ namespace PJ_CAJA_2
             this.pnlConSinFin.Controls.Add(this.btnSiSinFin);
             this.pnlConSinFin.Controls.Add(this.lblConSinFin);
             this.pnlConSinFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlConSinFin.Location = new System.Drawing.Point(782, 412);
+            this.pnlConSinFin.Location = new System.Drawing.Point(777, 478);
             this.pnlConSinFin.Name = "pnlConSinFin";
             this.pnlConSinFin.Size = new System.Drawing.Size(253, 100);
             this.pnlConSinFin.TabIndex = 18;
@@ -645,6 +694,15 @@ namespace PJ_CAJA_2
             this.txtSuma2.Text = "00.00";
             this.txtSuma2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtSuma2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSuma2_KeyDown);
+            //
+            // lblHora
+            //
+            this.lblHora.AutoSize = true;
+            this.lblHora.Location = new System.Drawing.Point(783, 27);
+            this.lblHora.Name = "lblHora";
+            this.lblHora.Size = new System.Drawing.Size(102, 25);
+            this.lblHora.TabIndex = 6;
+            this.lblHora.Text = " 00:00:00";
             // 
             // txtSuma1
             // 
@@ -800,7 +858,11 @@ namespace PJ_CAJA_2
             this.lblTotalD.TabIndex = 15;
             this.lblTotalD.Text = "TOTAL:";
             // 
-            // label2
+            this.txtSuma1.Location = new System.Drawing.Point(137, 53);
+            this.txtSuma1.Name = "txtSuma1";
+            this.txtSuma1.Size = new System.Drawing.Size(199, 31);
+            this.txtSuma1.TabIndex = 21;
+            this.txtSuma1.Text = "00.00";
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 27);
@@ -809,7 +871,11 @@ namespace PJ_CAJA_2
             this.label2.TabIndex = 14;
             this.label2.Text = "MORRALLA:";
             // 
-            // txtMorD
+            this.txtSuma2.Location = new System.Drawing.Point(137, 96);
+            this.txtSuma2.Name = "txtSuma2";
+            this.txtSuma2.Size = new System.Drawing.Size(199, 31);
+            this.txtSuma2.TabIndex = 22;
+            this.txtSuma2.Text = "00.00";
             // 
             this.txtMorD.Location = new System.Drawing.Point(146, 24);
             this.txtMorD.Name = "txtMorD";
@@ -952,16 +1018,14 @@ namespace PJ_CAJA_2
             this.lblUm.TabIndex = 12;
             this.lblUm.Text = "UM:";
             // 
-            // txtUmP
+            // txtSuma6
             // 
-            this.txtUmP.Location = new System.Drawing.Point(154, 75);
-            this.txtUmP.Name = "txtUmP";
-            this.txtUmP.ReadOnly = true;
-            this.txtUmP.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtUmP.Size = new System.Drawing.Size(136, 31);
-            this.txtUmP.TabIndex = 11;
-            this.txtUmP.Text = "00.00";
-            this.txtUmP.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtSuma6.ForeColor = System.Drawing.Color.DarkRed;
+            this.txtSuma6.Location = new System.Drawing.Point(137, 275);
+            this.txtSuma6.Name = "txtSuma6";
+            this.txtSuma6.Size = new System.Drawing.Size(199, 31);
+            this.txtSuma6.TabIndex = 26;
+            this.txtSuma6.Text = "00.00";
             // 
             // lblCp
             // 
@@ -972,7 +1036,7 @@ namespace PJ_CAJA_2
             this.lblCp.TabIndex = 9;
             this.lblCp.Text = "CP:";
             // 
-            // txtCpP
+            // btnAceptar
             // 
             this.txtCpP.Location = new System.Drawing.Point(154, 128);
             this.txtCpP.Name = "txtCpP";
@@ -998,6 +1062,8 @@ namespace PJ_CAJA_2
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1134, 680);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pnlEntSal);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.pnlSumadora);
@@ -1007,16 +1073,26 @@ namespace PJ_CAJA_2
             this.Controls.Add(this.pnlMenu);
             this.Controls.Add(this.lblHora);
             this.Controls.Add(this.lblUsuario);
+            this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(6);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmMenu";
             this.Text = "MENU";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMenu_FormClosing);
+            this.Load += new System.EventHandler(this.frmMenu_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.pnlMenu.ResumeLayout(false);
             this.pnlMenu.PerformLayout();
             this.pnlElegirDes.ResumeLayout(false);
             this.pnlElegirDes.PerformLayout();
             this.pnlTransaccionSin.ResumeLayout(false);
             this.pnlTransaccionSin.PerformLayout();
+            this.pnlSumadora.ResumeLayout(false);
+            this.pnlSumadora.PerformLayout();
             this.pnlContinuarSin.ResumeLayout(false);
             this.pnlContinuarSin.PerformLayout();
             this.pnlConSinFin.ResumeLayout(false);
@@ -1034,28 +1110,16 @@ namespace PJ_CAJA_2
             this.grpPesos.ResumeLayout(false);
             this.grpPesos.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnVenta;
-        private System.Windows.Forms.Button btnCompra;
-        private System.Windows.Forms.Button btnSumadora;
-        private System.Windows.Forms.Button btnEntSal;
-        private System.Windows.Forms.Button btnListOperaciones;
-        private System.Windows.Forms.Label lblUsuario;
-        private System.Windows.Forms.Label lblHora;
-        private System.Windows.Forms.Label lblCompra;
-        private System.Windows.Forms.Label lblTCCompra;
-        private System.Windows.Forms.Label lblVenta;
-        private System.Windows.Forms.Label lblTCVenta;
-        private System.Windows.Forms.Panel pnlMenu;
+        private System.Windows.Forms.Timer tmrHora;
+        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel pnlElegirDes;
-        private System.Windows.Forms.Button btnConDes;
-        private System.Windows.Forms.Button btnSinDes;
         private System.Windows.Forms.Label lblDes;
+        private System.Windows.Forms.Button btnSinDes;
+        private System.Windows.Forms.Button btnConDes;
         private System.Windows.Forms.Panel pnlTransaccionSin;
         private System.Windows.Forms.Panel pnlContinuarSin;
         private System.Windows.Forms.Button btnCancContSin;
@@ -1071,6 +1135,7 @@ namespace PJ_CAJA_2
         private System.Windows.Forms.Label lblTransSin;
         private System.Windows.Forms.TextBox txtCantidad;
         private System.Windows.Forms.Timer tmrHora;
+        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.TextBox txtCambio;
         private System.Windows.Forms.TextBox txtPago;
@@ -1122,5 +1187,29 @@ namespace PJ_CAJA_2
         private System.Windows.Forms.RadioButton rdbEntrada;
         private System.Windows.Forms.Button btnSumP;
         private System.Windows.Forms.Button btSumD;
+        private System.Windows.Forms.Panel pnlContinuarSin;
+        private System.Windows.Forms.Button btnCancContSin;
+        private System.Windows.Forms.Button btnEspContiSin;
+        private System.Windows.Forms.Button btnNoContiSin;
+        private System.Windows.Forms.Button btnSiContiSin;
+        private System.Windows.Forms.Label lblContinuarSin;
+        private System.Windows.Forms.Panel pnlConSinFin;
+        private System.Windows.Forms.Button btnCancSinFin;
+        private System.Windows.Forms.Button btnNoSinFin;
+        private System.Windows.Forms.Button btnSiSinFin;
+        private System.Windows.Forms.Label lblConSinFin;
+        private System.Windows.Forms.Label lblHora;
+        private System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.Panel pnlMenu;
+        private System.Windows.Forms.Label lblTCVenta;
+        private System.Windows.Forms.Label lblVenta;
+        private System.Windows.Forms.Label lblTCCompra;
+        private System.Windows.Forms.Label lblCompra;
+        private System.Windows.Forms.Button btnListOperaciones;
+        private System.Windows.Forms.Button btnEntSal;
+        private System.Windows.Forms.Button btnSumadora;
+        private System.Windows.Forms.Button btnCompra;
+        private System.Windows.Forms.Button btnVenta;
+        private System.Windows.Forms.Label lblFecha;
     }
 }

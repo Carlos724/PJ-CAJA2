@@ -7,15 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
+using MySql.Data.MySqlClient;
 
 namespace PJ_CAJA_2
 {
     public partial class frmInicioSesion : Form
     {
-        
+        Conexion conexionSQL = new Conexion();
+
         public frmInicioSesion()
         {
             InitializeComponent();
+
+            timer1.Interval=1000;
+            timer1.Start();
+
+            conexionSQL.prueba = conexionSQL.LeerXML();
+            conexionSQL.cnnPrueba = new MySqlConnection(conexionSQL.prueba);
             timer1.Interval = 500;
             timer1.Start();
 
@@ -49,17 +58,32 @@ namespace PJ_CAJA_2
         //Aceptar los inicios, guarda las variables y abre el menu de operaciones
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            Properties.Settings.Default.dblECpP_ =double.Parse(txtCpP.Text);
-            Properties.Settings.Default.dblEUmP_ =double.Parse(txtUmP.Text);
-            Properties.Settings.Default.dblEMorP_ = double.Parse(txtMorP.Text);
-            Properties.Settings.Default.dblECpD_ = double.Parse(txtCpD.Text);
-            Properties.Settings.Default.dblEUmD_ = double.Parse(txtUmD.Text);
-            Properties.Settings.Default.dblEMorD_ = double.Parse(txtMorD.Text);
-            Properties.Settings.Default.Save();
-            frmMenu miMenu = new frmMenu();
-            miMenu.Show();
+            VariablesGlobales.MessageBox_Show("Verificacion","¿Estan correctos los inicios?",true, "#228b22");
+            if (VariablesGlobales.ResultDialog == "YES")
+            {
+                //SUMA UM Y CP
+                double sumaP = Properties.Settings.Default.dblECpP_ + Properties.Settings.Default.dblEUmP_;
+                double sumaD = Properties.Settings.Default.dblECpD_ + Properties.Settings.Default.dblEUmD_;
 
-            //#De alguna manera deberia cerrarse esta ventana sin que el programa se cierre completo
+                Properties.Settings.Default.dblECpP_ = double.Parse(txtCpP.Text);
+                Properties.Settings.Default.dblEUmP_ = double.Parse(txtUmP.Text);
+                Properties.Settings.Default.dblEMorP_ = double.Parse(txtMorP.Text);
+                Properties.Settings.Default.dblECpD_ = double.Parse(txtCpD.Text);
+                Properties.Settings.Default.dblEUmD_ = double.Parse(txtUmD.Text);
+                Properties.Settings.Default.dblEMorD_ = double.Parse(txtMorD.Text);
+                Properties.Settings.Default.Save();
+                conexionSQL.InsertarGenerico(0, "", "INI BILL", sumaD, sumaP, -1.0, 'X', -1.0, -1.0, -1.0, 'S', 'S');
+                conexionSQL.InsertarGenerico(0, "", "INI MOR", Properties.Settings.Default.dblEMorD_, Properties.Settings.Default.dblEMorP_, -1.0, 'X', -1.0, -1.0, -1.0, 'S', 'S');
+                frmMenu miMenu = new frmMenu();
+                miMenu.Show();
+                miMenu.Show();
+                this.Close();
+            }
+            else
+            {
+
+            }
+
         }
 
         //Regresa al inicio introduccion del usuario
@@ -81,6 +105,23 @@ namespace PJ_CAJA_2
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblHoras.Text = DateTime.Now.ToString("HH:mm:ss");
+        }
+
+        private void frmInicioSesion_Load(object sender, EventArgs e)
+        {
+            this.MaximumSize = SystemInformation.PrimaryMonitorMaximizedWindowSize;
+            this.WindowState = FormWindowState.Maximized;
+            Taskbar.Hide();
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+        }
+
+        private void frmInicioSesion_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = e.CloseReason == CloseReason.UserClosing;
         }
 
         //Eventos que verifica teclas especificas y realiza alguna accion determinada 

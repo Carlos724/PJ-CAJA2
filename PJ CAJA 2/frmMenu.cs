@@ -15,7 +15,6 @@ namespace PJ_CAJA_2
         //## VARIABLES ##
         //Variable para definir venta u operacion
         string ClaseOp = "O";
-
         double dblCantidad;
         double dblConversion;
         double dblCambio;
@@ -290,6 +289,20 @@ namespace PJ_CAJA_2
              */
         }
 
+        private void frmMenu_Load(object sender, EventArgs e)
+        {
+            this.MaximumSize = SystemInformation.PrimaryMonitorMaximizedWindowSize;
+            this.WindowState = FormWindowState.Maximized;
+            Taskbar.Hide();
+        }
+
+        private void frmMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = e.CloseReason == CloseReason.UserClosing;
+        }
+
+        
+
         private void btnImprimir_Click(object sender, EventArgs e)
         {
             /*
@@ -467,7 +480,5 @@ namespace PJ_CAJA_2
         {
             HotKeysTxtBox(e.KeyCode, btnCancelarEntSal);
         }
-
-
     }
 }
