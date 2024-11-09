@@ -1,0 +1,32 @@
+control		 | Location
+pnlSumadora	-  334, 139
+pnlTiposCambios	-  339, 167
+pnlTransaccionSin	-  265, 115
+pnlConSinFin	-  782, 412
+pnlMenu		-  246, 139
+pnlElegirDes	-  141, 92
+pnlEntSal		-  259, 135
+pnlEntSal		-  259, 135
+
+
+//Codigo para hotkeys
+            switch (e.KeyChar)
+            {
+                case (char)Keys.Down:
+                    GetNextControl(txtSuma5, true).Focus();
+                    break;
+
+                case (char)Keys.Up:
+                    GetNextControl(txtSuma5, false).Focus();
+                    break;
+
+                case (char)Keys.Enter:
+                    btnAceptar.Focus();
+                    break;
+
+                case (char)Keys.Escape:
+                    btnCancelar_Click(null, null);
+                    break;
+                default:
+                    break;
+            }

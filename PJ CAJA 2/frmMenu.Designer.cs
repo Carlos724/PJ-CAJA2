@@ -72,22 +72,57 @@ namespace PJ_CAJA_2
             this.btnSiSinFin = new System.Windows.Forms.Button();
             this.lblConSinFin = new System.Windows.Forms.Label();
             this.pnlSumadora = new System.Windows.Forms.Panel();
-            this.lblSumadora = new System.Windows.Forms.Label();
-            this.txtSuma1 = new System.Windows.Forms.TextBox();
-            this.txtSuma2 = new System.Windows.Forms.TextBox();
-            this.txtSuma3 = new System.Windows.Forms.TextBox();
-            this.txtSuma4 = new System.Windows.Forms.TextBox();
-            this.txtSuma5 = new System.Windows.Forms.TextBox();
-            this.txtSuma6 = new System.Windows.Forms.TextBox();
-            this.btnImprimir = new System.Windows.Forms.Button();
-            this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnAceptar = new System.Windows.Forms.Button();
+            this.btnImprimir = new System.Windows.Forms.Button();
+            this.txtSumaTotal = new System.Windows.Forms.TextBox();
+            this.txtSuma5 = new System.Windows.Forms.TextBox();
+            this.txtSuma4 = new System.Windows.Forms.TextBox();
+            this.txtSuma3 = new System.Windows.Forms.TextBox();
+            this.txtSuma2 = new System.Windows.Forms.TextBox();
+            this.txtSuma1 = new System.Windows.Forms.TextBox();
+            this.lblSumadora = new System.Windows.Forms.Label();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.pnlEntSal = new System.Windows.Forms.Panel();
+            this.grpMotivo = new System.Windows.Forms.GroupBox();
+            this.txtMotivo = new System.Windows.Forms.TextBox();
+            this.btnCancelarEntSal = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.grpEntSal = new System.Windows.Forms.GroupBox();
+            this.rdbSalida = new System.Windows.Forms.RadioButton();
+            this.rdbEntrada = new System.Windows.Forms.RadioButton();
+            this.grpDolares = new System.Windows.Forms.GroupBox();
+            this.btSumD = new System.Windows.Forms.Button();
+            this.lblTotalD = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtMorD = new System.Windows.Forms.TextBox();
+            this.txtTotalD = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtUmD = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtCpD = new System.Windows.Forms.TextBox();
+            this.grpPesos = new System.Windows.Forms.GroupBox();
+            this.btnSumP = new System.Windows.Forms.Button();
+            this.lblTotalP = new System.Windows.Forms.Label();
+            this.txtTotalP = new System.Windows.Forms.TextBox();
+            this.lblMor = new System.Windows.Forms.Label();
+            this.txtMorP = new System.Windows.Forms.TextBox();
+            this.lblUm = new System.Windows.Forms.Label();
+            this.txtUmP = new System.Windows.Forms.TextBox();
+            this.lblCp = new System.Windows.Forms.Label();
+            this.txtCpP = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.pnlMenu.SuspendLayout();
             this.pnlElegirDes.SuspendLayout();
             this.pnlTransaccionSin.SuspendLayout();
             this.pnlContinuarSin.SuspendLayout();
             this.pnlConSinFin.SuspendLayout();
             this.pnlSumadora.SuspendLayout();
+            this.pnlEntSal.SuspendLayout();
+            this.grpMotivo.SuspendLayout();
+            this.grpEntSal.SuspendLayout();
+            this.grpDolares.SuspendLayout();
+            this.grpPesos.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnVenta
@@ -132,6 +167,7 @@ namespace PJ_CAJA_2
             this.btnEntSal.TabIndex = 3;
             this.btnEntSal.Text = "[F5] ENTRADAS/ \r\nSALIDAS";
             this.btnEntSal.UseVisualStyleBackColor = true;
+            this.btnEntSal.Click += new System.EventHandler(this.btnEntSal_Click);
             // 
             // btnListOperaciones
             // 
@@ -142,6 +178,7 @@ namespace PJ_CAJA_2
             this.btnListOperaciones.TabIndex = 4;
             this.btnListOperaciones.Text = "[F2] LISTADO DE OPERACIONES";
             this.btnListOperaciones.UseVisualStyleBackColor = true;
+            this.btnListOperaciones.Click += new System.EventHandler(this.btnListOperaciones_Click);
             // 
             // lblUsuario
             // 
@@ -200,8 +237,8 @@ namespace PJ_CAJA_2
             // pnlMenu
             // 
             this.pnlMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlMenu.Controls.Add(this.pnlElegirDes);
             this.pnlMenu.Controls.Add(this.lblTCVenta);
+            this.pnlMenu.Controls.Add(this.pnlElegirDes);
             this.pnlMenu.Controls.Add(this.lblVenta);
             this.pnlMenu.Controls.Add(this.lblTCCompra);
             this.pnlMenu.Controls.Add(this.lblCompra);
@@ -384,6 +421,7 @@ namespace PJ_CAJA_2
             this.txtConversion.Size = new System.Drawing.Size(152, 31);
             this.txtConversion.TabIndex = 16;
             this.txtConversion.Text = "00.00";
+            this.txtConversion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtTC
             // 
@@ -392,6 +430,7 @@ namespace PJ_CAJA_2
             this.txtTC.Size = new System.Drawing.Size(152, 31);
             this.txtTC.TabIndex = 15;
             this.txtTC.Text = "00.00";
+            this.txtTC.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtTC.Leave += new System.EventHandler(this.txtTC_Leave_1);
             // 
             // lblConversion
@@ -437,6 +476,7 @@ namespace PJ_CAJA_2
             this.txtCantidad.Size = new System.Drawing.Size(152, 31);
             this.txtCantidad.TabIndex = 0;
             this.txtCantidad.Text = "00.00";
+            this.txtCantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtCantidad.Leave += new System.EventHandler(this.txtCantidad_Leave);
             // 
             // tmrHora
@@ -511,7 +551,7 @@ namespace PJ_CAJA_2
             this.pnlSumadora.Controls.Add(this.btnCancelar);
             this.pnlSumadora.Controls.Add(this.btnAceptar);
             this.pnlSumadora.Controls.Add(this.btnImprimir);
-            this.pnlSumadora.Controls.Add(this.txtSuma6);
+            this.pnlSumadora.Controls.Add(this.txtSumaTotal);
             this.pnlSumadora.Controls.Add(this.txtSuma5);
             this.pnlSumadora.Controls.Add(this.txtSuma4);
             this.pnlSumadora.Controls.Add(this.txtSuma3);
@@ -523,6 +563,98 @@ namespace PJ_CAJA_2
             this.pnlSumadora.Size = new System.Drawing.Size(480, 332);
             this.pnlSumadora.TabIndex = 19;
             this.pnlSumadora.Visible = false;
+            this.pnlSumadora.VisibleChanged += new System.EventHandler(this.pnlSumadora_VisibleChanged);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(358, 270);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(106, 46);
+            this.btnCancelar.TabIndex = 29;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnAceptar
+            // 
+            this.btnAceptar.Location = new System.Drawing.Point(358, 220);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(106, 44);
+            this.btnAceptar.TabIndex = 28;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Location = new System.Drawing.Point(358, 46);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(106, 44);
+            this.btnImprimir.TabIndex = 27;
+            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
+            // txtSumaTotal
+            // 
+            this.txtSumaTotal.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtSumaTotal.ForeColor = System.Drawing.Color.DarkRed;
+            this.txtSumaTotal.Location = new System.Drawing.Point(137, 275);
+            this.txtSumaTotal.Name = "txtSumaTotal";
+            this.txtSumaTotal.Size = new System.Drawing.Size(199, 31);
+            this.txtSumaTotal.TabIndex = 26;
+            this.txtSumaTotal.Text = "00.00";
+            this.txtSumaTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtSuma5
+            // 
+            this.txtSuma5.Location = new System.Drawing.Point(137, 227);
+            this.txtSuma5.Name = "txtSuma5";
+            this.txtSuma5.Size = new System.Drawing.Size(199, 31);
+            this.txtSuma5.TabIndex = 25;
+            this.txtSuma5.Text = "00.00";
+            this.txtSuma5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtSuma5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSuma5_KeyDown);
+            // 
+            // txtSuma4
+            // 
+            this.txtSuma4.Location = new System.Drawing.Point(137, 183);
+            this.txtSuma4.Name = "txtSuma4";
+            this.txtSuma4.Size = new System.Drawing.Size(199, 31);
+            this.txtSuma4.TabIndex = 24;
+            this.txtSuma4.Text = "00.00";
+            this.txtSuma4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtSuma4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSuma4_KeyDown);
+            // 
+            // txtSuma3
+            // 
+            this.txtSuma3.Location = new System.Drawing.Point(137, 137);
+            this.txtSuma3.Name = "txtSuma3";
+            this.txtSuma3.Size = new System.Drawing.Size(199, 31);
+            this.txtSuma3.TabIndex = 23;
+            this.txtSuma3.Text = "00.00";
+            this.txtSuma3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtSuma3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSuma3_KeyDown);
+            // 
+            // txtSuma2
+            // 
+            this.txtSuma2.Location = new System.Drawing.Point(137, 96);
+            this.txtSuma2.Name = "txtSuma2";
+            this.txtSuma2.Size = new System.Drawing.Size(199, 31);
+            this.txtSuma2.TabIndex = 22;
+            this.txtSuma2.Text = "00.00";
+            this.txtSuma2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtSuma2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSuma2_KeyDown);
+            // 
+            // txtSuma1
+            // 
+            this.txtSuma1.Location = new System.Drawing.Point(137, 53);
+            this.txtSuma1.Name = "txtSuma1";
+            this.txtSuma1.Size = new System.Drawing.Size(199, 31);
+            this.txtSuma1.TabIndex = 21;
+            this.txtSuma1.Text = "00.00";
+            this.txtSuma1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtSuma1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSuma1_KeyDown);
             // 
             // lblSumadora
             // 
@@ -533,87 +665,341 @@ namespace PJ_CAJA_2
             this.lblSumadora.TabIndex = 20;
             this.lblSumadora.Text = "SUMADORAS";
             // 
-            // txtSuma1
+            // btnSalir
             // 
-            this.txtSuma1.Location = new System.Drawing.Point(137, 53);
-            this.txtSuma1.Name = "txtSuma1";
-            this.txtSuma1.Size = new System.Drawing.Size(199, 31);
-            this.txtSuma1.TabIndex = 21;
-            this.txtSuma1.Text = "00.00";
+            this.btnSalir.Location = new System.Drawing.Point(974, 609);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(6);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(145, 57);
+            this.btnSalir.TabIndex = 11;
+            this.btnSalir.Text = "SALIR#";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // txtSuma2
+            // pnlEntSal
             // 
-            this.txtSuma2.Location = new System.Drawing.Point(137, 96);
-            this.txtSuma2.Name = "txtSuma2";
-            this.txtSuma2.Size = new System.Drawing.Size(199, 31);
-            this.txtSuma2.TabIndex = 22;
-            this.txtSuma2.Text = "00.00";
+            this.pnlEntSal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlEntSal.Controls.Add(this.grpMotivo);
+            this.pnlEntSal.Controls.Add(this.btnCancelarEntSal);
+            this.pnlEntSal.Controls.Add(this.button2);
+            this.pnlEntSal.Controls.Add(this.grpEntSal);
+            this.pnlEntSal.Controls.Add(this.grpDolares);
+            this.pnlEntSal.Controls.Add(this.grpPesos);
+            this.pnlEntSal.Controls.Add(this.label1);
+            this.pnlEntSal.Location = new System.Drawing.Point(259, 135);
+            this.pnlEntSal.Name = "pnlEntSal";
+            this.pnlEntSal.Size = new System.Drawing.Size(631, 428);
+            this.pnlEntSal.TabIndex = 20;
+            this.pnlEntSal.Visible = false;
             // 
-            // txtSuma3
+            // grpMotivo
             // 
-            this.txtSuma3.Location = new System.Drawing.Point(137, 137);
-            this.txtSuma3.Name = "txtSuma3";
-            this.txtSuma3.Size = new System.Drawing.Size(199, 31);
-            this.txtSuma3.TabIndex = 23;
-            this.txtSuma3.Text = "00.00";
+            this.grpMotivo.Controls.Add(this.txtMotivo);
+            this.grpMotivo.Location = new System.Drawing.Point(322, 44);
+            this.grpMotivo.Name = "grpMotivo";
+            this.grpMotivo.Size = new System.Drawing.Size(243, 82);
+            this.grpMotivo.TabIndex = 20;
+            this.grpMotivo.TabStop = false;
+            this.grpMotivo.Text = "----";
             // 
-            // txtSuma4
+            // txtMotivo
             // 
-            this.txtSuma4.Location = new System.Drawing.Point(137, 183);
-            this.txtSuma4.Name = "txtSuma4";
-            this.txtSuma4.Size = new System.Drawing.Size(199, 31);
-            this.txtSuma4.TabIndex = 24;
-            this.txtSuma4.Text = "00.00";
+            this.txtMotivo.Location = new System.Drawing.Point(24, 32);
+            this.txtMotivo.Name = "txtMotivo";
+            this.txtMotivo.Size = new System.Drawing.Size(196, 31);
+            this.txtMotivo.TabIndex = 17;
             // 
-            // txtSuma5
+            // btnCancelarEntSal
             // 
-            this.txtSuma5.Location = new System.Drawing.Point(137, 227);
-            this.txtSuma5.Name = "txtSuma5";
-            this.txtSuma5.Size = new System.Drawing.Size(199, 31);
-            this.txtSuma5.TabIndex = 25;
-            this.txtSuma5.Text = "00.00";
+            this.btnCancelarEntSal.Location = new System.Drawing.Point(327, 360);
+            this.btnCancelarEntSal.Name = "btnCancelarEntSal";
+            this.btnCancelarEntSal.Size = new System.Drawing.Size(189, 54);
+            this.btnCancelarEntSal.TabIndex = 18;
+            this.btnCancelarEntSal.Text = "CANCELAR";
+            this.btnCancelarEntSal.UseVisualStyleBackColor = true;
+            this.btnCancelarEntSal.Click += new System.EventHandler(this.btnCancelarEntSal_Click);
             // 
-            // txtSuma6
+            // button2
             // 
-            this.txtSuma6.ForeColor = System.Drawing.Color.DarkRed;
-            this.txtSuma6.Location = new System.Drawing.Point(137, 275);
-            this.txtSuma6.Name = "txtSuma6";
-            this.txtSuma6.Size = new System.Drawing.Size(199, 31);
-            this.txtSuma6.TabIndex = 26;
-            this.txtSuma6.Text = "00.00";
+            this.button2.Location = new System.Drawing.Point(109, 360);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(189, 54);
+            this.button2.TabIndex = 17;
+            this.button2.Text = "ACEPTAR";
+            this.button2.UseVisualStyleBackColor = true;
             // 
-            // btnImprimir
+            // grpEntSal
             // 
-            this.btnImprimir.Location = new System.Drawing.Point(358, 46);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(106, 44);
-            this.btnImprimir.TabIndex = 27;
-            this.btnImprimir.Text = "Imprimir";
-            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.grpEntSal.Controls.Add(this.rdbSalida);
+            this.grpEntSal.Controls.Add(this.rdbEntrada);
+            this.grpEntSal.Location = new System.Drawing.Point(43, 42);
+            this.grpEntSal.Name = "grpEntSal";
+            this.grpEntSal.Size = new System.Drawing.Size(261, 82);
+            this.grpEntSal.TabIndex = 19;
+            this.grpEntSal.TabStop = false;
             // 
-            // btnAceptar
+            // rdbSalida
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(358, 220);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(106, 44);
-            this.btnAceptar.TabIndex = 28;
-            this.btnAceptar.Text = "Aceptar";
-            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.rdbSalida.AutoSize = true;
+            this.rdbSalida.Location = new System.Drawing.Point(151, 34);
+            this.rdbSalida.Name = "rdbSalida";
+            this.rdbSalida.Size = new System.Drawing.Size(104, 29);
+            this.rdbSalida.TabIndex = 1;
+            this.rdbSalida.TabStop = true;
+            this.rdbSalida.Text = "SALIDA";
+            this.rdbSalida.UseVisualStyleBackColor = true;
             // 
-            // btnCancelar
+            // rdbEntrada
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(358, 270);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(106, 46);
-            this.btnCancelar.TabIndex = 29;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.rdbEntrada.AutoSize = true;
+            this.rdbEntrada.Location = new System.Drawing.Point(15, 34);
+            this.rdbEntrada.Name = "rdbEntrada";
+            this.rdbEntrada.Size = new System.Drawing.Size(130, 29);
+            this.rdbEntrada.TabIndex = 0;
+            this.rdbEntrada.TabStop = true;
+            this.rdbEntrada.Text = "ENTRADA";
+            this.rdbEntrada.UseVisualStyleBackColor = true;
+            this.rdbEntrada.CheckedChanged += new System.EventHandler(this.rdbEntrada_CheckedChanged);
+            // 
+            // grpDolares
+            // 
+            this.grpDolares.Controls.Add(this.btSumD);
+            this.grpDolares.Controls.Add(this.lblTotalD);
+            this.grpDolares.Controls.Add(this.label2);
+            this.grpDolares.Controls.Add(this.txtMorD);
+            this.grpDolares.Controls.Add(this.txtTotalD);
+            this.grpDolares.Controls.Add(this.label3);
+            this.grpDolares.Controls.Add(this.txtUmD);
+            this.grpDolares.Controls.Add(this.label4);
+            this.grpDolares.Controls.Add(this.txtCpD);
+            this.grpDolares.Location = new System.Drawing.Point(9, 124);
+            this.grpDolares.Name = "grpDolares";
+            this.grpDolares.Size = new System.Drawing.Size(295, 225);
+            this.grpDolares.TabIndex = 15;
+            this.grpDolares.TabStop = false;
+            this.grpDolares.Text = "DOLARES";
+            // 
+            // btSumD
+            // 
+            this.btSumD.BackgroundImage = global::PJ_CAJA_2.Properties.Resources.calcu;
+            this.btSumD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btSumD.Location = new System.Drawing.Point(6, 71);
+            this.btSumD.Name = "btSumD";
+            this.btSumD.Size = new System.Drawing.Size(71, 39);
+            this.btSumD.TabIndex = 9;
+            this.btSumD.UseVisualStyleBackColor = true;
+            this.btSumD.Click += new System.EventHandler(this.btSumD_Click);
+            this.btSumD.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btSumD_KeyDown);
+            // 
+            // lblTotalD
+            // 
+            this.lblTotalD.AutoSize = true;
+            this.lblTotalD.Location = new System.Drawing.Point(48, 176);
+            this.lblTotalD.Name = "lblTotalD";
+            this.lblTotalD.Size = new System.Drawing.Size(86, 25);
+            this.lblTotalD.TabIndex = 15;
+            this.lblTotalD.Text = "TOTAL:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 27);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(134, 25);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "MORRALLA:";
+            // 
+            // txtMorD
+            // 
+            this.txtMorD.Location = new System.Drawing.Point(146, 24);
+            this.txtMorD.Name = "txtMorD";
+            this.txtMorD.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtMorD.Size = new System.Drawing.Size(136, 31);
+            this.txtMorD.TabIndex = 8;
+            this.txtMorD.Text = "00.00";
+            this.txtMorD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtMorD.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMorD_KeyDown);
+            // 
+            // txtTotalD
+            // 
+            this.txtTotalD.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtTotalD.ForeColor = System.Drawing.Color.DarkRed;
+            this.txtTotalD.Location = new System.Drawing.Point(146, 173);
+            this.txtTotalD.Name = "txtTotalD";
+            this.txtTotalD.ReadOnly = true;
+            this.txtTotalD.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtTotalD.Size = new System.Drawing.Size(136, 31);
+            this.txtTotalD.TabIndex = 16;
+            this.txtTotalD.Text = "00.00";
+            this.txtTotalD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(83, 78);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(51, 25);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "UM:";
+            // 
+            // txtUmD
+            // 
+            this.txtUmD.Location = new System.Drawing.Point(146, 75);
+            this.txtUmD.Name = "txtUmD";
+            this.txtUmD.ReadOnly = true;
+            this.txtUmD.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtUmD.Size = new System.Drawing.Size(136, 31);
+            this.txtUmD.TabIndex = 11;
+            this.txtUmD.Text = "00.00";
+            this.txtUmD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(87, 131);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(47, 25);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "CP:";
+            // 
+            // txtCpD
+            // 
+            this.txtCpD.Location = new System.Drawing.Point(146, 128);
+            this.txtCpD.Name = "txtCpD";
+            this.txtCpD.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtCpD.Size = new System.Drawing.Size(136, 31);
+            this.txtCpD.TabIndex = 10;
+            this.txtCpD.Text = "00.00";
+            this.txtCpD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtCpD.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCpD_KeyDown);
+            // 
+            // grpPesos
+            // 
+            this.grpPesos.Controls.Add(this.btnSumP);
+            this.grpPesos.Controls.Add(this.lblTotalP);
+            this.grpPesos.Controls.Add(this.txtTotalP);
+            this.grpPesos.Controls.Add(this.lblMor);
+            this.grpPesos.Controls.Add(this.txtMorP);
+            this.grpPesos.Controls.Add(this.lblUm);
+            this.grpPesos.Controls.Add(this.txtUmP);
+            this.grpPesos.Controls.Add(this.lblCp);
+            this.grpPesos.Controls.Add(this.txtCpP);
+            this.grpPesos.Location = new System.Drawing.Point(322, 124);
+            this.grpPesos.Name = "grpPesos";
+            this.grpPesos.Size = new System.Drawing.Size(295, 225);
+            this.grpPesos.TabIndex = 16;
+            this.grpPesos.TabStop = false;
+            this.grpPesos.Text = "PESOS";
+            // 
+            // btnSumP
+            // 
+            this.btnSumP.BackgroundImage = global::PJ_CAJA_2.Properties.Resources.calcu;
+            this.btnSumP.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSumP.Location = new System.Drawing.Point(15, 71);
+            this.btnSumP.Name = "btnSumP";
+            this.btnSumP.Size = new System.Drawing.Size(71, 39);
+            this.btnSumP.TabIndex = 9;
+            this.btnSumP.UseVisualStyleBackColor = true;
+            this.btnSumP.Click += new System.EventHandler(this.btnSumP_Click);
+            // 
+            // lblTotalP
+            // 
+            this.lblTotalP.AutoSize = true;
+            this.lblTotalP.Location = new System.Drawing.Point(57, 176);
+            this.lblTotalP.Name = "lblTotalP";
+            this.lblTotalP.Size = new System.Drawing.Size(86, 25);
+            this.lblTotalP.TabIndex = 17;
+            this.lblTotalP.Text = "TOTAL:";
+            // 
+            // txtTotalP
+            // 
+            this.txtTotalP.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtTotalP.ForeColor = System.Drawing.Color.DarkRed;
+            this.txtTotalP.Location = new System.Drawing.Point(154, 173);
+            this.txtTotalP.Name = "txtTotalP";
+            this.txtTotalP.ReadOnly = true;
+            this.txtTotalP.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtTotalP.Size = new System.Drawing.Size(136, 31);
+            this.txtTotalP.TabIndex = 18;
+            this.txtTotalP.Text = "00.00";
+            this.txtTotalP.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // lblMor
+            // 
+            this.lblMor.AutoSize = true;
+            this.lblMor.Location = new System.Drawing.Point(9, 27);
+            this.lblMor.Name = "lblMor";
+            this.lblMor.Size = new System.Drawing.Size(134, 25);
+            this.lblMor.TabIndex = 14;
+            this.lblMor.Text = "MORRALLA:";
+            // 
+            // txtMorP
+            // 
+            this.txtMorP.Location = new System.Drawing.Point(154, 24);
+            this.txtMorP.Name = "txtMorP";
+            this.txtMorP.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtMorP.Size = new System.Drawing.Size(136, 31);
+            this.txtMorP.TabIndex = 8;
+            this.txtMorP.Text = "00.00";
+            this.txtMorP.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // lblUm
+            // 
+            this.lblUm.AutoSize = true;
+            this.lblUm.Location = new System.Drawing.Point(92, 78);
+            this.lblUm.Name = "lblUm";
+            this.lblUm.Size = new System.Drawing.Size(51, 25);
+            this.lblUm.TabIndex = 12;
+            this.lblUm.Text = "UM:";
+            // 
+            // txtUmP
+            // 
+            this.txtUmP.Location = new System.Drawing.Point(154, 75);
+            this.txtUmP.Name = "txtUmP";
+            this.txtUmP.ReadOnly = true;
+            this.txtUmP.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtUmP.Size = new System.Drawing.Size(136, 31);
+            this.txtUmP.TabIndex = 11;
+            this.txtUmP.Text = "00.00";
+            this.txtUmP.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // lblCp
+            // 
+            this.lblCp.AutoSize = true;
+            this.lblCp.Location = new System.Drawing.Point(96, 134);
+            this.lblCp.Name = "lblCp";
+            this.lblCp.Size = new System.Drawing.Size(47, 25);
+            this.lblCp.TabIndex = 9;
+            this.lblCp.Text = "CP:";
+            // 
+            // txtCpP
+            // 
+            this.txtCpP.Location = new System.Drawing.Point(154, 128);
+            this.txtCpP.Name = "txtCpP";
+            this.txtCpP.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtCpP.Size = new System.Drawing.Size(136, 31);
+            this.txtCpP.TabIndex = 10;
+            this.txtCpP.Text = "00.00";
+            this.txtCpP.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(209, 9);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(232, 25);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "ENTRADAS / SALIDAS";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1134, 680);
+            this.Controls.Add(this.pnlEntSal);
+            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.pnlSumadora);
             this.Controls.Add(this.pnlConSinFin);
             this.Controls.Add(this.lblFecha);
@@ -625,7 +1011,6 @@ namespace PJ_CAJA_2
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "frmMenu";
             this.Text = "MENU";
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmMenu_KeyPress);
             this.pnlMenu.ResumeLayout(false);
             this.pnlMenu.PerformLayout();
             this.pnlElegirDes.ResumeLayout(false);
@@ -638,6 +1023,16 @@ namespace PJ_CAJA_2
             this.pnlConSinFin.PerformLayout();
             this.pnlSumadora.ResumeLayout(false);
             this.pnlSumadora.PerformLayout();
+            this.pnlEntSal.ResumeLayout(false);
+            this.pnlEntSal.PerformLayout();
+            this.grpMotivo.ResumeLayout(false);
+            this.grpMotivo.PerformLayout();
+            this.grpEntSal.ResumeLayout(false);
+            this.grpEntSal.PerformLayout();
+            this.grpDolares.ResumeLayout(false);
+            this.grpDolares.PerformLayout();
+            this.grpPesos.ResumeLayout(false);
+            this.grpPesos.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -690,12 +1085,42 @@ namespace PJ_CAJA_2
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnImprimir;
-        private System.Windows.Forms.TextBox txtSuma6;
+        private System.Windows.Forms.TextBox txtSumaTotal;
         private System.Windows.Forms.TextBox txtSuma5;
         private System.Windows.Forms.TextBox txtSuma4;
         private System.Windows.Forms.TextBox txtSuma3;
         private System.Windows.Forms.TextBox txtSuma2;
         private System.Windows.Forms.TextBox txtSuma1;
         private System.Windows.Forms.Label lblSumadora;
+        private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Panel pnlEntSal;
+        private System.Windows.Forms.Button btnCancelarEntSal;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.GroupBox grpDolares;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtMorD;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtUmD;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtCpD;
+        private System.Windows.Forms.GroupBox grpPesos;
+        private System.Windows.Forms.Label lblMor;
+        private System.Windows.Forms.TextBox txtMorP;
+        private System.Windows.Forms.Label lblUm;
+        private System.Windows.Forms.TextBox txtUmP;
+        private System.Windows.Forms.Label lblCp;
+        private System.Windows.Forms.TextBox txtCpP;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTotalD;
+        private System.Windows.Forms.TextBox txtTotalD;
+        private System.Windows.Forms.Label lblTotalP;
+        private System.Windows.Forms.TextBox txtTotalP;
+        private System.Windows.Forms.GroupBox grpMotivo;
+        private System.Windows.Forms.GroupBox grpEntSal;
+        private System.Windows.Forms.TextBox txtMotivo;
+        private System.Windows.Forms.RadioButton rdbSalida;
+        private System.Windows.Forms.RadioButton rdbEntrada;
+        private System.Windows.Forms.Button btnSumP;
+        private System.Windows.Forms.Button btSumD;
     }
 }

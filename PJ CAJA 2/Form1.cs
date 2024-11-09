@@ -16,9 +16,13 @@ namespace PJ_CAJA_2
         public frmInicioSesion()
         {
             InitializeComponent();
+            timer1.Interval = 500;
+            timer1.Start();
 
-            timer1.Interval=1000;
-            timer1.Start();            
+
+            //######PRUEBAS
+            frmMenu miMenu = new frmMenu();
+            miMenu.Show();
         }
 
         //## BOTÓNES ##
@@ -39,7 +43,7 @@ namespace PJ_CAJA_2
             Properties.Settings.Default.Save();
             pnlInicios.Visible = true;
             pnlTiposCambio.Visible = false;
-            txtCpP.Focus();
+            txtMorD.Focus();
         }
 
         //Aceptar los inicios, guarda las variables y abre el menu de operaciones
@@ -54,6 +58,8 @@ namespace PJ_CAJA_2
             Properties.Settings.Default.Save();
             frmMenu miMenu = new frmMenu();
             miMenu.Show();
+
+            //#De alguna manera deberia cerrarse esta ventana sin que el programa se cierre completo
         }
 
         //Regresa al inicio introduccion del usuario
@@ -62,10 +68,74 @@ namespace PJ_CAJA_2
             pnlInicios.Visible = false;
         }
 
+        //Cancela el ingreso del tipo de cambio y se regresa a la captura de usuario
+        private void btnCancelarCambio_Click(object sender, EventArgs e)
+        {
+            pnlTiposCambio.Visible = false;
+            txtUsuario.Focus();
+        }
+
+
+        //## EVENTOS ##
         //RELOJ EN PANTALLA
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblHoras.Text = DateTime.Now.ToString("HH:mm:ss");
         }
+
+        //Eventos que verifica teclas especificas y realiza alguna accion determinada 
+        private void txtUsuario_KeyDown(object sender, KeyEventArgs e)
+        {
+            MessageBox.Show("  ;;  ") ;
+            /*if (e.KeyCode == Keys.Enter)
+            {
+                btnIniciar_Click(null, null);
+            }
+            */
+        }
+       
+        private void txtCompra_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Up:
+                    GetNextControl(txtVenta, false).Focus();
+                    break;
+                case Keys.Down:
+                    GetNextControl(txtVenta, true).Focus();
+                    break;
+                case Keys.Enter:
+                    btnAceptar.Focus();
+                    break;
+                case Keys.Escape:
+                    btnCancelarCambio_Click(null, null);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void txtVenta_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Up:
+                    GetNextControl(txtVenta, false).Focus();
+                    break;
+                case Keys.Down:
+                    GetNextControl(txtVenta, true).Focus();
+                    break;
+                case Keys.Enter:
+                    btnAceptar.Focus();
+                    break;
+                case Keys.Escape:
+                    btnCancelarCambio_Click(null, null);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+      
     }
 }
