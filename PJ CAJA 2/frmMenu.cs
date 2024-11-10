@@ -211,7 +211,7 @@ namespace PJ_CAJA_2
                     this.SelectNextControl(this.ActiveControl, false, true, true, true);
                     break;
                 case Keys.Escape:
-                    miCancelar.Click += new System.EventHandler(this.btnSumP_Click);
+                    miCancelar.PerformClick();
                     break;
                 default:
                     break;

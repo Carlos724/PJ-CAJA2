@@ -185,7 +185,7 @@ namespace PJ_CAJA_2
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(7, 66);
+            this.lblUsuario.Location = new System.Drawing.Point(62, 66);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(86, 25);
             this.lblUsuario.TabIndex = 5;
@@ -194,7 +194,7 @@ namespace PJ_CAJA_2
             // lblHora
             // 
             this.lblHora.AutoSize = true;
-            this.lblHora.Location = new System.Drawing.Point(752, 66);
+            this.lblHora.Location = new System.Drawing.Point(786, 66);
             this.lblHora.Name = "lblHora";
             this.lblHora.Size = new System.Drawing.Size(102, 25);
             this.lblHora.TabIndex = 6;
@@ -249,7 +249,7 @@ namespace PJ_CAJA_2
             this.pnlMenu.Controls.Add(this.btnSumadora);
             this.pnlMenu.Controls.Add(this.btnCompra);
             this.pnlMenu.Controls.Add(this.btnVenta);
-            this.pnlMenu.Location = new System.Drawing.Point(101, 125);
+            this.pnlMenu.Location = new System.Drawing.Point(149, 132);
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Size = new System.Drawing.Size(645, 351);
             this.pnlMenu.TabIndex = 11;
@@ -309,7 +309,7 @@ namespace PJ_CAJA_2
             this.pnlTransaccionSin.Controls.Add(this.lblCantidad);
             this.pnlTransaccionSin.Controls.Add(this.lblTransSin);
             this.pnlTransaccionSin.Controls.Add(this.txtCantidad);
-            this.pnlTransaccionSin.Location = new System.Drawing.Point(120, 101);
+            this.pnlTransaccionSin.Location = new System.Drawing.Point(250, 105);
             this.pnlTransaccionSin.Name = "pnlTransaccionSin";
             this.pnlTransaccionSin.Size = new System.Drawing.Size(515, 400);
             this.pnlTransaccionSin.TabIndex = 12;
@@ -488,7 +488,7 @@ namespace PJ_CAJA_2
             // lblFecha
             // 
             this.lblFecha.AutoSize = true;
-            this.lblFecha.Location = new System.Drawing.Point(650, 66);
+            this.lblFecha.Location = new System.Drawing.Point(691, 66);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(96, 25);
             this.lblFecha.TabIndex = 13;
@@ -502,7 +502,7 @@ namespace PJ_CAJA_2
             this.pnlConSinFin.Controls.Add(this.btnSiSinFin);
             this.pnlConSinFin.Controls.Add(this.lblConSinFin);
             this.pnlConSinFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlConSinFin.Location = new System.Drawing.Point(637, 398);
+            this.pnlConSinFin.Location = new System.Drawing.Point(685, 405);
             this.pnlConSinFin.Name = "pnlConSinFin";
             this.pnlConSinFin.Size = new System.Drawing.Size(253, 100);
             this.pnlConSinFin.TabIndex = 18;
@@ -560,7 +560,7 @@ namespace PJ_CAJA_2
             this.pnlSumadora.Controls.Add(this.txtSuma2);
             this.pnlSumadora.Controls.Add(this.txtSuma1);
             this.pnlSumadora.Controls.Add(this.lblSumadora);
-            this.pnlSumadora.Location = new System.Drawing.Point(189, 125);
+            this.pnlSumadora.Location = new System.Drawing.Point(237, 132);
             this.pnlSumadora.Name = "pnlSumadora";
             this.pnlSumadora.Size = new System.Drawing.Size(480, 332);
             this.pnlSumadora.TabIndex = 19;
@@ -669,7 +669,7 @@ namespace PJ_CAJA_2
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(829, 595);
+            this.btnSalir.Location = new System.Drawing.Point(877, 602);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(6);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(145, 57);
@@ -688,7 +688,7 @@ namespace PJ_CAJA_2
             this.pnlEntSal.Controls.Add(this.grpDolares);
             this.pnlEntSal.Controls.Add(this.grpPesos);
             this.pnlEntSal.Controls.Add(this.label1);
-            this.pnlEntSal.Location = new System.Drawing.Point(114, 121);
+            this.pnlEntSal.Location = new System.Drawing.Point(162, 128);
             this.pnlEntSal.Name = "pnlEntSal";
             this.pnlEntSal.Size = new System.Drawing.Size(631, 428);
             this.pnlEntSal.TabIndex = 20;
@@ -998,6 +998,7 @@ namespace PJ_CAJA_2
             // groupBox1
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox1.Controls.Add(this.pnlTransaccionSin);
             this.groupBox1.Controls.Add(this.pnlEntSal);
             this.groupBox1.Controls.Add(this.lblUsuario);
             this.groupBox1.Controls.Add(this.btnSalir);
@@ -1005,11 +1006,10 @@ namespace PJ_CAJA_2
             this.groupBox1.Controls.Add(this.pnlSumadora);
             this.groupBox1.Controls.Add(this.pnlMenu);
             this.groupBox1.Controls.Add(this.pnlConSinFin);
-            this.groupBox1.Controls.Add(this.pnlTransaccionSin);
             this.groupBox1.Controls.Add(this.lblFecha);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(272, 43);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1039, 677);
+            this.groupBox1.Size = new System.Drawing.Size(1090, 677);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
             // 
@@ -1017,7 +1017,7 @@ namespace PJ_CAJA_2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1071, 705);
+            this.ClientSize = new System.Drawing.Size(1692, 766);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
