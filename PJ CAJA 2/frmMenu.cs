@@ -468,6 +468,16 @@ namespace PJ_CAJA_2
             HotKeysTxtBox(e.KeyCode, btnCancelarEntSal);
         }
 
+        private void frmMenu_Load(object sender, EventArgs e)
+        {
+            this.MaximumSize = SystemInformation.PrimaryMonitorMaximizedWindowSize;
+            this.WindowState = FormWindowState.Maximized;
+            //Taskbar.Hide();
+        }
 
+        private void frmMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = e.CloseReason == CloseReason.UserClosing;
+        }
     }
 }

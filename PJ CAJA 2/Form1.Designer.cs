@@ -63,27 +63,29 @@ namespace PJ_CAJA_2
             this.lblCambios = new System.Windows.Forms.Label();
             this.lvlCompra = new System.Windows.Forms.Label();
             this.txtCompra = new System.Windows.Forms.TextBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.pnlInicios.SuspendLayout();
             this.grpDolares.SuspendLayout();
             this.grpPesos.SuspendLayout();
             this.pnlTiposCambio.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(475, 94);
+            this.txtUsuario.Location = new System.Drawing.Point(289, 41);
             this.txtUsuario.Margin = new System.Windows.Forms.Padding(6);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(150, 29);
+            this.txtUsuario.Size = new System.Drawing.Size(151, 29);
             this.txtUsuario.TabIndex = 0;
-            this.txtUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUsuario_KeyDown);
             // 
             // btnIniciar
             // 
-            this.btnIniciar.Location = new System.Drawing.Point(409, 419);
+            this.btnIniciar.Location = new System.Drawing.Point(223, 366);
             this.btnIniciar.Margin = new System.Windows.Forms.Padding(6);
             this.btnIniciar.Name = "btnIniciar";
-            this.btnIniciar.Size = new System.Drawing.Size(192, 42);
+            this.btnIniciar.Size = new System.Drawing.Size(193, 42);
             this.btnIniciar.TabIndex = 1;
             this.btnIniciar.Text = "INICIAR SESION";
             this.btnIniciar.UseVisualStyleBackColor = true;
@@ -92,7 +94,7 @@ namespace PJ_CAJA_2
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(365, 99);
+            this.lblUsuario.Location = new System.Drawing.Point(179, 44);
             this.lblUsuario.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(98, 24);
@@ -101,14 +103,14 @@ namespace PJ_CAJA_2
             // 
             // clndFecha
             // 
-            this.clndFecha.Location = new System.Drawing.Point(377, 199);
+            this.clndFecha.Location = new System.Drawing.Point(190, 144);
             this.clndFecha.Name = "clndFecha";
             this.clndFecha.TabIndex = 3;
             // 
             // lblAdTiempo
             // 
             this.lblAdTiempo.AutoSize = true;
-            this.lblAdTiempo.Location = new System.Drawing.Point(365, 142);
+            this.lblAdTiempo.Location = new System.Drawing.Point(179, 89);
             this.lblAdTiempo.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblAdTiempo.Name = "lblAdTiempo";
             this.lblAdTiempo.Size = new System.Drawing.Size(271, 48);
@@ -120,7 +122,8 @@ namespace PJ_CAJA_2
             // 
             this.lblHoras.AutoSize = true;
             this.lblHoras.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHoras.Location = new System.Drawing.Point(444, 370);
+            this.lblHoras.Location = new System.Drawing.Point(242, 255);
+            this.lblHoras.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHoras.Name = "lblHoras";
             this.lblHoras.Size = new System.Drawing.Size(127, 33);
             this.lblHoras.TabIndex = 5;
@@ -135,18 +138,21 @@ namespace PJ_CAJA_2
             this.pnlInicios.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlInicios.Controls.Add(this.btnCancelar);
             this.pnlInicios.Controls.Add(this.btnAceptar);
+            this.pnlInicios.Controls.Add(this.lblHoras);
             this.pnlInicios.Controls.Add(this.grpDolares);
             this.pnlInicios.Controls.Add(this.grpPesos);
             this.pnlInicios.Controls.Add(this.label1);
-            this.pnlInicios.Location = new System.Drawing.Point(163, 126);
+            this.pnlInicios.Location = new System.Drawing.Point(40, 101);
+            this.pnlInicios.Margin = new System.Windows.Forms.Padding(4);
             this.pnlInicios.Name = "pnlInicios";
-            this.pnlInicios.Size = new System.Drawing.Size(631, 345);
+            this.pnlInicios.Size = new System.Drawing.Size(631, 366);
             this.pnlInicios.TabIndex = 6;
             this.pnlInicios.Visible = false;
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(334, 265);
+            this.btnCancelar.Location = new System.Drawing.Point(334, 292);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(189, 54);
             this.btnCancelar.TabIndex = 18;
@@ -156,7 +162,8 @@ namespace PJ_CAJA_2
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(106, 265);
+            this.btnAceptar.Location = new System.Drawing.Point(106, 292);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(189, 54);
             this.btnAceptar.TabIndex = 17;
@@ -168,12 +175,14 @@ namespace PJ_CAJA_2
             // 
             this.grpDolares.Controls.Add(this.label2);
             this.grpDolares.Controls.Add(this.txtMorD);
+            this.grpDolares.Controls.Add(this.txtCpD);
+            this.grpDolares.Controls.Add(this.label4);
             this.grpDolares.Controls.Add(this.label3);
             this.grpDolares.Controls.Add(this.txtUmD);
-            this.grpDolares.Controls.Add(this.label4);
-            this.grpDolares.Controls.Add(this.txtCpD);
-            this.grpDolares.Location = new System.Drawing.Point(24, 72);
+            this.grpDolares.Location = new System.Drawing.Point(21, 72);
+            this.grpDolares.Margin = new System.Windows.Forms.Padding(4);
             this.grpDolares.Name = "grpDolares";
+            this.grpDolares.Padding = new System.Windows.Forms.Padding(4);
             this.grpDolares.Size = new System.Drawing.Size(284, 175);
             this.grpDolares.TabIndex = 15;
             this.grpDolares.TabStop = false;
@@ -182,7 +191,8 @@ namespace PJ_CAJA_2
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 29);
+            this.label2.Location = new System.Drawing.Point(10, 28);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(118, 24);
             this.label2.TabIndex = 14;
@@ -190,7 +200,8 @@ namespace PJ_CAJA_2
             // 
             // txtMorD
             // 
-            this.txtMorD.Location = new System.Drawing.Point(139, 26);
+            this.txtMorD.Location = new System.Drawing.Point(140, 24);
+            this.txtMorD.Margin = new System.Windows.Forms.Padding(4);
             this.txtMorD.Name = "txtMorD";
             this.txtMorD.Size = new System.Drawing.Size(136, 29);
             this.txtMorD.TabIndex = 8;
@@ -198,7 +209,8 @@ namespace PJ_CAJA_2
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(83, 78);
+            this.label3.Location = new System.Drawing.Point(84, 77);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 24);
             this.label3.TabIndex = 12;
@@ -206,7 +218,8 @@ namespace PJ_CAJA_2
             // 
             // txtUmD
             // 
-            this.txtUmD.Location = new System.Drawing.Point(139, 75);
+            this.txtUmD.Location = new System.Drawing.Point(140, 75);
+            this.txtUmD.Margin = new System.Windows.Forms.Padding(4);
             this.txtUmD.Name = "txtUmD";
             this.txtUmD.Size = new System.Drawing.Size(136, 29);
             this.txtUmD.TabIndex = 11;
@@ -214,7 +227,8 @@ namespace PJ_CAJA_2
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(83, 131);
+            this.label4.Location = new System.Drawing.Point(84, 128);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 24);
             this.label4.TabIndex = 9;
@@ -222,7 +236,8 @@ namespace PJ_CAJA_2
             // 
             // txtCpD
             // 
-            this.txtCpD.Location = new System.Drawing.Point(139, 128);
+            this.txtCpD.Location = new System.Drawing.Point(140, 126);
+            this.txtCpD.Margin = new System.Windows.Forms.Padding(4);
             this.txtCpD.Name = "txtCpD";
             this.txtCpD.Size = new System.Drawing.Size(136, 29);
             this.txtCpD.TabIndex = 13;
@@ -311,9 +326,10 @@ namespace PJ_CAJA_2
             this.pnlTiposCambio.Controls.Add(this.lblCambios);
             this.pnlTiposCambio.Controls.Add(this.lvlCompra);
             this.pnlTiposCambio.Controls.Add(this.txtCompra);
-            this.pnlTiposCambio.Location = new System.Drawing.Point(339, 167);
+            this.pnlTiposCambio.Location = new System.Drawing.Point(147, 93);
+            this.pnlTiposCambio.Margin = new System.Windows.Forms.Padding(4);
             this.pnlTiposCambio.Name = "pnlTiposCambio";
-            this.pnlTiposCambio.Size = new System.Drawing.Size(348, 236);
+            this.pnlTiposCambio.Size = new System.Drawing.Size(349, 236);
             this.pnlTiposCambio.TabIndex = 7;
             this.pnlTiposCambio.Visible = false;
             // 
@@ -386,23 +402,37 @@ namespace PJ_CAJA_2
             this.txtCompra.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtCompra.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCompra_KeyDown);
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox2.Controls.Add(this.pnlTiposCambio);
+            this.groupBox2.Controls.Add(this.lblUsuario);
+            this.groupBox2.Controls.Add(this.txtUsuario);
+            this.groupBox2.Controls.Add(this.pnlInicios);
+            this.groupBox2.Controls.Add(this.lblAdTiempo);
+            this.groupBox2.Controls.Add(this.clndFecha);
+            this.groupBox2.Controls.Add(this.btnIniciar);
+            this.groupBox2.Location = new System.Drawing.Point(12, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(695, 503);
+            this.groupBox2.TabIndex = 8;
+            this.groupBox2.TabStop = false;
+            // 
             // frmInicioSesion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(950, 685);
-            this.Controls.Add(this.pnlTiposCambio);
-            this.Controls.Add(this.pnlInicios);
-            this.Controls.Add(this.lblHoras);
-            this.Controls.Add(this.lblAdTiempo);
-            this.Controls.Add(this.clndFecha);
-            this.Controls.Add(this.lblUsuario);
-            this.Controls.Add(this.btnIniciar);
-            this.Controls.Add(this.txtUsuario);
+            this.ClientSize = new System.Drawing.Size(742, 537);
+            this.Controls.Add(this.groupBox2);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(6);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmInicioSesion";
             this.Text = "INICIO DE SESION";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmInicioSesion_FormClosing);
+            this.Load += new System.EventHandler(this.frmInicioSesion_Load);
             this.pnlInicios.ResumeLayout(false);
             this.pnlInicios.PerformLayout();
             this.grpDolares.ResumeLayout(false);
@@ -411,8 +441,9 @@ namespace PJ_CAJA_2
             this.grpPesos.PerformLayout();
             this.pnlTiposCambio.ResumeLayout(false);
             this.pnlTiposCambio.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -451,6 +482,8 @@ namespace PJ_CAJA_2
         private System.Windows.Forms.Label lvlCompra;
         private System.Windows.Forms.TextBox txtCompra;
         private System.Windows.Forms.Button btnCancelarCambio;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }
 

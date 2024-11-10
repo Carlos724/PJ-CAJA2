@@ -112,6 +112,7 @@ namespace PJ_CAJA_2
             this.lblCp = new System.Windows.Forms.Label();
             this.txtCpP = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pnlMenu.SuspendLayout();
             this.pnlElegirDes.SuspendLayout();
             this.pnlTransaccionSin.SuspendLayout();
@@ -123,6 +124,7 @@ namespace PJ_CAJA_2
             this.grpEntSal.SuspendLayout();
             this.grpDolares.SuspendLayout();
             this.grpPesos.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnVenta
@@ -183,7 +185,7 @@ namespace PJ_CAJA_2
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(152, 80);
+            this.lblUsuario.Location = new System.Drawing.Point(7, 66);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(86, 25);
             this.lblUsuario.TabIndex = 5;
@@ -192,7 +194,7 @@ namespace PJ_CAJA_2
             // lblHora
             // 
             this.lblHora.AutoSize = true;
-            this.lblHora.Location = new System.Drawing.Point(897, 80);
+            this.lblHora.Location = new System.Drawing.Point(752, 66);
             this.lblHora.Name = "lblHora";
             this.lblHora.Size = new System.Drawing.Size(102, 25);
             this.lblHora.TabIndex = 6;
@@ -247,7 +249,7 @@ namespace PJ_CAJA_2
             this.pnlMenu.Controls.Add(this.btnSumadora);
             this.pnlMenu.Controls.Add(this.btnCompra);
             this.pnlMenu.Controls.Add(this.btnVenta);
-            this.pnlMenu.Location = new System.Drawing.Point(246, 139);
+            this.pnlMenu.Location = new System.Drawing.Point(101, 125);
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Size = new System.Drawing.Size(645, 351);
             this.pnlMenu.TabIndex = 11;
@@ -307,7 +309,7 @@ namespace PJ_CAJA_2
             this.pnlTransaccionSin.Controls.Add(this.lblCantidad);
             this.pnlTransaccionSin.Controls.Add(this.lblTransSin);
             this.pnlTransaccionSin.Controls.Add(this.txtCantidad);
-            this.pnlTransaccionSin.Location = new System.Drawing.Point(265, 115);
+            this.pnlTransaccionSin.Location = new System.Drawing.Point(120, 101);
             this.pnlTransaccionSin.Name = "pnlTransaccionSin";
             this.pnlTransaccionSin.Size = new System.Drawing.Size(515, 400);
             this.pnlTransaccionSin.TabIndex = 12;
@@ -486,7 +488,7 @@ namespace PJ_CAJA_2
             // lblFecha
             // 
             this.lblFecha.AutoSize = true;
-            this.lblFecha.Location = new System.Drawing.Point(795, 80);
+            this.lblFecha.Location = new System.Drawing.Point(650, 66);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(96, 25);
             this.lblFecha.TabIndex = 13;
@@ -500,7 +502,7 @@ namespace PJ_CAJA_2
             this.pnlConSinFin.Controls.Add(this.btnSiSinFin);
             this.pnlConSinFin.Controls.Add(this.lblConSinFin);
             this.pnlConSinFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlConSinFin.Location = new System.Drawing.Point(782, 412);
+            this.pnlConSinFin.Location = new System.Drawing.Point(637, 398);
             this.pnlConSinFin.Name = "pnlConSinFin";
             this.pnlConSinFin.Size = new System.Drawing.Size(253, 100);
             this.pnlConSinFin.TabIndex = 18;
@@ -558,7 +560,7 @@ namespace PJ_CAJA_2
             this.pnlSumadora.Controls.Add(this.txtSuma2);
             this.pnlSumadora.Controls.Add(this.txtSuma1);
             this.pnlSumadora.Controls.Add(this.lblSumadora);
-            this.pnlSumadora.Location = new System.Drawing.Point(334, 139);
+            this.pnlSumadora.Location = new System.Drawing.Point(189, 125);
             this.pnlSumadora.Name = "pnlSumadora";
             this.pnlSumadora.Size = new System.Drawing.Size(480, 332);
             this.pnlSumadora.TabIndex = 19;
@@ -667,7 +669,7 @@ namespace PJ_CAJA_2
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(974, 609);
+            this.btnSalir.Location = new System.Drawing.Point(829, 595);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(6);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(145, 57);
@@ -686,7 +688,7 @@ namespace PJ_CAJA_2
             this.pnlEntSal.Controls.Add(this.grpDolares);
             this.pnlEntSal.Controls.Add(this.grpPesos);
             this.pnlEntSal.Controls.Add(this.label1);
-            this.pnlEntSal.Location = new System.Drawing.Point(259, 135);
+            this.pnlEntSal.Location = new System.Drawing.Point(114, 121);
             this.pnlEntSal.Name = "pnlEntSal";
             this.pnlEntSal.Size = new System.Drawing.Size(631, 428);
             this.pnlEntSal.TabIndex = 20;
@@ -993,24 +995,39 @@ namespace PJ_CAJA_2
             this.label1.Text = "ENTRADAS / SALIDAS";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox1.Controls.Add(this.pnlEntSal);
+            this.groupBox1.Controls.Add(this.lblUsuario);
+            this.groupBox1.Controls.Add(this.btnSalir);
+            this.groupBox1.Controls.Add(this.lblHora);
+            this.groupBox1.Controls.Add(this.pnlSumadora);
+            this.groupBox1.Controls.Add(this.pnlMenu);
+            this.groupBox1.Controls.Add(this.pnlConSinFin);
+            this.groupBox1.Controls.Add(this.pnlTransaccionSin);
+            this.groupBox1.Controls.Add(this.lblFecha);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1039, 677);
+            this.groupBox1.TabIndex = 21;
+            this.groupBox1.TabStop = false;
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1134, 680);
-            this.Controls.Add(this.pnlEntSal);
-            this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.pnlSumadora);
-            this.Controls.Add(this.pnlConSinFin);
-            this.Controls.Add(this.lblFecha);
-            this.Controls.Add(this.pnlTransaccionSin);
-            this.Controls.Add(this.pnlMenu);
-            this.Controls.Add(this.lblHora);
-            this.Controls.Add(this.lblUsuario);
+            this.ClientSize = new System.Drawing.Size(1071, 705);
+            this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(6);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmMenu";
             this.Text = "MENU";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMenu_FormClosing);
+            this.Load += new System.EventHandler(this.frmMenu_Load);
             this.pnlMenu.ResumeLayout(false);
             this.pnlMenu.PerformLayout();
             this.pnlElegirDes.ResumeLayout(false);
@@ -1033,8 +1050,9 @@ namespace PJ_CAJA_2
             this.grpDolares.PerformLayout();
             this.grpPesos.ResumeLayout(false);
             this.grpPesos.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -1122,5 +1140,6 @@ namespace PJ_CAJA_2
         private System.Windows.Forms.RadioButton rdbEntrada;
         private System.Windows.Forms.Button btnSumP;
         private System.Windows.Forms.Button btSumD;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
