@@ -72,9 +72,9 @@ namespace PJ_CAJA_2
             this.btnSiSinFin = new System.Windows.Forms.Button();
             this.lblConSinFin = new System.Windows.Forms.Label();
             this.pnlSumadora = new System.Windows.Forms.Panel();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnAceptar = new System.Windows.Forms.Button();
-            this.btnImprimir = new System.Windows.Forms.Button();
+            this.btnCancelarSum = new System.Windows.Forms.Button();
+            this.btnAceptarSum = new System.Windows.Forms.Button();
+            this.btnImprimirSum = new System.Windows.Forms.Button();
             this.txtSumaTotal = new System.Windows.Forms.TextBox();
             this.txtSuma5 = new System.Windows.Forms.TextBox();
             this.txtSuma4 = new System.Windows.Forms.TextBox();
@@ -550,9 +550,9 @@ namespace PJ_CAJA_2
             // pnlSumadora
             // 
             this.pnlSumadora.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlSumadora.Controls.Add(this.btnCancelar);
-            this.pnlSumadora.Controls.Add(this.btnAceptar);
-            this.pnlSumadora.Controls.Add(this.btnImprimir);
+            this.pnlSumadora.Controls.Add(this.btnCancelarSum);
+            this.pnlSumadora.Controls.Add(this.btnAceptarSum);
+            this.pnlSumadora.Controls.Add(this.btnImprimirSum);
             this.pnlSumadora.Controls.Add(this.txtSumaTotal);
             this.pnlSumadora.Controls.Add(this.txtSuma5);
             this.pnlSumadora.Controls.Add(this.txtSuma4);
@@ -567,35 +567,35 @@ namespace PJ_CAJA_2
             this.pnlSumadora.Visible = false;
             this.pnlSumadora.VisibleChanged += new System.EventHandler(this.pnlSumadora_VisibleChanged);
             // 
-            // btnCancelar
+            // btnCancelarSum
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(358, 270);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(106, 46);
-            this.btnCancelar.TabIndex = 29;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.btnCancelarSum.Location = new System.Drawing.Point(358, 270);
+            this.btnCancelarSum.Name = "btnCancelarSum";
+            this.btnCancelarSum.Size = new System.Drawing.Size(106, 46);
+            this.btnCancelarSum.TabIndex = 29;
+            this.btnCancelarSum.Text = "Cancelar";
+            this.btnCancelarSum.UseVisualStyleBackColor = true;
+            this.btnCancelarSum.Click += new System.EventHandler(this.btnCancelarSum_Click);
             // 
-            // btnAceptar
+            // btnAceptarSum
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(358, 220);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(106, 44);
-            this.btnAceptar.TabIndex = 28;
-            this.btnAceptar.Text = "Aceptar";
-            this.btnAceptar.UseVisualStyleBackColor = true;
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            this.btnAceptarSum.Location = new System.Drawing.Point(358, 220);
+            this.btnAceptarSum.Name = "btnAceptarSum";
+            this.btnAceptarSum.Size = new System.Drawing.Size(106, 44);
+            this.btnAceptarSum.TabIndex = 28;
+            this.btnAceptarSum.Text = "Aceptar";
+            this.btnAceptarSum.UseVisualStyleBackColor = true;
+            this.btnAceptarSum.Click += new System.EventHandler(this.btnAceptarSum_Click);
             // 
-            // btnImprimir
+            // btnImprimirSum
             // 
-            this.btnImprimir.Location = new System.Drawing.Point(358, 46);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(106, 44);
-            this.btnImprimir.TabIndex = 27;
-            this.btnImprimir.Text = "Imprimir";
-            this.btnImprimir.UseVisualStyleBackColor = true;
-            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            this.btnImprimirSum.Location = new System.Drawing.Point(358, 46);
+            this.btnImprimirSum.Name = "btnImprimirSum";
+            this.btnImprimirSum.Size = new System.Drawing.Size(106, 44);
+            this.btnImprimirSum.TabIndex = 27;
+            this.btnImprimirSum.Text = "Imprimir";
+            this.btnImprimirSum.UseVisualStyleBackColor = true;
+            this.btnImprimirSum.Click += new System.EventHandler(this.btnImprimirSum_Click);
             // 
             // txtSumaTotal
             // 
@@ -1100,9 +1100,9 @@ namespace PJ_CAJA_2
         private System.Windows.Forms.Button btnSiSinFin;
         private System.Windows.Forms.Label lblConSinFin;
         private System.Windows.Forms.Panel pnlSumadora;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnAceptar;
-        private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.Button btnCancelarSum;
+        private System.Windows.Forms.Button btnAceptarSum;
+        private System.Windows.Forms.Button btnImprimirSum;
         private System.Windows.Forms.TextBox txtSumaTotal;
         private System.Windows.Forms.TextBox txtSuma5;
         private System.Windows.Forms.TextBox txtSuma4;

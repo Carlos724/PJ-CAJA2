@@ -35,6 +35,38 @@ namespace PJ_CAJA_2
             //####### PRUEBAS
             pnlEntSal.Visible = true;
 
+            //EVENTOS PARA TEXTBOXES DE SUMADORA
+            foreach (Control miControl in pnlSumadora.Controls)
+            {
+                if (miControl is TextBox && miControl != txtSumaTotal)
+                {
+                    //CADA QUE EL TEXTO CAMBIE, SE ACTIVA ESTE EVENTO
+                    miControl.TextChanged += new EventHandler(SumaSumadora);
+                    //CADA QUE SE PRECIONE UNA TECLA DENTRO DE ALGUN TEXTBOX, SE ACTIVA ESTE EVENTO
+                    miControl.KeyPress += new KeyPressEventHandler(FiltroTeclas);
+                }
+            }
+
+            //EVENTOS PARA TEXTBOXES DE ENTRADAS/SALIDAS
+            foreach (Control miControl in pnlEntSal.Controls)
+            {
+                if (miControl is GroupBox miGrupo)
+                {
+                    foreach (Control miControl2 in miGrupo.Controls)
+                    {
+                        if (miControl2 is TextBox && miControl2 != txtTotalP && miControl2 != txtTotalD && miControl2 != txtMotivo)
+                        {
+                            //CADA QUE EL TEXTO CAMBIE, SE ACTIVA ESTE EVENTO
+                            miControl2.TextChanged += new EventHandler(SumaEntSal);
+                            //CADA QUE SE PRECIONE UNA TECLA DENTRO DE ALGUN TEXTBOX, SE ACTIVA ESTE EVENTO
+                            miControl2.KeyPress += new KeyPressEventHandler(FiltroTeclas);
+                        }
+                    }
+                }
+
+            }
+
+
         }
         //## BOTÓNES ##
         //Botónes de venta y compra, solo deciden que clase de operacion se lleva a cabo
@@ -107,26 +139,19 @@ namespace PJ_CAJA_2
             txtPago.Focus();
         }
 
-        private void btnAceptar_Click(object sender, EventArgs e)
+        private void btnAceptarSum_Click(object sender, EventArgs e)
         {
+
             pnlSumadora.Visible = false;
             /*
              SE GUARDARAN LAS SUMAS?
              */
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void btnCancelarSum_Click(object sender, EventArgs e)
         {
             pnlSumadora.Visible = false;
-            foreach (Control miControl in pnlSumadora.Controls)
-            {
-                if (miControl is TextBox)
-                {
-                    miControl.Text = "00.00";
-                }
-            }
         }
-
 
         //##SUMADORA
         private void btnSumadora_Click(object sender, EventArgs e)
@@ -156,12 +181,12 @@ namespace PJ_CAJA_2
 
         private void btSumD_Click(object sender, EventArgs e)
         {
-
+            pnlSumadora.Visible = true;
         }
 
         private void btnSumP_Click(object sender, EventArgs e)
         {
-
+            pnlSumadora.Visible = true;
         }
 
         private void btnCancelarEntSal_Click(object sender, EventArgs e)
@@ -206,9 +231,18 @@ namespace PJ_CAJA_2
                 case Keys.Enter:
                 case Keys.Down:
                     this.SelectNextControl(this.ActiveControl, true, true, true, true);
+                    //Selecciona todo el texto para ser modificado completo
+                    if (this.ActiveControl is TextBox mitxt)
+                    {
+                        mitxt.SelectAll();
+                    }
                     break;
                 case Keys.Up:
                     this.SelectNextControl(this.ActiveControl, false, true, true, true);
+                    if (this.ActiveControl is TextBox mitxt2)
+                    {
+                        mitxt2.SelectAll();
+                    }
                     break;
                 case Keys.Escape:
                     miCancelar.PerformClick();
@@ -290,128 +324,43 @@ namespace PJ_CAJA_2
              */
         }
 
-        private void btnImprimir_Click(object sender, EventArgs e)
+        private void btnImprimirSum_Click(object sender, EventArgs e)
         {
             /*
-             codigo de imprimision
-             */
+         codigo de imprimision
+         */
             pnlSumadora.Visible = false;
         }
+
         //Evento que verifica si se quiere cambiar o salir del control
         private void txtSuma1_KeyDown(object sender, KeyEventArgs e)
         {
-            switch (e.KeyCode)
-            {
-                case Keys.Down:
-                    GetNextControl(txtSuma1, true).Focus();
-                    break;
-
-                case Keys.Enter:
-                    GetNextControl(txtSuma1, true).Focus();
-                    break;
-
-                case Keys.Escape:
-                    btnCancelar_Click(null, null);
-                    break;
-                default:
-                    break;
-            }
+            Suma(double.Parse(txtSuma1.Text));
+            HotKeysTxtBox(e.KeyCode, btnCancelarSum);
         }
 
         private void txtSuma2_KeyDown(object sender, KeyEventArgs e)
         {
-            switch (e.KeyCode)
-            {
-                case Keys.Down:
-                    GetNextControl(txtSuma2, true).Focus();
-                    break;
-
-                case Keys.Up:
-                    GetNextControl(txtSuma2, false).Focus();
-                    break;
-
-                case Keys.Enter:
-                    GetNextControl(txtSuma2, true).Focus();
-                    break;
-
-                case Keys.Escape:
-                    btnCancelar_Click(null, null);
-                    break;
-                default:
-                    break;
-            }
+            Suma(double.Parse(txtSuma2.Text));
+            HotKeysTxtBox(e.KeyCode, btnCancelarSum);
         }
 
         private void txtSuma3_KeyDown(object sender, KeyEventArgs e)
         {
-            switch (e.KeyCode)
-            {
-                case Keys.Down:
-                    GetNextControl(txtSuma3, true).Focus();
-                    break;
-
-                case Keys.Up:
-                    GetNextControl(txtSuma3, false).Focus();
-                    break;
-
-                case Keys.Enter:
-                    GetNextControl(txtSuma3, true).Focus();
-                    break;
-
-                case Keys.Escape:
-                    btnCancelar_Click(null, null);
-                    break;
-                default:
-                    break;
-            }
+            Suma(double.Parse(txtSuma3.Text));
+            HotKeysTxtBox(e.KeyCode, btnCancelarSum);
         }
 
         private void txtSuma4_KeyDown(object sender, KeyEventArgs e)
         {
-            switch (e.KeyCode)
-            {
-                case Keys.Down:
-                    GetNextControl(txtSuma4, true).Focus();
-                    break;
-
-                case Keys.Up:
-                    GetNextControl(txtSuma4, false).Focus();
-                    break;
-
-                case Keys.Enter:
-                    GetNextControl(txtSuma4, true).Focus();
-                    break;
-
-                case Keys.Escape:
-                    btnCancelar_Click(null, null);
-                    break;
-                default:
-                    break;
-            }
+            Suma(double.Parse(txtSuma4.Text));
+            HotKeysTxtBox(e.KeyCode, btnCancelarSum);
         }
 
         private void txtSuma5_KeyDown(object sender, KeyEventArgs e)
         {
-            switch (e.KeyCode)
-            {
-                case Keys.Down:
-                    GetNextControl(txtSuma5, true).Focus();
-                    break;
-
-                case Keys.Up:
-                    GetNextControl(txtSuma5, false).Focus();
-                    break;
-
-                case Keys.Enter:
-                    btnAceptar.Focus();
-                    break;
-
-                case Keys.Escape:
-                    btnCancelar_Click(null, null);
-                    break;
-                default:
-                    break;
-            }
+            Suma(double.Parse(txtSuma5.Text));
+            HotKeysTxtBox(e.KeyCode, btnCancelarSum);
         }
 
         private void rdbEntrada_CheckedChanged(object sender, EventArgs e)
@@ -431,7 +380,7 @@ namespace PJ_CAJA_2
                 {
                     if (Micontrol is TextBox)
                     {
-                        Micontrol.Text = "";
+                        Micontrol.Text = "00.00";
                     }
                 }
             }
@@ -479,5 +428,85 @@ namespace PJ_CAJA_2
         {
             e.Cancel = e.CloseReason == CloseReason.UserClosing;
         }
+
+        //METODO PARA EVENTO DE SUMA DE TODOS LOS TXTBOXES DEL PANEL SUMADORA, EL RESULTADO SE GUARDA EN UN TEXTBOX
+        private void SumaSumadora(object sender, EventArgs e)
+        {
+            try
+            {
+                double dblSuma = 0;
+                foreach (Control miControl in pnlSumadora.Controls)
+                {
+                    if (miControl is TextBox && miControl.Name != "txtSumaTotal")
+                    {
+                        if (miControl.Text == "" && miControl is TextBox mitxt)
+                        {
+                            miControl.Text = "00.00";
+                            mitxt.SelectAll();
+                        }
+                        dblSuma = double.Parse(miControl.Text) + dblSuma;
+                    }
+                }
+                txtSumaTotal.Text = dblSuma.ToString();
+            }
+            catch
+            {
+
+            }
+        }
+
+        //Metodo que suma todos los texboxes del panel Entradas/Salidas y pone el resultado en txtTotalD y txtTotalP 
+        private void SumaEntSal(object sender, EventArgs e)
+        {
+            try
+            {
+                double dblSuma = 0;
+                foreach (Control miControl in grpDolares.Controls)
+                {
+                    if (miControl is TextBox && miControl.Name != "txtTotalD")
+                    {
+                        if (miControl.Text == "" && miControl is TextBox mitxt)
+                        {
+                            miControl.Text = "00.00";
+                            mitxt.SelectAll();
+                        }
+                        dblSuma = double.Parse(miControl.Text) + dblSuma;
+                    }
+                }
+                txtTotalD.Text = dblSuma.ToString();
+
+                dblSuma = 0;
+                foreach (Control miControl in grpPesos.Controls)
+                {
+                    if (miControl is TextBox && miControl.Name != "txtTotalP")
+                    {
+                        if (miControl.Text == "" && miControl is TextBox mitxt)
+                        {
+                            miControl.Text = "00.00";
+                            mitxt.SelectAll();
+                        }
+                        dblSuma = double.Parse(miControl.Text) + dblSuma;
+                    }
+                }
+                txtTotalP.Text = dblSuma.ToString();
+            }
+            catch
+            {
+
+            }
+        }
+
+        //Filtro que solo permite el ingreso de numeros y punto decimal
+        private void FiltroTeclas(object sender, KeyPressEventArgs e)
+        {
+            if (e != null)
+            {
+                if (!char.IsControl(e.KeyChar) && !char.IsNumber(e.KeyChar) && (e.KeyChar != '.'))
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
     }
 }

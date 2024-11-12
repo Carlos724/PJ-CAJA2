@@ -56,7 +56,7 @@ namespace PJ_CAJA_2
             this.rdbSalida = new System.Windows.Forms.RadioButton();
             this.rdbEntrada = new System.Windows.Forms.RadioButton();
             this.grpDolares = new System.Windows.Forms.GroupBox();
-            this.btSumD = new System.Windows.Forms.Button();
+            this.btnSumD = new System.Windows.Forms.Button();
             this.lblTotalD = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtMorD = new System.Windows.Forms.TextBox();
@@ -77,6 +77,17 @@ namespace PJ_CAJA_2
             this.txtCpP = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSalida = new System.Windows.Forms.Button();
+            this.lblSumadora = new System.Windows.Forms.Label();
+            this.txtSuma1 = new System.Windows.Forms.TextBox();
+            this.txtSuma2 = new System.Windows.Forms.TextBox();
+            this.txtSuma3 = new System.Windows.Forms.TextBox();
+            this.txtSuma4 = new System.Windows.Forms.TextBox();
+            this.txtSuma5 = new System.Windows.Forms.TextBox();
+            this.txtSumaTotal = new System.Windows.Forms.TextBox();
+            this.btnImprimirSum = new System.Windows.Forms.Button();
+            this.btnAceptarSum = new System.Windows.Forms.Button();
+            this.btnCancelarSum = new System.Windows.Forms.Button();
+            this.pnlSumadora = new System.Windows.Forms.Panel();
             this.pnlTiposCambio.SuspendLayout();
             this.grpInicio.SuspendLayout();
             this.pnlEntSal.SuspendLayout();
@@ -84,6 +95,7 @@ namespace PJ_CAJA_2
             this.grpEntSal.SuspendLayout();
             this.grpDolares.SuspendLayout();
             this.grpPesos.SuspendLayout();
+            this.pnlSumadora.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtUsuario
@@ -252,6 +264,7 @@ namespace PJ_CAJA_2
             // pnlEntSal
             // 
             this.pnlEntSal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlEntSal.Controls.Add(this.pnlSumadora);
             this.pnlEntSal.Controls.Add(this.grpMotivo);
             this.pnlEntSal.Controls.Add(this.btnCancelarEntSal);
             this.pnlEntSal.Controls.Add(this.btnAceptarInSa);
@@ -337,7 +350,7 @@ namespace PJ_CAJA_2
             // 
             // grpDolares
             // 
-            this.grpDolares.Controls.Add(this.btSumD);
+            this.grpDolares.Controls.Add(this.btnSumD);
             this.grpDolares.Controls.Add(this.lblTotalD);
             this.grpDolares.Controls.Add(this.label2);
             this.grpDolares.Controls.Add(this.txtMorD);
@@ -353,16 +366,16 @@ namespace PJ_CAJA_2
             this.grpDolares.TabStop = false;
             this.grpDolares.Text = "DOLARES";
             // 
-            // btSumD
+            // btnSumD
             // 
-            this.btSumD.BackgroundImage = global::PJ_CAJA_2.Properties.Resources.calcu;
-            this.btSumD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btSumD.Location = new System.Drawing.Point(19, 71);
-            this.btSumD.Name = "btSumD";
-            this.btSumD.Size = new System.Drawing.Size(71, 39);
-            this.btSumD.TabIndex = 9;
-            this.btSumD.UseVisualStyleBackColor = true;
-            this.btSumD.Click += new System.EventHandler(this.btSumD_Click);
+            this.btnSumD.BackgroundImage = global::PJ_CAJA_2.Properties.Resources.calcu;
+            this.btnSumD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSumD.Location = new System.Drawing.Point(19, 71);
+            this.btnSumD.Name = "btnSumD";
+            this.btnSumD.Size = new System.Drawing.Size(71, 39);
+            this.btnSumD.TabIndex = 9;
+            this.btnSumD.UseVisualStyleBackColor = true;
+            this.btnSumD.Click += new System.EventHandler(this.btnSumD_Click);
             // 
             // lblTotalD
             // 
@@ -427,6 +440,7 @@ namespace PJ_CAJA_2
             this.txtUmD.TabStop = false;
             this.txtUmD.Text = "00.00";
             this.txtUmD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtUmD.Click += new System.EventHandler(this.txtUmD_Click);
             // 
             // label4
             // 
@@ -540,6 +554,7 @@ namespace PJ_CAJA_2
             this.txtUmP.TabStop = false;
             this.txtUmP.Text = "00.00";
             this.txtUmP.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtUmP.Click += new System.EventHandler(this.txtUmP_Click);
             // 
             // lblCp
             // 
@@ -582,6 +597,127 @@ namespace PJ_CAJA_2
             this.btnSalida.UseVisualStyleBackColor = true;
             this.btnSalida.Click += new System.EventHandler(this.btnSalida_Click);
             // 
+            // lblSumadora
+            // 
+            this.lblSumadora.AutoSize = true;
+            this.lblSumadora.Location = new System.Drawing.Point(179, 13);
+            this.lblSumadora.Name = "lblSumadora";
+            this.lblSumadora.Size = new System.Drawing.Size(130, 24);
+            this.lblSumadora.TabIndex = 20;
+            this.lblSumadora.Text = "SUMADORAS";
+            // 
+            // txtSuma1
+            // 
+            this.txtSuma1.Location = new System.Drawing.Point(137, 53);
+            this.txtSuma1.Name = "txtSuma1";
+            this.txtSuma1.Size = new System.Drawing.Size(199, 29);
+            this.txtSuma1.TabIndex = 21;
+            this.txtSuma1.Text = "00.00";
+            this.txtSuma1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtSuma1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSuma1_KeyDown);
+            // 
+            // txtSuma2
+            // 
+            this.txtSuma2.Location = new System.Drawing.Point(137, 96);
+            this.txtSuma2.Name = "txtSuma2";
+            this.txtSuma2.Size = new System.Drawing.Size(199, 29);
+            this.txtSuma2.TabIndex = 22;
+            this.txtSuma2.Text = "00.00";
+            this.txtSuma2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtSuma2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSuma2_KeyDown);
+            // 
+            // txtSuma3
+            // 
+            this.txtSuma3.Location = new System.Drawing.Point(137, 137);
+            this.txtSuma3.Name = "txtSuma3";
+            this.txtSuma3.Size = new System.Drawing.Size(199, 29);
+            this.txtSuma3.TabIndex = 23;
+            this.txtSuma3.Text = "00.00";
+            this.txtSuma3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtSuma3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSuma3_KeyDown);
+            // 
+            // txtSuma4
+            // 
+            this.txtSuma4.Location = new System.Drawing.Point(137, 183);
+            this.txtSuma4.Name = "txtSuma4";
+            this.txtSuma4.Size = new System.Drawing.Size(199, 29);
+            this.txtSuma4.TabIndex = 24;
+            this.txtSuma4.Text = "00.00";
+            this.txtSuma4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtSuma4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSuma4_KeyDown);
+            // 
+            // txtSuma5
+            // 
+            this.txtSuma5.Location = new System.Drawing.Point(137, 227);
+            this.txtSuma5.Name = "txtSuma5";
+            this.txtSuma5.Size = new System.Drawing.Size(199, 29);
+            this.txtSuma5.TabIndex = 25;
+            this.txtSuma5.Text = "00.00";
+            this.txtSuma5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtSuma5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSuma5_KeyDown);
+            // 
+            // txtSumaTotal
+            // 
+            this.txtSumaTotal.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtSumaTotal.ForeColor = System.Drawing.Color.DarkRed;
+            this.txtSumaTotal.Location = new System.Drawing.Point(137, 275);
+            this.txtSumaTotal.Name = "txtSumaTotal";
+            this.txtSumaTotal.Size = new System.Drawing.Size(199, 29);
+            this.txtSumaTotal.TabIndex = 80;
+            this.txtSumaTotal.TabStop = false;
+            this.txtSumaTotal.Text = "00.00";
+            this.txtSumaTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // btnImprimirSum
+            // 
+            this.btnImprimirSum.Location = new System.Drawing.Point(358, 46);
+            this.btnImprimirSum.Name = "btnImprimirSum";
+            this.btnImprimirSum.Size = new System.Drawing.Size(106, 44);
+            this.btnImprimirSum.TabIndex = 27;
+            this.btnImprimirSum.Text = "Imprimir";
+            this.btnImprimirSum.UseVisualStyleBackColor = true;
+            this.btnImprimirSum.Click += new System.EventHandler(this.btnImprimirSum_Click);
+            // 
+            // btnAceptarSum
+            // 
+            this.btnAceptarSum.Location = new System.Drawing.Point(358, 220);
+            this.btnAceptarSum.Name = "btnAceptarSum";
+            this.btnAceptarSum.Size = new System.Drawing.Size(106, 44);
+            this.btnAceptarSum.TabIndex = 28;
+            this.btnAceptarSum.Text = "Aceptar";
+            this.btnAceptarSum.UseVisualStyleBackColor = true;
+            this.btnAceptarSum.Click += new System.EventHandler(this.btnAceptarSum_Click);
+            // 
+            // btnCancelarSum
+            // 
+            this.btnCancelarSum.Location = new System.Drawing.Point(358, 270);
+            this.btnCancelarSum.Name = "btnCancelarSum";
+            this.btnCancelarSum.Size = new System.Drawing.Size(106, 46);
+            this.btnCancelarSum.TabIndex = 29;
+            this.btnCancelarSum.Text = "Cancelar";
+            this.btnCancelarSum.UseVisualStyleBackColor = true;
+            this.btnCancelarSum.Click += new System.EventHandler(this.btnCancelarSum_Click);
+            // 
+            // pnlSumadora
+            // 
+            this.pnlSumadora.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlSumadora.Controls.Add(this.btnCancelarSum);
+            this.pnlSumadora.Controls.Add(this.btnAceptarSum);
+            this.pnlSumadora.Controls.Add(this.btnImprimirSum);
+            this.pnlSumadora.Controls.Add(this.txtSumaTotal);
+            this.pnlSumadora.Controls.Add(this.txtSuma5);
+            this.pnlSumadora.Controls.Add(this.txtSuma4);
+            this.pnlSumadora.Controls.Add(this.txtSuma3);
+            this.pnlSumadora.Controls.Add(this.txtSuma2);
+            this.pnlSumadora.Controls.Add(this.txtSuma1);
+            this.pnlSumadora.Controls.Add(this.lblSumadora);
+            this.pnlSumadora.Location = new System.Drawing.Point(76, 36);
+            this.pnlSumadora.Name = "pnlSumadora";
+            this.pnlSumadora.Size = new System.Drawing.Size(480, 332);
+            this.pnlSumadora.TabIndex = 22;
+            this.pnlSumadora.Visible = false;
+            this.pnlSumadora.VisibleChanged += new System.EventHandler(this.pnlSumadora_VisibleChanged);
+            // 
             // frmInicioSesion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -614,6 +750,8 @@ namespace PJ_CAJA_2
             this.grpDolares.PerformLayout();
             this.grpPesos.ResumeLayout(false);
             this.grpPesos.PerformLayout();
+            this.pnlSumadora.ResumeLayout(false);
+            this.pnlSumadora.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -646,7 +784,7 @@ namespace PJ_CAJA_2
         private System.Windows.Forms.RadioButton rdbSalida;
         private System.Windows.Forms.RadioButton rdbEntrada;
         private System.Windows.Forms.GroupBox grpDolares;
-        private System.Windows.Forms.Button btSumD;
+        private System.Windows.Forms.Button btnSumD;
         private System.Windows.Forms.Label lblTotalD;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtMorD;
@@ -667,6 +805,17 @@ namespace PJ_CAJA_2
         private System.Windows.Forms.TextBox txtCpP;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSalida;
+        private System.Windows.Forms.Label lblSumadora;
+        private System.Windows.Forms.TextBox txtSuma1;
+        private System.Windows.Forms.TextBox txtSuma2;
+        private System.Windows.Forms.TextBox txtSuma3;
+        private System.Windows.Forms.TextBox txtSuma4;
+        private System.Windows.Forms.TextBox txtSuma5;
+        private System.Windows.Forms.TextBox txtSumaTotal;
+        private System.Windows.Forms.Button btnImprimirSum;
+        private System.Windows.Forms.Button btnAceptarSum;
+        private System.Windows.Forms.Button btnCancelarSum;
+        private System.Windows.Forms.Panel pnlSumadora;
     }
 }
 
