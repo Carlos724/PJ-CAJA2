@@ -91,3 +91,6 @@ C:\Users\ale\Documents\PJ Caja2\PJ CAJA 2\obj\Debug\PJ CAJA 2.csproj.CopyComplet
 C:\Users\Usuario\Documents\GitHub\PJ-CAJA2\PJ CAJA 2\bin\Debug\itextsharp.dll
 C:\Users\Usuario\Documents\GitHub\PJ-CAJA2\PJ CAJA 2\bin\Debug\itextsharp.xml
 C:\Users\Usuario\Documents\GitHub\PJ-CAJA2\PJ CAJA 2\obj\Debug\PJ_CAJA_2.Probando_ticket.resources
+C:\Users\ale\Documents\PJ Caja2\PJ CAJA 2\bin\Debug\itextsharp.dll
+C:\Users\ale\Documents\PJ Caja2\PJ CAJA 2\bin\Debug\itextsharp.xml
+C:\Users\ale\Documents\PJ Caja2\PJ CAJA 2\obj\Debug\PJ_CAJA_2.Probando_ticket.resources

@@ -27,10 +27,10 @@ namespace PJ_CAJA_2
             //######PRUEBAS
             /*
             pnlSumadora.Visible = true;
-            pnlEntSal.Visible = true;
+            pnlEntSal.Visible = true;*/
             frmMenu miMenu = new frmMenu();
-            miMenu.Show();*/
-
+            miMenu.Show();
+            this.Visible = false;
             //EVENTOS PARA TEXTBOXES DE SUMADORA
             foreach (Control miControl in pnlSumadora.Controls)
             {
