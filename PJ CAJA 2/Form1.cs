@@ -24,7 +24,6 @@ namespace PJ_CAJA_2
             conexionSQL.cnnPrueba = new MySqlConnection(conexionSQL.prueba);
             timer1.Interval = 500;
             timer1.Start();
-
             //######PRUEBAS
             /*
             pnlSumadora.Visible = true;
@@ -89,6 +88,35 @@ namespace PJ_CAJA_2
         {
             if (double.Parse(txtCompra.Text) < double.Parse(txtVenta.Text))
             {
+                foreach(Control micontrol in pnlTiposCambio.Controls)
+                {
+                    if(micontrol is TextBox mitxt)
+                    {
+                        if (!(mitxt.Text.Length == 4))
+                        {
+                            if (mitxt.Text.Contains("."))
+                            {
+                                mitxt.Text = mitxt.Text + "";
+                            }
+                        }
+                    }
+                }
+                if (!txtCompra.Text.Contains("."))
+                {
+                    txtCompra.Text = txtCompra.Text + ".";
+                }
+                if (!txtVenta.Text.Contains("."))
+                {
+                    txtVenta.Text = txtVenta.Text + ".";
+                }
+                switch (txtCompra.Text.Length)
+                {
+                    case 3:
+                        txtCompra.Text = txtCompra.Text + "0";
+                        break;
+                    default:
+                        break;
+                }
                 Properties.Settings.Default.dblTCCompra_ = double.Parse(txtCompra.Text);
                 Properties.Settings.Default.dblTCVenta_ = double.Parse(txtVenta.Text);
                 Properties.Settings.Default.Save();
@@ -439,5 +467,6 @@ namespace PJ_CAJA_2
         {
             btnSumP.PerformClick();
         }
+
     }
 }

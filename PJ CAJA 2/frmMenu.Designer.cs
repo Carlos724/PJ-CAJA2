@@ -113,6 +113,82 @@ namespace PJ_CAJA_2
             this.txtCpP = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pnlTransaccionCon = new System.Windows.Forms.Panel();
+            this.btnTranConCancelar = new System.Windows.Forms.Button();
+            this.pnlTranConContinuar1 = new System.Windows.Forms.Panel();
+            this.btnTranConImprimir1 = new System.Windows.Forms.Button();
+            this.btnTranConRegresar1 = new System.Windows.Forms.Button();
+            this.btnTranConNo1 = new System.Windows.Forms.Button();
+            this.btnTranConSi1 = new System.Windows.Forms.Button();
+            this.lblTranConContinuar1 = new System.Windows.Forms.Label();
+            this.lblNumFolio = new System.Windows.Forms.Label();
+            this.lblTranConFolio = new System.Windows.Forms.Label();
+            this.grpTransConEntregar = new System.Windows.Forms.GroupBox();
+            this.txtEntCan6 = new System.Windows.Forms.TextBox();
+            this.txtEntCan5 = new System.Windows.Forms.TextBox();
+            this.txtEntCan4 = new System.Windows.Forms.TextBox();
+            this.txtEntCan3 = new System.Windows.Forms.TextBox();
+            this.txtEntCan2 = new System.Windows.Forms.TextBox();
+            this.txtEntCan1 = new System.Windows.Forms.TextBox();
+            this.lblEntregar8 = new System.Windows.Forms.Label();
+            this.lblEntregar7 = new System.Windows.Forms.Label();
+            this.txtEntregarTotal = new System.Windows.Forms.TextBox();
+            this.txtEntregar7 = new System.Windows.Forms.TextBox();
+            this.lblEntregar6 = new System.Windows.Forms.Label();
+            this.lblEntregar5 = new System.Windows.Forms.Label();
+            this.lblEntregar4 = new System.Windows.Forms.Label();
+            this.lblEntregar3 = new System.Windows.Forms.Label();
+            this.lblEntregar2 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.lblTranConEntDivisa = new System.Windows.Forms.Label();
+            this.lblEntregar1 = new System.Windows.Forms.Label();
+            this.txtEntregar6 = new System.Windows.Forms.TextBox();
+            this.txtEntregar5 = new System.Windows.Forms.TextBox();
+            this.txtEntregar4 = new System.Windows.Forms.TextBox();
+            this.txtEntregar3 = new System.Windows.Forms.TextBox();
+            this.txtEntregar2 = new System.Windows.Forms.TextBox();
+            this.txtEntregar1 = new System.Windows.Forms.TextBox();
+            this.grpTranConTC = new System.Windows.Forms.GroupBox();
+            this.lblTranConEntregar = new System.Windows.Forms.Label();
+            this.lblTranConTC = new System.Windows.Forms.Label();
+            this.lblTranConRecibidos = new System.Windows.Forms.Label();
+            this.txtTranConEntregar = new System.Windows.Forms.TextBox();
+            this.txtTranConTC = new System.Windows.Forms.TextBox();
+            this.txtTranConRecibidos = new System.Windows.Forms.TextBox();
+            this.lblTransCon = new System.Windows.Forms.Label();
+            this.grpTransConRecibidos = new System.Windows.Forms.GroupBox();
+            this.txtRecCan6 = new System.Windows.Forms.TextBox();
+            this.txtRecCan5 = new System.Windows.Forms.TextBox();
+            this.txtRecCan4 = new System.Windows.Forms.TextBox();
+            this.txtRecCan3 = new System.Windows.Forms.TextBox();
+            this.txtRecCan2 = new System.Windows.Forms.TextBox();
+            this.txtRecCan1 = new System.Windows.Forms.TextBox();
+            this.lblRecibido8 = new System.Windows.Forms.Label();
+            this.lblRecibido7 = new System.Windows.Forms.Label();
+            this.txtRecibidosTotal = new System.Windows.Forms.TextBox();
+            this.txtRecibidos7 = new System.Windows.Forms.TextBox();
+            this.lblRecibido6 = new System.Windows.Forms.Label();
+            this.lblRecibido5 = new System.Windows.Forms.Label();
+            this.lblRecibido4 = new System.Windows.Forms.Label();
+            this.lblRecibido3 = new System.Windows.Forms.Label();
+            this.lblRecibido2 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblTranConRecDivisa = new System.Windows.Forms.Label();
+            this.lblRecibido1 = new System.Windows.Forms.Label();
+            this.txtRecibidos6 = new System.Windows.Forms.TextBox();
+            this.txtRecibidos5 = new System.Windows.Forms.TextBox();
+            this.txtRecibidos4 = new System.Windows.Forms.TextBox();
+            this.txtRecibidos3 = new System.Windows.Forms.TextBox();
+            this.txtRecibidos2 = new System.Windows.Forms.TextBox();
+            this.txtRecibidos1 = new System.Windows.Forms.TextBox();
+            this.pnlTranConContinuar2 = new System.Windows.Forms.Panel();
+            this.btnTranConRegresar2 = new System.Windows.Forms.Button();
+            this.btnTranConEspecial = new System.Windows.Forms.Button();
+            this.btnTranConNo2 = new System.Windows.Forms.Button();
+            this.btnTranConSi2 = new System.Windows.Forms.Button();
+            this.lblTranConContinuar2 = new System.Windows.Forms.Label();
             this.pnlMenu.SuspendLayout();
             this.pnlElegirDes.SuspendLayout();
             this.pnlTransaccionSin.SuspendLayout();
@@ -125,6 +201,12 @@ namespace PJ_CAJA_2
             this.grpDolares.SuspendLayout();
             this.grpPesos.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.pnlTransaccionCon.SuspendLayout();
+            this.pnlTranConContinuar1.SuspendLayout();
+            this.grpTransConEntregar.SuspendLayout();
+            this.grpTranConTC.SuspendLayout();
+            this.grpTransConRecibidos.SuspendLayout();
+            this.pnlTranConContinuar2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnVenta
@@ -185,7 +267,7 @@ namespace PJ_CAJA_2
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(62, 66);
+            this.lblUsuario.Location = new System.Drawing.Point(113, 66);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(86, 25);
             this.lblUsuario.TabIndex = 5;
@@ -194,7 +276,7 @@ namespace PJ_CAJA_2
             // lblHora
             // 
             this.lblHora.AutoSize = true;
-            this.lblHora.Location = new System.Drawing.Point(786, 66);
+            this.lblHora.Location = new System.Drawing.Point(905, 66);
             this.lblHora.Name = "lblHora";
             this.lblHora.Size = new System.Drawing.Size(102, 25);
             this.lblHora.TabIndex = 6;
@@ -293,6 +375,7 @@ namespace PJ_CAJA_2
             this.btnConDes.TabIndex = 0;
             this.btnConDes.Text = "CON DESGLOCE";
             this.btnConDes.UseVisualStyleBackColor = true;
+            this.btnConDes.Click += new System.EventHandler(this.btnConDes_Click);
             // 
             // pnlTransaccionSin
             // 
@@ -488,7 +571,7 @@ namespace PJ_CAJA_2
             // lblFecha
             // 
             this.lblFecha.AutoSize = true;
-            this.lblFecha.Location = new System.Drawing.Point(691, 66);
+            this.lblFecha.Location = new System.Drawing.Point(810, 66);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(96, 25);
             this.lblFecha.TabIndex = 13;
@@ -572,7 +655,7 @@ namespace PJ_CAJA_2
             this.btnCancelarSum.Location = new System.Drawing.Point(358, 270);
             this.btnCancelarSum.Name = "btnCancelarSum";
             this.btnCancelarSum.Size = new System.Drawing.Size(106, 46);
-            this.btnCancelarSum.TabIndex = 29;
+            this.btnCancelarSum.TabIndex = 28;
             this.btnCancelarSum.Text = "Cancelar";
             this.btnCancelarSum.UseVisualStyleBackColor = true;
             this.btnCancelarSum.Click += new System.EventHandler(this.btnCancelarSum_Click);
@@ -582,7 +665,7 @@ namespace PJ_CAJA_2
             this.btnAceptarSum.Location = new System.Drawing.Point(358, 220);
             this.btnAceptarSum.Name = "btnAceptarSum";
             this.btnAceptarSum.Size = new System.Drawing.Size(106, 44);
-            this.btnAceptarSum.TabIndex = 28;
+            this.btnAceptarSum.TabIndex = 27;
             this.btnAceptarSum.Text = "Aceptar";
             this.btnAceptarSum.UseVisualStyleBackColor = true;
             this.btnAceptarSum.Click += new System.EventHandler(this.btnAceptarSum_Click);
@@ -592,7 +675,7 @@ namespace PJ_CAJA_2
             this.btnImprimirSum.Location = new System.Drawing.Point(358, 46);
             this.btnImprimirSum.Name = "btnImprimirSum";
             this.btnImprimirSum.Size = new System.Drawing.Size(106, 44);
-            this.btnImprimirSum.TabIndex = 27;
+            this.btnImprimirSum.TabIndex = 29;
             this.btnImprimirSum.Text = "Imprimir";
             this.btnImprimirSum.UseVisualStyleBackColor = true;
             this.btnImprimirSum.Click += new System.EventHandler(this.btnImprimirSum_Click);
@@ -604,7 +687,8 @@ namespace PJ_CAJA_2
             this.txtSumaTotal.Location = new System.Drawing.Point(137, 275);
             this.txtSumaTotal.Name = "txtSumaTotal";
             this.txtSumaTotal.Size = new System.Drawing.Size(199, 31);
-            this.txtSumaTotal.TabIndex = 26;
+            this.txtSumaTotal.TabIndex = 80;
+            this.txtSumaTotal.TabStop = false;
             this.txtSumaTotal.Text = "00.00";
             this.txtSumaTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -998,6 +1082,7 @@ namespace PJ_CAJA_2
             // groupBox1
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox1.Controls.Add(this.pnlTransaccionCon);
             this.groupBox1.Controls.Add(this.pnlTransaccionSin);
             this.groupBox1.Controls.Add(this.pnlEntSal);
             this.groupBox1.Controls.Add(this.lblUsuario);
@@ -1007,17 +1092,807 @@ namespace PJ_CAJA_2
             this.groupBox1.Controls.Add(this.pnlMenu);
             this.groupBox1.Controls.Add(this.pnlConSinFin);
             this.groupBox1.Controls.Add(this.lblFecha);
-            this.groupBox1.Location = new System.Drawing.Point(272, 43);
+            this.groupBox1.Location = new System.Drawing.Point(288, 65);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1090, 677);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
             // 
+            // pnlTransaccionCon
+            // 
+            this.pnlTransaccionCon.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlTransaccionCon.Controls.Add(this.pnlTranConContinuar2);
+            this.pnlTransaccionCon.Controls.Add(this.btnTranConCancelar);
+            this.pnlTransaccionCon.Controls.Add(this.pnlTranConContinuar1);
+            this.pnlTransaccionCon.Controls.Add(this.lblNumFolio);
+            this.pnlTransaccionCon.Controls.Add(this.lblTranConFolio);
+            this.pnlTransaccionCon.Controls.Add(this.grpTransConEntregar);
+            this.pnlTransaccionCon.Controls.Add(this.grpTranConTC);
+            this.pnlTransaccionCon.Controls.Add(this.lblTransCon);
+            this.pnlTransaccionCon.Controls.Add(this.grpTransConRecibidos);
+            this.pnlTransaccionCon.Location = new System.Drawing.Point(11, 94);
+            this.pnlTransaccionCon.Name = "pnlTransaccionCon";
+            this.pnlTransaccionCon.Size = new System.Drawing.Size(1073, 538);
+            this.pnlTransaccionCon.TabIndex = 21;
+            this.pnlTransaccionCon.Visible = false;
+            // 
+            // btnTranConCancelar
+            // 
+            this.btnTranConCancelar.Location = new System.Drawing.Point(288, 18);
+            this.btnTranConCancelar.Name = "btnTranConCancelar";
+            this.btnTranConCancelar.Size = new System.Drawing.Size(112, 34);
+            this.btnTranConCancelar.TabIndex = 31;
+            this.btnTranConCancelar.Text = "Cancelar";
+            this.btnTranConCancelar.UseVisualStyleBackColor = true;
+            this.btnTranConCancelar.Click += new System.EventHandler(this.btnTranConCancelar_Click);
+            // 
+            // pnlTranConContinuar1
+            // 
+            this.pnlTranConContinuar1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlTranConContinuar1.Controls.Add(this.btnTranConImprimir1);
+            this.pnlTranConContinuar1.Controls.Add(this.btnTranConRegresar1);
+            this.pnlTranConContinuar1.Controls.Add(this.btnTranConNo1);
+            this.pnlTranConContinuar1.Controls.Add(this.btnTranConSi1);
+            this.pnlTranConContinuar1.Controls.Add(this.lblTranConContinuar1);
+            this.pnlTranConContinuar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlTranConContinuar1.Location = new System.Drawing.Point(420, 320);
+            this.pnlTranConContinuar1.Name = "pnlTranConContinuar1";
+            this.pnlTranConContinuar1.Size = new System.Drawing.Size(172, 198);
+            this.pnlTranConContinuar1.TabIndex = 27;
+            this.pnlTranConContinuar1.Visible = false;
+            // 
+            // btnTranConImprimir1
+            // 
+            this.btnTranConImprimir1.Location = new System.Drawing.Point(22, 158);
+            this.btnTranConImprimir1.Margin = new System.Windows.Forms.Padding(6);
+            this.btnTranConImprimir1.Name = "btnTranConImprimir1";
+            this.btnTranConImprimir1.Size = new System.Drawing.Size(127, 33);
+            this.btnTranConImprimir1.TabIndex = 34;
+            this.btnTranConImprimir1.Text = "IMPRIMIR";
+            this.btnTranConImprimir1.UseVisualStyleBackColor = true;
+            this.btnTranConImprimir1.Click += new System.EventHandler(this.btnTranConImprimir1_Click);
+            // 
+            // btnTranConRegresar1
+            // 
+            this.btnTranConRegresar1.Location = new System.Drawing.Point(22, 119);
+            this.btnTranConRegresar1.Margin = new System.Windows.Forms.Padding(6);
+            this.btnTranConRegresar1.Name = "btnTranConRegresar1";
+            this.btnTranConRegresar1.Size = new System.Drawing.Size(127, 33);
+            this.btnTranConRegresar1.TabIndex = 33;
+            this.btnTranConRegresar1.Text = "REGRESAR";
+            this.btnTranConRegresar1.UseVisualStyleBackColor = true;
+            this.btnTranConRegresar1.Click += new System.EventHandler(this.btnTranConRegresar1_Click);
+            // 
+            // btnTranConNo1
+            // 
+            this.btnTranConNo1.Location = new System.Drawing.Point(22, 79);
+            this.btnTranConNo1.Margin = new System.Windows.Forms.Padding(6);
+            this.btnTranConNo1.Name = "btnTranConNo1";
+            this.btnTranConNo1.Size = new System.Drawing.Size(127, 33);
+            this.btnTranConNo1.TabIndex = 32;
+            this.btnTranConNo1.Text = "NO";
+            this.btnTranConNo1.UseVisualStyleBackColor = true;
+            this.btnTranConNo1.Click += new System.EventHandler(this.btnTranConNo1_Click);
+            // 
+            // btnTranConSi1
+            // 
+            this.btnTranConSi1.Location = new System.Drawing.Point(22, 40);
+            this.btnTranConSi1.Margin = new System.Windows.Forms.Padding(6);
+            this.btnTranConSi1.Name = "btnTranConSi1";
+            this.btnTranConSi1.Size = new System.Drawing.Size(127, 33);
+            this.btnTranConSi1.TabIndex = 31;
+            this.btnTranConSi1.Text = "SI";
+            this.btnTranConSi1.UseVisualStyleBackColor = true;
+            this.btnTranConSi1.Click += new System.EventHandler(this.btnTranConSi1_Click);
+            // 
+            // lblTranConContinuar1
+            // 
+            this.lblTranConContinuar1.AutoSize = true;
+            this.lblTranConContinuar1.Location = new System.Drawing.Point(29, 8);
+            this.lblTranConContinuar1.Name = "lblTranConContinuar1";
+            this.lblTranConContinuar1.Size = new System.Drawing.Size(111, 24);
+            this.lblTranConContinuar1.TabIndex = 30;
+            this.lblTranConContinuar1.Text = "¿Continuar?";
+            // 
+            // lblNumFolio
+            // 
+            this.lblNumFolio.AutoSize = true;
+            this.lblNumFolio.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumFolio.Location = new System.Drawing.Point(951, 15);
+            this.lblNumFolio.Name = "lblNumFolio";
+            this.lblNumFolio.Size = new System.Drawing.Size(30, 24);
+            this.lblNumFolio.TabIndex = 27;
+            this.lblNumFolio.Text = "##";
+            // 
+            // lblTranConFolio
+            // 
+            this.lblTranConFolio.AutoSize = true;
+            this.lblTranConFolio.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTranConFolio.Location = new System.Drawing.Point(874, 15);
+            this.lblTranConFolio.Name = "lblTranConFolio";
+            this.lblTranConFolio.Size = new System.Drawing.Size(71, 24);
+            this.lblTranConFolio.TabIndex = 30;
+            this.lblTranConFolio.Text = "FOLIO:";
+            // 
+            // grpTransConEntregar
+            // 
+            this.grpTransConEntregar.Controls.Add(this.txtEntCan6);
+            this.grpTransConEntregar.Controls.Add(this.txtEntCan5);
+            this.grpTransConEntregar.Controls.Add(this.txtEntCan4);
+            this.grpTransConEntregar.Controls.Add(this.txtEntCan3);
+            this.grpTransConEntregar.Controls.Add(this.txtEntCan2);
+            this.grpTransConEntregar.Controls.Add(this.txtEntCan1);
+            this.grpTransConEntregar.Controls.Add(this.lblEntregar8);
+            this.grpTransConEntregar.Controls.Add(this.lblEntregar7);
+            this.grpTransConEntregar.Controls.Add(this.txtEntregarTotal);
+            this.grpTransConEntregar.Controls.Add(this.txtEntregar7);
+            this.grpTransConEntregar.Controls.Add(this.lblEntregar6);
+            this.grpTransConEntregar.Controls.Add(this.lblEntregar5);
+            this.grpTransConEntregar.Controls.Add(this.lblEntregar4);
+            this.grpTransConEntregar.Controls.Add(this.lblEntregar3);
+            this.grpTransConEntregar.Controls.Add(this.lblEntregar2);
+            this.grpTransConEntregar.Controls.Add(this.label23);
+            this.grpTransConEntregar.Controls.Add(this.label24);
+            this.grpTransConEntregar.Controls.Add(this.lblTranConEntDivisa);
+            this.grpTransConEntregar.Controls.Add(this.lblEntregar1);
+            this.grpTransConEntregar.Controls.Add(this.txtEntregar6);
+            this.grpTransConEntregar.Controls.Add(this.txtEntregar5);
+            this.grpTransConEntregar.Controls.Add(this.txtEntregar4);
+            this.grpTransConEntregar.Controls.Add(this.txtEntregar3);
+            this.grpTransConEntregar.Controls.Add(this.txtEntregar2);
+            this.grpTransConEntregar.Controls.Add(this.txtEntregar1);
+            this.grpTransConEntregar.Location = new System.Drawing.Point(657, 55);
+            this.grpTransConEntregar.Name = "grpTransConEntregar";
+            this.grpTransConEntregar.Size = new System.Drawing.Size(413, 463);
+            this.grpTransConEntregar.TabIndex = 27;
+            this.grpTransConEntregar.TabStop = false;
+            this.grpTransConEntregar.Text = "DOLARES A ENTREGAR";
+            this.grpTransConEntregar.Visible = false;
+            // 
+            // txtEntCan6
+            // 
+            this.txtEntCan6.Location = new System.Drawing.Point(309, 302);
+            this.txtEntCan6.Name = "txtEntCan6";
+            this.txtEntCan6.Size = new System.Drawing.Size(67, 31);
+            this.txtEntCan6.TabIndex = 25;
+            this.txtEntCan6.Text = "0";
+            this.txtEntCan6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtEntCan5
+            // 
+            this.txtEntCan5.Location = new System.Drawing.Point(309, 252);
+            this.txtEntCan5.Name = "txtEntCan5";
+            this.txtEntCan5.Size = new System.Drawing.Size(67, 31);
+            this.txtEntCan5.TabIndex = 24;
+            this.txtEntCan5.Text = "0";
+            this.txtEntCan5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtEntCan4
+            // 
+            this.txtEntCan4.Location = new System.Drawing.Point(309, 208);
+            this.txtEntCan4.Name = "txtEntCan4";
+            this.txtEntCan4.Size = new System.Drawing.Size(67, 31);
+            this.txtEntCan4.TabIndex = 23;
+            this.txtEntCan4.Text = "0";
+            this.txtEntCan4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtEntCan3
+            // 
+            this.txtEntCan3.Location = new System.Drawing.Point(309, 162);
+            this.txtEntCan3.Name = "txtEntCan3";
+            this.txtEntCan3.Size = new System.Drawing.Size(67, 31);
+            this.txtEntCan3.TabIndex = 22;
+            this.txtEntCan3.Text = "0";
+            this.txtEntCan3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtEntCan2
+            // 
+            this.txtEntCan2.Location = new System.Drawing.Point(309, 111);
+            this.txtEntCan2.Name = "txtEntCan2";
+            this.txtEntCan2.Size = new System.Drawing.Size(67, 31);
+            this.txtEntCan2.TabIndex = 21;
+            this.txtEntCan2.Text = "0";
+            this.txtEntCan2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtEntCan1
+            // 
+            this.txtEntCan1.Location = new System.Drawing.Point(309, 63);
+            this.txtEntCan1.Name = "txtEntCan1";
+            this.txtEntCan1.Size = new System.Drawing.Size(67, 31);
+            this.txtEntCan1.TabIndex = 20;
+            this.txtEntCan1.Text = "0";
+            this.txtEntCan1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblEntregar8
+            // 
+            this.lblEntregar8.AutoSize = true;
+            this.lblEntregar8.Location = new System.Drawing.Point(19, 399);
+            this.lblEntregar8.Name = "lblEntregar8";
+            this.lblEntregar8.Size = new System.Drawing.Size(134, 25);
+            this.lblEntregar8.TabIndex = 19;
+            this.lblEntregar8.Text = "TOTAL.........";
+            // 
+            // lblEntregar7
+            // 
+            this.lblEntregar7.AutoSize = true;
+            this.lblEntregar7.Location = new System.Drawing.Point(19, 350);
+            this.lblEntregar7.Name = "lblEntregar7";
+            this.lblEntregar7.Size = new System.Drawing.Size(134, 25);
+            this.lblEntregar7.TabIndex = 18;
+            this.lblEntregar7.Text = "MORRALLA.";
+            // 
+            // txtEntregarTotal
+            // 
+            this.txtEntregarTotal.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtEntregarTotal.ForeColor = System.Drawing.Color.DarkRed;
+            this.txtEntregarTotal.Location = new System.Drawing.Point(153, 396);
+            this.txtEntregarTotal.Name = "txtEntregarTotal";
+            this.txtEntregarTotal.Size = new System.Drawing.Size(129, 31);
+            this.txtEntregarTotal.TabIndex = 17;
+            this.txtEntregarTotal.TabStop = false;
+            this.txtEntregarTotal.Text = "00.00";
+            this.txtEntregarTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtEntregar7
+            // 
+            this.txtEntregar7.Location = new System.Drawing.Point(153, 347);
+            this.txtEntregar7.Name = "txtEntregar7";
+            this.txtEntregar7.Size = new System.Drawing.Size(129, 31);
+            this.txtEntregar7.TabIndex = 16;
+            this.txtEntregar7.Text = "00.00";
+            this.txtEntregar7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtEntregar7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEntregar7_KeyPress);
+            // 
+            // lblEntregar6
+            // 
+            this.lblEntregar6.AutoSize = true;
+            this.lblEntregar6.Location = new System.Drawing.Point(19, 305);
+            this.lblEntregar6.Name = "lblEntregar6";
+            this.lblEntregar6.Size = new System.Drawing.Size(132, 25);
+            this.lblEntregar6.TabIndex = 15;
+            this.lblEntregar6.Text = "[   1   ]..........";
+            // 
+            // lblEntregar5
+            // 
+            this.lblEntregar5.AutoSize = true;
+            this.lblEntregar5.Location = new System.Drawing.Point(19, 258);
+            this.lblEntregar5.Name = "lblEntregar5";
+            this.lblEntregar5.Size = new System.Drawing.Size(132, 25);
+            this.lblEntregar5.TabIndex = 14;
+            this.lblEntregar5.Text = "[   5   ]..........";
+            // 
+            // lblEntregar4
+            // 
+            this.lblEntregar4.AutoSize = true;
+            this.lblEntregar4.Location = new System.Drawing.Point(19, 211);
+            this.lblEntregar4.Name = "lblEntregar4";
+            this.lblEntregar4.Size = new System.Drawing.Size(132, 25);
+            this.lblEntregar4.TabIndex = 13;
+            this.lblEntregar4.Text = "[  10  ]..........";
+            // 
+            // lblEntregar3
+            // 
+            this.lblEntregar3.AutoSize = true;
+            this.lblEntregar3.Location = new System.Drawing.Point(19, 165);
+            this.lblEntregar3.Name = "lblEntregar3";
+            this.lblEntregar3.Size = new System.Drawing.Size(132, 25);
+            this.lblEntregar3.TabIndex = 12;
+            this.lblEntregar3.Text = "[  20  ]..........";
+            // 
+            // lblEntregar2
+            // 
+            this.lblEntregar2.AutoSize = true;
+            this.lblEntregar2.Location = new System.Drawing.Point(19, 114);
+            this.lblEntregar2.Name = "lblEntregar2";
+            this.lblEntregar2.Size = new System.Drawing.Size(132, 25);
+            this.lblEntregar2.TabIndex = 11;
+            this.lblEntregar2.Text = "[  50  ]..........";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(294, 36);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(105, 24);
+            this.label23.TabIndex = 10;
+            this.label23.Text = "CANTIDAD";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(281, 34);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(14, 24);
+            this.label24.TabIndex = 9;
+            this.label24.Text = "|";
+            // 
+            // lblTranConEntDivisa
+            // 
+            this.lblTranConEntDivisa.AutoSize = true;
+            this.lblTranConEntDivisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTranConEntDivisa.Location = new System.Drawing.Point(167, 36);
+            this.lblTranConEntDivisa.Name = "lblTranConEntDivisa";
+            this.lblTranConEntDivisa.Size = new System.Drawing.Size(99, 24);
+            this.lblTranConEntDivisa.TabIndex = 8;
+            this.lblTranConEntDivisa.Text = "DOLARES";
+            // 
+            // lblEntregar1
+            // 
+            this.lblEntregar1.AutoSize = true;
+            this.lblEntregar1.Location = new System.Drawing.Point(19, 66);
+            this.lblEntregar1.Name = "lblEntregar1";
+            this.lblEntregar1.Size = new System.Drawing.Size(132, 25);
+            this.lblEntregar1.TabIndex = 7;
+            this.lblEntregar1.Text = "[ 100 ]..........";
+            // 
+            // txtEntregar6
+            // 
+            this.txtEntregar6.Location = new System.Drawing.Point(153, 302);
+            this.txtEntregar6.Name = "txtEntregar6";
+            this.txtEntregar6.Size = new System.Drawing.Size(129, 31);
+            this.txtEntregar6.TabIndex = 6;
+            this.txtEntregar6.Text = "00";
+            this.txtEntregar6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtEntregar5
+            // 
+            this.txtEntregar5.Location = new System.Drawing.Point(153, 255);
+            this.txtEntregar5.Name = "txtEntregar5";
+            this.txtEntregar5.Size = new System.Drawing.Size(129, 31);
+            this.txtEntregar5.TabIndex = 5;
+            this.txtEntregar5.Text = "00";
+            this.txtEntregar5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtEntregar4
+            // 
+            this.txtEntregar4.Location = new System.Drawing.Point(153, 208);
+            this.txtEntregar4.Name = "txtEntregar4";
+            this.txtEntregar4.Size = new System.Drawing.Size(129, 31);
+            this.txtEntregar4.TabIndex = 4;
+            this.txtEntregar4.Text = "00";
+            this.txtEntregar4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtEntregar3
+            // 
+            this.txtEntregar3.Location = new System.Drawing.Point(153, 160);
+            this.txtEntregar3.Name = "txtEntregar3";
+            this.txtEntregar3.Size = new System.Drawing.Size(129, 31);
+            this.txtEntregar3.TabIndex = 3;
+            this.txtEntregar3.Text = "00";
+            this.txtEntregar3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtEntregar2
+            // 
+            this.txtEntregar2.Location = new System.Drawing.Point(153, 111);
+            this.txtEntregar2.Name = "txtEntregar2";
+            this.txtEntregar2.Size = new System.Drawing.Size(129, 31);
+            this.txtEntregar2.TabIndex = 2;
+            this.txtEntregar2.Text = "00";
+            this.txtEntregar2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtEntregar1
+            // 
+            this.txtEntregar1.Location = new System.Drawing.Point(153, 63);
+            this.txtEntregar1.Name = "txtEntregar1";
+            this.txtEntregar1.Size = new System.Drawing.Size(129, 31);
+            this.txtEntregar1.TabIndex = 1;
+            this.txtEntregar1.Text = "00";
+            this.txtEntregar1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // grpTranConTC
+            // 
+            this.grpTranConTC.Controls.Add(this.lblTranConEntregar);
+            this.grpTranConTC.Controls.Add(this.lblTranConTC);
+            this.grpTranConTC.Controls.Add(this.lblTranConRecibidos);
+            this.grpTranConTC.Controls.Add(this.txtTranConEntregar);
+            this.grpTranConTC.Controls.Add(this.txtTranConTC);
+            this.grpTranConTC.Controls.Add(this.txtTranConRecibidos);
+            this.grpTranConTC.Location = new System.Drawing.Point(422, 55);
+            this.grpTranConTC.Name = "grpTranConTC";
+            this.grpTranConTC.Size = new System.Drawing.Size(229, 229);
+            this.grpTranConTC.TabIndex = 28;
+            this.grpTranConTC.TabStop = false;
+            this.grpTranConTC.Visible = false;
+            // 
+            // lblTranConEntregar
+            // 
+            this.lblTranConEntregar.AutoSize = true;
+            this.lblTranConEntregar.Location = new System.Drawing.Point(5, 154);
+            this.lblTranConEntregar.Name = "lblTranConEntregar";
+            this.lblTranConEntregar.Size = new System.Drawing.Size(196, 25);
+            this.lblTranConEntregar.TabIndex = 29;
+            this.lblTranConEntregar.Text = "Dolares a entregar:";
+            // 
+            // lblTranConTC
+            // 
+            this.lblTranConTC.AutoSize = true;
+            this.lblTranConTC.Location = new System.Drawing.Point(5, 92);
+            this.lblTranConTC.Name = "lblTranConTC";
+            this.lblTranConTC.Size = new System.Drawing.Size(165, 25);
+            this.lblTranConTC.TabIndex = 28;
+            this.lblTranConTC.Text = "Tipo de cambio:";
+            // 
+            // lblTranConRecibidos
+            // 
+            this.lblTranConRecibidos.AutoSize = true;
+            this.lblTranConRecibidos.Location = new System.Drawing.Point(5, 27);
+            this.lblTranConRecibidos.Name = "lblTranConRecibidos";
+            this.lblTranConRecibidos.Size = new System.Drawing.Size(171, 25);
+            this.lblTranConRecibidos.TabIndex = 27;
+            this.lblTranConRecibidos.Text = "Pesos recibidos:";
+            // 
+            // txtTranConEntregar
+            // 
+            this.txtTranConEntregar.Location = new System.Drawing.Point(65, 182);
+            this.txtTranConEntregar.Name = "txtTranConEntregar";
+            this.txtTranConEntregar.Size = new System.Drawing.Size(156, 31);
+            this.txtTranConEntregar.TabIndex = 4;
+            // 
+            // txtTranConTC
+            // 
+            this.txtTranConTC.Location = new System.Drawing.Point(65, 120);
+            this.txtTranConTC.Name = "txtTranConTC";
+            this.txtTranConTC.Size = new System.Drawing.Size(156, 31);
+            this.txtTranConTC.TabIndex = 3;
+            // 
+            // txtTranConRecibidos
+            // 
+            this.txtTranConRecibidos.Location = new System.Drawing.Point(65, 55);
+            this.txtTranConRecibidos.Name = "txtTranConRecibidos";
+            this.txtTranConRecibidos.Size = new System.Drawing.Size(158, 31);
+            this.txtTranConRecibidos.TabIndex = 2;
+            // 
+            // lblTransCon
+            // 
+            this.lblTransCon.AutoSize = true;
+            this.lblTransCon.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTransCon.Location = new System.Drawing.Point(428, 15);
+            this.lblTransCon.Name = "lblTransCon";
+            this.lblTransCon.Size = new System.Drawing.Size(228, 37);
+            this.lblTransCon.TabIndex = 1;
+            this.lblTransCon.Text = "*#* VENTA *#*";
+            // 
+            // grpTransConRecibidos
+            // 
+            this.grpTransConRecibidos.Controls.Add(this.txtRecCan6);
+            this.grpTransConRecibidos.Controls.Add(this.txtRecCan5);
+            this.grpTransConRecibidos.Controls.Add(this.txtRecCan4);
+            this.grpTransConRecibidos.Controls.Add(this.txtRecCan3);
+            this.grpTransConRecibidos.Controls.Add(this.txtRecCan2);
+            this.grpTransConRecibidos.Controls.Add(this.txtRecCan1);
+            this.grpTransConRecibidos.Controls.Add(this.lblRecibido8);
+            this.grpTransConRecibidos.Controls.Add(this.lblRecibido7);
+            this.grpTransConRecibidos.Controls.Add(this.txtRecibidosTotal);
+            this.grpTransConRecibidos.Controls.Add(this.txtRecibidos7);
+            this.grpTransConRecibidos.Controls.Add(this.lblRecibido6);
+            this.grpTransConRecibidos.Controls.Add(this.lblRecibido5);
+            this.grpTransConRecibidos.Controls.Add(this.lblRecibido4);
+            this.grpTransConRecibidos.Controls.Add(this.lblRecibido3);
+            this.grpTransConRecibidos.Controls.Add(this.lblRecibido2);
+            this.grpTransConRecibidos.Controls.Add(this.label8);
+            this.grpTransConRecibidos.Controls.Add(this.label7);
+            this.grpTransConRecibidos.Controls.Add(this.lblTranConRecDivisa);
+            this.grpTransConRecibidos.Controls.Add(this.lblRecibido1);
+            this.grpTransConRecibidos.Controls.Add(this.txtRecibidos6);
+            this.grpTransConRecibidos.Controls.Add(this.txtRecibidos5);
+            this.grpTransConRecibidos.Controls.Add(this.txtRecibidos4);
+            this.grpTransConRecibidos.Controls.Add(this.txtRecibidos3);
+            this.grpTransConRecibidos.Controls.Add(this.txtRecibidos2);
+            this.grpTransConRecibidos.Controls.Add(this.txtRecibidos1);
+            this.grpTransConRecibidos.Location = new System.Drawing.Point(3, 55);
+            this.grpTransConRecibidos.Name = "grpTransConRecibidos";
+            this.grpTransConRecibidos.Size = new System.Drawing.Size(413, 463);
+            this.grpTransConRecibidos.TabIndex = 0;
+            this.grpTransConRecibidos.TabStop = false;
+            this.grpTransConRecibidos.Text = "PESOS RECIBIDOS";
+            // 
+            // txtRecCan6
+            // 
+            this.txtRecCan6.Location = new System.Drawing.Point(309, 302);
+            this.txtRecCan6.Name = "txtRecCan6";
+            this.txtRecCan6.Size = new System.Drawing.Size(67, 31);
+            this.txtRecCan6.TabIndex = 25;
+            this.txtRecCan6.Text = "0";
+            this.txtRecCan6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtRecCan5
+            // 
+            this.txtRecCan5.Location = new System.Drawing.Point(309, 252);
+            this.txtRecCan5.Name = "txtRecCan5";
+            this.txtRecCan5.Size = new System.Drawing.Size(67, 31);
+            this.txtRecCan5.TabIndex = 24;
+            this.txtRecCan5.Text = "0";
+            this.txtRecCan5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtRecCan4
+            // 
+            this.txtRecCan4.Location = new System.Drawing.Point(309, 208);
+            this.txtRecCan4.Name = "txtRecCan4";
+            this.txtRecCan4.Size = new System.Drawing.Size(67, 31);
+            this.txtRecCan4.TabIndex = 23;
+            this.txtRecCan4.Text = "0";
+            this.txtRecCan4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtRecCan3
+            // 
+            this.txtRecCan3.Location = new System.Drawing.Point(309, 162);
+            this.txtRecCan3.Name = "txtRecCan3";
+            this.txtRecCan3.Size = new System.Drawing.Size(67, 31);
+            this.txtRecCan3.TabIndex = 22;
+            this.txtRecCan3.Text = "0";
+            this.txtRecCan3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtRecCan2
+            // 
+            this.txtRecCan2.Location = new System.Drawing.Point(309, 111);
+            this.txtRecCan2.Name = "txtRecCan2";
+            this.txtRecCan2.Size = new System.Drawing.Size(67, 31);
+            this.txtRecCan2.TabIndex = 21;
+            this.txtRecCan2.Text = "0";
+            this.txtRecCan2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtRecCan1
+            // 
+            this.txtRecCan1.Location = new System.Drawing.Point(309, 63);
+            this.txtRecCan1.Name = "txtRecCan1";
+            this.txtRecCan1.Size = new System.Drawing.Size(67, 31);
+            this.txtRecCan1.TabIndex = 20;
+            this.txtRecCan1.Text = "0";
+            this.txtRecCan1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblRecibido8
+            // 
+            this.lblRecibido8.AutoSize = true;
+            this.lblRecibido8.Location = new System.Drawing.Point(19, 399);
+            this.lblRecibido8.Name = "lblRecibido8";
+            this.lblRecibido8.Size = new System.Drawing.Size(134, 25);
+            this.lblRecibido8.TabIndex = 19;
+            this.lblRecibido8.Text = "TOTAL.........";
+            // 
+            // lblRecibido7
+            // 
+            this.lblRecibido7.AutoSize = true;
+            this.lblRecibido7.Location = new System.Drawing.Point(19, 350);
+            this.lblRecibido7.Name = "lblRecibido7";
+            this.lblRecibido7.Size = new System.Drawing.Size(134, 25);
+            this.lblRecibido7.TabIndex = 18;
+            this.lblRecibido7.Text = "MORRALLA.";
+            // 
+            // txtRecibidosTotal
+            // 
+            this.txtRecibidosTotal.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtRecibidosTotal.ForeColor = System.Drawing.Color.DarkRed;
+            this.txtRecibidosTotal.Location = new System.Drawing.Point(153, 396);
+            this.txtRecibidosTotal.Name = "txtRecibidosTotal";
+            this.txtRecibidosTotal.Size = new System.Drawing.Size(129, 31);
+            this.txtRecibidosTotal.TabIndex = 17;
+            this.txtRecibidosTotal.TabStop = false;
+            this.txtRecibidosTotal.Text = "00.00";
+            this.txtRecibidosTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtRecibidos7
+            // 
+            this.txtRecibidos7.Location = new System.Drawing.Point(153, 347);
+            this.txtRecibidos7.Name = "txtRecibidos7";
+            this.txtRecibidos7.Size = new System.Drawing.Size(129, 31);
+            this.txtRecibidos7.TabIndex = 16;
+            this.txtRecibidos7.Text = "00.00";
+            this.txtRecibidos7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // lblRecibido6
+            // 
+            this.lblRecibido6.AutoSize = true;
+            this.lblRecibido6.Location = new System.Drawing.Point(19, 305);
+            this.lblRecibido6.Name = "lblRecibido6";
+            this.lblRecibido6.Size = new System.Drawing.Size(132, 25);
+            this.lblRecibido6.TabIndex = 15;
+            this.lblRecibido6.Text = "[  20  ]..........";
+            // 
+            // lblRecibido5
+            // 
+            this.lblRecibido5.AutoSize = true;
+            this.lblRecibido5.Location = new System.Drawing.Point(19, 258);
+            this.lblRecibido5.Name = "lblRecibido5";
+            this.lblRecibido5.Size = new System.Drawing.Size(132, 25);
+            this.lblRecibido5.TabIndex = 14;
+            this.lblRecibido5.Text = "[  50  ]..........";
+            // 
+            // lblRecibido4
+            // 
+            this.lblRecibido4.AutoSize = true;
+            this.lblRecibido4.Location = new System.Drawing.Point(19, 211);
+            this.lblRecibido4.Name = "lblRecibido4";
+            this.lblRecibido4.Size = new System.Drawing.Size(132, 25);
+            this.lblRecibido4.TabIndex = 13;
+            this.lblRecibido4.Text = "[ 100 ]..........";
+            // 
+            // lblRecibido3
+            // 
+            this.lblRecibido3.AutoSize = true;
+            this.lblRecibido3.Location = new System.Drawing.Point(19, 165);
+            this.lblRecibido3.Name = "lblRecibido3";
+            this.lblRecibido3.Size = new System.Drawing.Size(132, 25);
+            this.lblRecibido3.TabIndex = 12;
+            this.lblRecibido3.Text = "[ 200 ]..........";
+            // 
+            // lblRecibido2
+            // 
+            this.lblRecibido2.AutoSize = true;
+            this.lblRecibido2.Location = new System.Drawing.Point(19, 114);
+            this.lblRecibido2.Name = "lblRecibido2";
+            this.lblRecibido2.Size = new System.Drawing.Size(132, 25);
+            this.lblRecibido2.TabIndex = 11;
+            this.lblRecibido2.Text = "[ 500 ]..........";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(294, 36);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(105, 24);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "CANTIDAD";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(281, 34);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(14, 24);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "|";
+            // 
+            // lblTranConRecDivisa
+            // 
+            this.lblTranConRecDivisa.AutoSize = true;
+            this.lblTranConRecDivisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTranConRecDivisa.Location = new System.Drawing.Point(179, 36);
+            this.lblTranConRecDivisa.Name = "lblTranConRecDivisa";
+            this.lblTranConRecDivisa.Size = new System.Drawing.Size(74, 24);
+            this.lblTranConRecDivisa.TabIndex = 8;
+            this.lblTranConRecDivisa.Text = "PESOS";
+            // 
+            // lblRecibido1
+            // 
+            this.lblRecibido1.AutoSize = true;
+            this.lblRecibido1.Location = new System.Drawing.Point(19, 66);
+            this.lblRecibido1.Name = "lblRecibido1";
+            this.lblRecibido1.Size = new System.Drawing.Size(132, 25);
+            this.lblRecibido1.TabIndex = 7;
+            this.lblRecibido1.Text = "[1000]..........";
+            // 
+            // txtRecibidos6
+            // 
+            this.txtRecibidos6.Location = new System.Drawing.Point(153, 302);
+            this.txtRecibidos6.Name = "txtRecibidos6";
+            this.txtRecibidos6.Size = new System.Drawing.Size(129, 31);
+            this.txtRecibidos6.TabIndex = 6;
+            this.txtRecibidos6.Text = "00";
+            this.txtRecibidos6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtRecibidos6.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRecibidos6_KeyDown);
+            // 
+            // txtRecibidos5
+            // 
+            this.txtRecibidos5.Location = new System.Drawing.Point(153, 255);
+            this.txtRecibidos5.Name = "txtRecibidos5";
+            this.txtRecibidos5.Size = new System.Drawing.Size(129, 31);
+            this.txtRecibidos5.TabIndex = 5;
+            this.txtRecibidos5.Text = "00";
+            this.txtRecibidos5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtRecibidos4
+            // 
+            this.txtRecibidos4.Location = new System.Drawing.Point(153, 208);
+            this.txtRecibidos4.Name = "txtRecibidos4";
+            this.txtRecibidos4.Size = new System.Drawing.Size(129, 31);
+            this.txtRecibidos4.TabIndex = 4;
+            this.txtRecibidos4.Text = "00";
+            this.txtRecibidos4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtRecibidos3
+            // 
+            this.txtRecibidos3.Location = new System.Drawing.Point(153, 160);
+            this.txtRecibidos3.Name = "txtRecibidos3";
+            this.txtRecibidos3.Size = new System.Drawing.Size(129, 31);
+            this.txtRecibidos3.TabIndex = 3;
+            this.txtRecibidos3.Text = "00";
+            this.txtRecibidos3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtRecibidos2
+            // 
+            this.txtRecibidos2.Location = new System.Drawing.Point(153, 111);
+            this.txtRecibidos2.Name = "txtRecibidos2";
+            this.txtRecibidos2.Size = new System.Drawing.Size(129, 31);
+            this.txtRecibidos2.TabIndex = 2;
+            this.txtRecibidos2.Text = "00";
+            this.txtRecibidos2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtRecibidos1
+            // 
+            this.txtRecibidos1.Location = new System.Drawing.Point(153, 63);
+            this.txtRecibidos1.Name = "txtRecibidos1";
+            this.txtRecibidos1.Size = new System.Drawing.Size(129, 31);
+            this.txtRecibidos1.TabIndex = 1;
+            this.txtRecibidos1.Text = "00";
+            this.txtRecibidos1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // pnlTranConContinuar2
+            // 
+            this.pnlTranConContinuar2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlTranConContinuar2.Controls.Add(this.btnTranConRegresar2);
+            this.pnlTranConContinuar2.Controls.Add(this.btnTranConEspecial);
+            this.pnlTranConContinuar2.Controls.Add(this.btnTranConNo2);
+            this.pnlTranConContinuar2.Controls.Add(this.btnTranConSi2);
+            this.pnlTranConContinuar2.Controls.Add(this.lblTranConContinuar2);
+            this.pnlTranConContinuar2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlTranConContinuar2.Location = new System.Drawing.Point(658, 198);
+            this.pnlTranConContinuar2.Name = "pnlTranConContinuar2";
+            this.pnlTranConContinuar2.Size = new System.Drawing.Size(172, 198);
+            this.pnlTranConContinuar2.TabIndex = 35;
+            this.pnlTranConContinuar2.Visible = false;
+            // 
+            // btnTranConRegresar2
+            // 
+            this.btnTranConRegresar2.Location = new System.Drawing.Point(22, 158);
+            this.btnTranConRegresar2.Margin = new System.Windows.Forms.Padding(6);
+            this.btnTranConRegresar2.Name = "btnTranConRegresar2";
+            this.btnTranConRegresar2.Size = new System.Drawing.Size(127, 33);
+            this.btnTranConRegresar2.TabIndex = 34;
+            this.btnTranConRegresar2.Text = "REGRESAR";
+            this.btnTranConRegresar2.UseVisualStyleBackColor = true;
+            this.btnTranConRegresar2.Click += new System.EventHandler(this.btnTranConRegresar2_Click);
+            // 
+            // btnTranConEspecial
+            // 
+            this.btnTranConEspecial.Location = new System.Drawing.Point(22, 119);
+            this.btnTranConEspecial.Margin = new System.Windows.Forms.Padding(6);
+            this.btnTranConEspecial.Name = "btnTranConEspecial";
+            this.btnTranConEspecial.Size = new System.Drawing.Size(127, 33);
+            this.btnTranConEspecial.TabIndex = 33;
+            this.btnTranConEspecial.Text = "ESPECIAL";
+            this.btnTranConEspecial.UseVisualStyleBackColor = true;
+            this.btnTranConEspecial.Click += new System.EventHandler(this.btnTranConEspecial_Click);
+            // 
+            // btnTranConNo2
+            // 
+            this.btnTranConNo2.Location = new System.Drawing.Point(22, 79);
+            this.btnTranConNo2.Margin = new System.Windows.Forms.Padding(6);
+            this.btnTranConNo2.Name = "btnTranConNo2";
+            this.btnTranConNo2.Size = new System.Drawing.Size(127, 33);
+            this.btnTranConNo2.TabIndex = 32;
+            this.btnTranConNo2.Text = "NO";
+            this.btnTranConNo2.UseVisualStyleBackColor = true;
+            this.btnTranConNo2.Click += new System.EventHandler(this.btnTranConNo2_Click);
+            // 
+            // btnTranConSi2
+            // 
+            this.btnTranConSi2.Location = new System.Drawing.Point(22, 40);
+            this.btnTranConSi2.Margin = new System.Windows.Forms.Padding(6);
+            this.btnTranConSi2.Name = "btnTranConSi2";
+            this.btnTranConSi2.Size = new System.Drawing.Size(127, 33);
+            this.btnTranConSi2.TabIndex = 31;
+            this.btnTranConSi2.Text = "SI";
+            this.btnTranConSi2.UseVisualStyleBackColor = true;
+            this.btnTranConSi2.Click += new System.EventHandler(this.btnTranConSi2_Click);
+            // 
+            // lblTranConContinuar2
+            // 
+            this.lblTranConContinuar2.AutoSize = true;
+            this.lblTranConContinuar2.Location = new System.Drawing.Point(29, 8);
+            this.lblTranConContinuar2.Name = "lblTranConContinuar2";
+            this.lblTranConContinuar2.Size = new System.Drawing.Size(111, 24);
+            this.lblTranConContinuar2.TabIndex = 30;
+            this.lblTranConContinuar2.Text = "¿Continuar?";
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1692, 766);
+            this.ClientSize = new System.Drawing.Size(1725, 810);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -1052,6 +1927,18 @@ namespace PJ_CAJA_2
             this.grpPesos.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.pnlTransaccionCon.ResumeLayout(false);
+            this.pnlTransaccionCon.PerformLayout();
+            this.pnlTranConContinuar1.ResumeLayout(false);
+            this.pnlTranConContinuar1.PerformLayout();
+            this.grpTransConEntregar.ResumeLayout(false);
+            this.grpTransConEntregar.PerformLayout();
+            this.grpTranConTC.ResumeLayout(false);
+            this.grpTranConTC.PerformLayout();
+            this.grpTransConRecibidos.ResumeLayout(false);
+            this.grpTransConRecibidos.PerformLayout();
+            this.pnlTranConContinuar2.ResumeLayout(false);
+            this.pnlTranConContinuar2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1141,5 +2028,81 @@ namespace PJ_CAJA_2
         private System.Windows.Forms.Button btnSumP;
         private System.Windows.Forms.Button btSumD;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Panel pnlTransaccionCon;
+        private System.Windows.Forms.Label lblTransCon;
+        private System.Windows.Forms.GroupBox grpTransConRecibidos;
+        private System.Windows.Forms.TextBox txtRecibidos6;
+        private System.Windows.Forms.TextBox txtRecibidos5;
+        private System.Windows.Forms.TextBox txtRecibidos4;
+        private System.Windows.Forms.TextBox txtRecibidos3;
+        private System.Windows.Forms.TextBox txtRecibidos2;
+        private System.Windows.Forms.TextBox txtRecibidos1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblTranConRecDivisa;
+        private System.Windows.Forms.Label lblRecibido1;
+        private System.Windows.Forms.Label lblRecibido6;
+        private System.Windows.Forms.Label lblRecibido5;
+        private System.Windows.Forms.Label lblRecibido4;
+        private System.Windows.Forms.Label lblRecibido3;
+        private System.Windows.Forms.Label lblRecibido2;
+        private System.Windows.Forms.Label lblRecibido8;
+        private System.Windows.Forms.Label lblRecibido7;
+        private System.Windows.Forms.TextBox txtRecibidosTotal;
+        private System.Windows.Forms.TextBox txtRecibidos7;
+        private System.Windows.Forms.TextBox txtRecCan6;
+        private System.Windows.Forms.TextBox txtRecCan5;
+        private System.Windows.Forms.TextBox txtRecCan4;
+        private System.Windows.Forms.TextBox txtRecCan3;
+        private System.Windows.Forms.TextBox txtRecCan2;
+        private System.Windows.Forms.TextBox txtRecCan1;
+        private System.Windows.Forms.GroupBox grpTransConEntregar;
+        private System.Windows.Forms.TextBox txtEntCan6;
+        private System.Windows.Forms.TextBox txtEntCan5;
+        private System.Windows.Forms.TextBox txtEntCan4;
+        private System.Windows.Forms.TextBox txtEntCan3;
+        private System.Windows.Forms.TextBox txtEntCan2;
+        private System.Windows.Forms.TextBox txtEntCan1;
+        private System.Windows.Forms.Label lblEntregar8;
+        private System.Windows.Forms.Label lblEntregar7;
+        private System.Windows.Forms.TextBox txtEntregarTotal;
+        private System.Windows.Forms.TextBox txtEntregar7;
+        private System.Windows.Forms.Label lblEntregar6;
+        private System.Windows.Forms.Label lblEntregar5;
+        private System.Windows.Forms.Label lblEntregar4;
+        private System.Windows.Forms.Label lblEntregar3;
+        private System.Windows.Forms.Label lblEntregar2;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label lblTranConEntDivisa;
+        private System.Windows.Forms.Label lblEntregar1;
+        private System.Windows.Forms.TextBox txtEntregar6;
+        private System.Windows.Forms.TextBox txtEntregar5;
+        private System.Windows.Forms.TextBox txtEntregar4;
+        private System.Windows.Forms.TextBox txtEntregar3;
+        private System.Windows.Forms.TextBox txtEntregar2;
+        private System.Windows.Forms.TextBox txtEntregar1;
+        private System.Windows.Forms.GroupBox grpTranConTC;
+        private System.Windows.Forms.Label lblTranConEntregar;
+        private System.Windows.Forms.Label lblTranConTC;
+        private System.Windows.Forms.Label lblTranConRecibidos;
+        private System.Windows.Forms.TextBox txtTranConEntregar;
+        private System.Windows.Forms.TextBox txtTranConTC;
+        private System.Windows.Forms.TextBox txtTranConRecibidos;
+        private System.Windows.Forms.Label lblNumFolio;
+        private System.Windows.Forms.Label lblTranConFolio;
+        private System.Windows.Forms.Panel pnlTranConContinuar1;
+        private System.Windows.Forms.Button btnTranConRegresar1;
+        private System.Windows.Forms.Button btnTranConNo1;
+        private System.Windows.Forms.Button btnTranConSi1;
+        private System.Windows.Forms.Label lblTranConContinuar1;
+        private System.Windows.Forms.Button btnTranConImprimir1;
+        private System.Windows.Forms.Button btnTranConCancelar;
+        private System.Windows.Forms.Panel pnlTranConContinuar2;
+        private System.Windows.Forms.Button btnTranConRegresar2;
+        private System.Windows.Forms.Button btnTranConEspecial;
+        private System.Windows.Forms.Button btnTranConNo2;
+        private System.Windows.Forms.Button btnTranConSi2;
+        private System.Windows.Forms.Label lblTranConContinuar2;
     }
 }
