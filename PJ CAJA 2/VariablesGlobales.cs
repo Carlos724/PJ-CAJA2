@@ -5,27 +5,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Imaging;
 
 namespace PJ_CAJA_2
 {
     class VariablesGlobales
     {
         public static string ResultDialog;
+        public static int NumFolio = 1;
+        public static int NumEntrada = 3200;
+        public static int NumSalida = 5000;
 
-        public static void MessageBox_Show(string titulo, string mensaje, bool decision,string colorFondo)
+        public static void MessageBox_Show(string titulo, string mensaje, bool decision, string colorFondo, Bitmap imagen)
         {
             frmAlerta frm = new frmAlerta();
+            frm.centraX();
+            frm.BackColor = ColorTranslator.FromHtml(colorFondo);
             frm.lblTitulo.Text = titulo;
-            frm.txtMensaje.Text = mensaje;
-            frm.txtMensaje.BackColor = ColorTranslator.FromHtml(colorFondo);
+            frm.lblMensaje.Text = mensaje;
+            frm.pnlAlerta.BackColor = ColorTranslator.FromHtml(colorFondo);
+            frm.lblMensaje.BackColor = ColorTranslator.FromHtml(colorFondo);
             frm.tabPage1.BackColor = ColorTranslator.FromHtml(colorFondo);
             frm.tabPage2.BackColor = ColorTranslator.FromHtml(colorFondo);
+            frm.picIcono.Image = imagen;
+            frm.picIcono.BackColor = ColorTranslator.FromHtml(colorFondo);
+
 
             if (decision)
             {
                 frm.tbBotones.SelectedIndex = 1;
             }
-            else if(decision ==false)
+            else if (decision == false)
             {
                 frm.tbBotones.SelectedIndex = 0;
             }
