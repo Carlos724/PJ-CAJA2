@@ -96,13 +96,14 @@ namespace PJ_CAJA_2
         {
             ClaseOp = "V";
             pnlElegirDes.Visible = true;
-
+            dblTC = Properties.Settings.Default.dblTCVenta_;
         }
 
         private void btnCompra_Click(object sender, EventArgs e)
         {
             ClaseOp = "C";
             pnlElegirDes.Visible = true;
+            dblTC = Properties.Settings.Default.dblTCCompra_;
         }
 
         //Botón SinDesglose para una venta/compra directa
@@ -121,7 +122,6 @@ namespace PJ_CAJA_2
                 //Acomodo de las etiquetas
                 lblCantidad.Location = new Point(83, 67);
                 lblConversion.Location = new Point(32, 166);
-                dblTC = Properties.Settings.Default.dblTCVenta_;
             }
             else
             {
@@ -133,7 +133,6 @@ namespace PJ_CAJA_2
                 //Acomodo de las etiquetas
                 lblCantidad.Location = new Point(60, 67);
                 lblConversion.Location = new Point(60, 166);
-                dblTC = Properties.Settings.Default.dblTCCompra_;
             }
             txtTC.Text = dblTC.ToString();
             txtCantidad.Focus();
@@ -297,12 +296,16 @@ namespace PJ_CAJA_2
                 (ClaseOp == "C" && double.Parse(txtTC.Text) > dblTC && double.Parse(txtTC.Text) <= dblTC + 0.4))
             {
                 dblTC = double.Parse(txtTC.Text);
-                MessageBox.Show("SALIO BIEN");
             }
             else
             {
                 MessageBox.Show("El tipo especial supero el limite de rango, asegurate de escribirlo correctamente", "LIMITE TIPO ESPECIAL", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtTC.Focus();
+                if (ClaseOp == "V")
+                {
+                    txtTC.Text = Properties.Settings.Default.dblTCVenta_.ToString();
+                }
+                else txtTC.Text = Properties.Settings.Default.dblTCCompra_.ToString();
+                txtTC.SelectAll();
                 return;
             }
             dblConversion = Conversion(dblCantidad, dblTC);
@@ -592,6 +595,7 @@ namespace PJ_CAJA_2
         //Se confirma la captura de datos y el siguiente paso es verificar que el tipo de dato sea correcto y la conversion sea aceptada por el cliente
         private void btnTranConSi1_Click(object sender, EventArgs e)
         {
+            pnlTranConContinuar1.Visible = false;
             grpTranConTC.Visible = true;
             txtTranConRecibidos.Text = txtRecibidosTotal.Text;
             if (ClaseOp == "V")
@@ -810,10 +814,92 @@ namespace PJ_CAJA_2
             pnlTransaccionCon.Visible = false;
         }
 
-        private void txtEntregar7_KeyPress(object sender, KeyPressEventArgs e)
+        //Al cambiar su estado visible, se activa este evento que limpia y esconde controles.
+        private void pnlTransaccionCon_VisibleChanged(object sender, EventArgs e)
         {
-            MessageBox.Show("¿QUIERES TERMINAR LA OPERACION?", "FINALIZAR", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            pnlTransaccionCon.Visible = false;
+            //Se asegura que sea visible
+            if (pnlSumadora.Visible)
+            {
+                //Busca entre los controles
+                foreach (Control miGrupo in pnlTransaccionCon.Controls)
+                {
+                    //Si alguno es un groupbox
+                    if (miGrupo is GroupBox)
+                    {
+                        //Dentre de ellos se buscan los textboxes
+                        foreach (Control mitxt in miGrupo.Controls)
+                        {
+                            if (mitxt is TextBox)
+                            {//si alguno cumple con esta condicion, su valor será diferente
+                                if (mitxt == txtRecibidos7 || mitxt == txtRecibidosTotal || mitxt == txtEntregarTotal || mitxt == txtEntregarTotal)
+                                {
+                                    mitxt.Text = "00.00";
+                                }
+                                else
+                                {
+                                    mitxt.Text = "00";
+                                }
+                            }
+                        }
+                        //Grupos diferentes al de esta condicion, se esconden
+                        if(miGrupo != grpTransConRecibidos)
+                        {
+                            miGrupo.Visible = false;
+                        }
+                    }
+                    //Y los paneles tambien se ensconden
+                    if(miGrupo is Panel)
+                    {
+                        miGrupo.Visible = false;
+                    }
+                }
+                
+            }
+        }
+
+        private void txtEntregar7_Leave(object sender, EventArgs e)
+        {
+            if (txtTranConEntregar.Text == txtEntregarTotal.Text)
+            {
+                if (MessageBox.Show("¿QUIERES TERMINAR LA OPERACION?", "FINALIZAR", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                {
+                    pnlTransaccionCon.Visible = false;
+                }
+                else
+                {
+
+                    pnlTranConContinuar2.Visible = true;
+                    btnTranConSi2.Focus();
+                }
+            }
+            else
+            {
+                MessageBox.Show("LA CANTIDAD NO COINCIDE, ASEGURATE DE HABERLA ESCRITO CORRECTAMENTE", "CANTIDAD ERRONEA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtTranConTC_Leave(object sender, EventArgs e)
+        {
+            if ((ClaseOp == "V" && double.Parse(txtTranConTC.Text) < dblTC && double.Parse(txtTranConTC.Text) >= dblTC - 0.4) ||
+                (ClaseOp == "C" && double.Parse(txtTranConTC.Text) > dblTC && double.Parse(txtTranConTC.Text) <= dblTC + 0.4))
+            {
+                dblTC = double.Parse(txtTranConTC.Text);
+            }
+            else
+            {
+                MessageBox.Show("El tipo especial supero el limite de rango, asegurate de escribirlo correctamente", "LIMITE TIPO ESPECIAL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (ClaseOp == "V")
+                {
+                    txtTranConTC.Text = Properties.Settings.Default.dblTCVenta_.ToString();
+                }
+                else txtTranConTC.Text = Properties.Settings.Default.dblTCCompra_.ToString();
+                txtTranConTC.SelectAll();
+                return;
+            }
+            dblConversion = Conversion(dblCantidad, dblTC);
+            txtTranConEntregar.Text = dblConversion.ToString();
+            pnlTranConContinuar2.Visible = true;
+            btnTranConSi2.Focus();
         }
     }
 }

@@ -114,6 +114,12 @@ namespace PJ_CAJA_2
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pnlTransaccionCon = new System.Windows.Forms.Panel();
+            this.pnlTranConContinuar2 = new System.Windows.Forms.Panel();
+            this.btnTranConRegresar2 = new System.Windows.Forms.Button();
+            this.btnTranConEspecial = new System.Windows.Forms.Button();
+            this.btnTranConNo2 = new System.Windows.Forms.Button();
+            this.btnTranConSi2 = new System.Windows.Forms.Button();
+            this.lblTranConContinuar2 = new System.Windows.Forms.Label();
             this.btnTranConCancelar = new System.Windows.Forms.Button();
             this.pnlTranConContinuar1 = new System.Windows.Forms.Panel();
             this.btnTranConImprimir1 = new System.Windows.Forms.Button();
@@ -183,12 +189,6 @@ namespace PJ_CAJA_2
             this.txtRecibidos3 = new System.Windows.Forms.TextBox();
             this.txtRecibidos2 = new System.Windows.Forms.TextBox();
             this.txtRecibidos1 = new System.Windows.Forms.TextBox();
-            this.pnlTranConContinuar2 = new System.Windows.Forms.Panel();
-            this.btnTranConRegresar2 = new System.Windows.Forms.Button();
-            this.btnTranConEspecial = new System.Windows.Forms.Button();
-            this.btnTranConNo2 = new System.Windows.Forms.Button();
-            this.btnTranConSi2 = new System.Windows.Forms.Button();
-            this.lblTranConContinuar2 = new System.Windows.Forms.Label();
             this.pnlMenu.SuspendLayout();
             this.pnlElegirDes.SuspendLayout();
             this.pnlTransaccionSin.SuspendLayout();
@@ -202,11 +202,11 @@ namespace PJ_CAJA_2
             this.grpPesos.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.pnlTransaccionCon.SuspendLayout();
+            this.pnlTranConContinuar2.SuspendLayout();
             this.pnlTranConContinuar1.SuspendLayout();
             this.grpTransConEntregar.SuspendLayout();
             this.grpTranConTC.SuspendLayout();
             this.grpTransConRecibidos.SuspendLayout();
-            this.pnlTranConContinuar2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnVenta
@@ -1115,6 +1115,75 @@ namespace PJ_CAJA_2
             this.pnlTransaccionCon.Size = new System.Drawing.Size(1073, 538);
             this.pnlTransaccionCon.TabIndex = 21;
             this.pnlTransaccionCon.Visible = false;
+            this.pnlTransaccionCon.VisibleChanged += new System.EventHandler(this.pnlTransaccionCon_VisibleChanged);
+            // 
+            // pnlTranConContinuar2
+            // 
+            this.pnlTranConContinuar2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlTranConContinuar2.Controls.Add(this.btnTranConRegresar2);
+            this.pnlTranConContinuar2.Controls.Add(this.btnTranConEspecial);
+            this.pnlTranConContinuar2.Controls.Add(this.btnTranConNo2);
+            this.pnlTranConContinuar2.Controls.Add(this.btnTranConSi2);
+            this.pnlTranConContinuar2.Controls.Add(this.lblTranConContinuar2);
+            this.pnlTranConContinuar2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlTranConContinuar2.Location = new System.Drawing.Point(658, 198);
+            this.pnlTranConContinuar2.Name = "pnlTranConContinuar2";
+            this.pnlTranConContinuar2.Size = new System.Drawing.Size(172, 198);
+            this.pnlTranConContinuar2.TabIndex = 35;
+            this.pnlTranConContinuar2.Visible = false;
+            // 
+            // btnTranConRegresar2
+            // 
+            this.btnTranConRegresar2.Location = new System.Drawing.Point(22, 158);
+            this.btnTranConRegresar2.Margin = new System.Windows.Forms.Padding(6);
+            this.btnTranConRegresar2.Name = "btnTranConRegresar2";
+            this.btnTranConRegresar2.Size = new System.Drawing.Size(127, 33);
+            this.btnTranConRegresar2.TabIndex = 34;
+            this.btnTranConRegresar2.Text = "REGRESAR";
+            this.btnTranConRegresar2.UseVisualStyleBackColor = true;
+            this.btnTranConRegresar2.Click += new System.EventHandler(this.btnTranConRegresar2_Click);
+            // 
+            // btnTranConEspecial
+            // 
+            this.btnTranConEspecial.Location = new System.Drawing.Point(22, 119);
+            this.btnTranConEspecial.Margin = new System.Windows.Forms.Padding(6);
+            this.btnTranConEspecial.Name = "btnTranConEspecial";
+            this.btnTranConEspecial.Size = new System.Drawing.Size(127, 33);
+            this.btnTranConEspecial.TabIndex = 33;
+            this.btnTranConEspecial.Text = "ESPECIAL";
+            this.btnTranConEspecial.UseVisualStyleBackColor = true;
+            this.btnTranConEspecial.Click += new System.EventHandler(this.btnTranConEspecial_Click);
+            // 
+            // btnTranConNo2
+            // 
+            this.btnTranConNo2.Location = new System.Drawing.Point(22, 79);
+            this.btnTranConNo2.Margin = new System.Windows.Forms.Padding(6);
+            this.btnTranConNo2.Name = "btnTranConNo2";
+            this.btnTranConNo2.Size = new System.Drawing.Size(127, 33);
+            this.btnTranConNo2.TabIndex = 32;
+            this.btnTranConNo2.Text = "NO";
+            this.btnTranConNo2.UseVisualStyleBackColor = true;
+            this.btnTranConNo2.Click += new System.EventHandler(this.btnTranConNo2_Click);
+            // 
+            // btnTranConSi2
+            // 
+            this.btnTranConSi2.Location = new System.Drawing.Point(22, 40);
+            this.btnTranConSi2.Margin = new System.Windows.Forms.Padding(6);
+            this.btnTranConSi2.Name = "btnTranConSi2";
+            this.btnTranConSi2.Size = new System.Drawing.Size(127, 33);
+            this.btnTranConSi2.TabIndex = 31;
+            this.btnTranConSi2.Text = "SI";
+            this.btnTranConSi2.UseVisualStyleBackColor = true;
+            this.btnTranConSi2.Click += new System.EventHandler(this.btnTranConSi2_Click);
+            // 
+            // lblTranConContinuar2
+            // 
+            this.lblTranConContinuar2.AutoSize = true;
+            this.lblTranConContinuar2.Location = new System.Drawing.Point(29, 8);
+            this.lblTranConContinuar2.Name = "lblTranConContinuar2";
+            this.lblTranConContinuar2.Size = new System.Drawing.Size(111, 24);
+            this.lblTranConContinuar2.TabIndex = 30;
+            this.lblTranConContinuar2.Text = "¿Continuar?";
             // 
             // btnTranConCancelar
             // 
@@ -1341,7 +1410,7 @@ namespace PJ_CAJA_2
             this.txtEntregar7.TabIndex = 16;
             this.txtEntregar7.Text = "00.00";
             this.txtEntregar7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtEntregar7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEntregar7_KeyPress);
+            this.txtEntregar7.Leave += new System.EventHandler(this.txtEntregar7_Leave);
             // 
             // lblEntregar6
             // 
@@ -1536,6 +1605,7 @@ namespace PJ_CAJA_2
             this.txtTranConTC.Name = "txtTranConTC";
             this.txtTranConTC.Size = new System.Drawing.Size(156, 31);
             this.txtTranConTC.TabIndex = 3;
+            this.txtTranConTC.Leave += new System.EventHandler(this.txtTranConTC_Leave);
             // 
             // txtTranConRecibidos
             // 
@@ -1820,74 +1890,6 @@ namespace PJ_CAJA_2
             this.txtRecibidos1.Text = "00";
             this.txtRecibidos1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // pnlTranConContinuar2
-            // 
-            this.pnlTranConContinuar2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlTranConContinuar2.Controls.Add(this.btnTranConRegresar2);
-            this.pnlTranConContinuar2.Controls.Add(this.btnTranConEspecial);
-            this.pnlTranConContinuar2.Controls.Add(this.btnTranConNo2);
-            this.pnlTranConContinuar2.Controls.Add(this.btnTranConSi2);
-            this.pnlTranConContinuar2.Controls.Add(this.lblTranConContinuar2);
-            this.pnlTranConContinuar2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlTranConContinuar2.Location = new System.Drawing.Point(658, 198);
-            this.pnlTranConContinuar2.Name = "pnlTranConContinuar2";
-            this.pnlTranConContinuar2.Size = new System.Drawing.Size(172, 198);
-            this.pnlTranConContinuar2.TabIndex = 35;
-            this.pnlTranConContinuar2.Visible = false;
-            // 
-            // btnTranConRegresar2
-            // 
-            this.btnTranConRegresar2.Location = new System.Drawing.Point(22, 158);
-            this.btnTranConRegresar2.Margin = new System.Windows.Forms.Padding(6);
-            this.btnTranConRegresar2.Name = "btnTranConRegresar2";
-            this.btnTranConRegresar2.Size = new System.Drawing.Size(127, 33);
-            this.btnTranConRegresar2.TabIndex = 34;
-            this.btnTranConRegresar2.Text = "REGRESAR";
-            this.btnTranConRegresar2.UseVisualStyleBackColor = true;
-            this.btnTranConRegresar2.Click += new System.EventHandler(this.btnTranConRegresar2_Click);
-            // 
-            // btnTranConEspecial
-            // 
-            this.btnTranConEspecial.Location = new System.Drawing.Point(22, 119);
-            this.btnTranConEspecial.Margin = new System.Windows.Forms.Padding(6);
-            this.btnTranConEspecial.Name = "btnTranConEspecial";
-            this.btnTranConEspecial.Size = new System.Drawing.Size(127, 33);
-            this.btnTranConEspecial.TabIndex = 33;
-            this.btnTranConEspecial.Text = "ESPECIAL";
-            this.btnTranConEspecial.UseVisualStyleBackColor = true;
-            this.btnTranConEspecial.Click += new System.EventHandler(this.btnTranConEspecial_Click);
-            // 
-            // btnTranConNo2
-            // 
-            this.btnTranConNo2.Location = new System.Drawing.Point(22, 79);
-            this.btnTranConNo2.Margin = new System.Windows.Forms.Padding(6);
-            this.btnTranConNo2.Name = "btnTranConNo2";
-            this.btnTranConNo2.Size = new System.Drawing.Size(127, 33);
-            this.btnTranConNo2.TabIndex = 32;
-            this.btnTranConNo2.Text = "NO";
-            this.btnTranConNo2.UseVisualStyleBackColor = true;
-            this.btnTranConNo2.Click += new System.EventHandler(this.btnTranConNo2_Click);
-            // 
-            // btnTranConSi2
-            // 
-            this.btnTranConSi2.Location = new System.Drawing.Point(22, 40);
-            this.btnTranConSi2.Margin = new System.Windows.Forms.Padding(6);
-            this.btnTranConSi2.Name = "btnTranConSi2";
-            this.btnTranConSi2.Size = new System.Drawing.Size(127, 33);
-            this.btnTranConSi2.TabIndex = 31;
-            this.btnTranConSi2.Text = "SI";
-            this.btnTranConSi2.UseVisualStyleBackColor = true;
-            this.btnTranConSi2.Click += new System.EventHandler(this.btnTranConSi2_Click);
-            // 
-            // lblTranConContinuar2
-            // 
-            this.lblTranConContinuar2.AutoSize = true;
-            this.lblTranConContinuar2.Location = new System.Drawing.Point(29, 8);
-            this.lblTranConContinuar2.Name = "lblTranConContinuar2";
-            this.lblTranConContinuar2.Size = new System.Drawing.Size(111, 24);
-            this.lblTranConContinuar2.TabIndex = 30;
-            this.lblTranConContinuar2.Text = "¿Continuar?";
-            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -1929,6 +1931,8 @@ namespace PJ_CAJA_2
             this.groupBox1.PerformLayout();
             this.pnlTransaccionCon.ResumeLayout(false);
             this.pnlTransaccionCon.PerformLayout();
+            this.pnlTranConContinuar2.ResumeLayout(false);
+            this.pnlTranConContinuar2.PerformLayout();
             this.pnlTranConContinuar1.ResumeLayout(false);
             this.pnlTranConContinuar1.PerformLayout();
             this.grpTransConEntregar.ResumeLayout(false);
@@ -1937,8 +1941,6 @@ namespace PJ_CAJA_2
             this.grpTranConTC.PerformLayout();
             this.grpTransConRecibidos.ResumeLayout(false);
             this.grpTransConRecibidos.PerformLayout();
-            this.pnlTranConContinuar2.ResumeLayout(false);
-            this.pnlTranConContinuar2.PerformLayout();
             this.ResumeLayout(false);
 
         }
