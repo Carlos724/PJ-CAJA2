@@ -35,6 +35,18 @@ namespace PJ_CAJA_2
             tmrHora.Start();
 
             //####### PRUEBAS
+            //SE TIENE QUE ELIMINAR ELSONIDO DE LOS CONTROLES CAMBIANDO DE FOCO
+            //            e.Handled = true;//elimina el sonido
+
+
+
+            foreach(Control mibtn in pnlMenu.Controls)
+            {
+                if(mibtn is Button)
+                {
+                    mibtn.KeyDown += new KeyEventHandler(HotKeysMenu);
+                }
+            }
 
             //EVENTOS PARA TEXTBOXES DE SUMADORA
             foreach (Control miControl in pnlSumadora.Controls)
@@ -156,8 +168,7 @@ namespace PJ_CAJA_2
         private void btnSiContiSin_Click(object sender, EventArgs e)
         {
             pnlContinuarSin.Visible = false;
-            txtPago.Enabled = true;
-            txtCambio.Enabled = true;
+            grpTranSinCambio.Visible = true;
             txtPago.Focus();
         }
 
@@ -229,7 +240,7 @@ namespace PJ_CAJA_2
             switch (ClaseOp)
             {
                 case "V":
-                    return miTC / miCantidad;
+                    return miCantidad / miTC;
                 case "C":
                     return miCantidad * miTC;
                 default:
@@ -287,7 +298,6 @@ namespace PJ_CAJA_2
             txtConversion.Text = dblConversion.ToString();
             pnlContinuarSin.Visible = true;
             btnSiContiSin.Focus();
-
         }
 
         private void txtTC_Leave_1(object sender, EventArgs e)
@@ -316,9 +326,20 @@ namespace PJ_CAJA_2
 
         private void txtPago_Leave(object sender, EventArgs e)
         {
+            
             dblCambio = dblCantidad - dblPago;
-            txtCambio.Text = dblCambio.ToString();
-            pnlConSinFin.Visible = true;
+            if (dblCambio > 0)
+            {
+                txtCambio.Text = dblCambio.ToString();
+                pnlConSinFin.Visible = true;
+                btnSiSinFin.Focus();
+            }
+            else
+            {
+                MessageBox.Show("INGRESA UNA CANTIDAD MAYOR A LA QUE VAS A ENTREGAR, REVISA DE NUEVO EL PAGO");
+                txtPago.SelectAll();
+            }
+            
         }
 
 
@@ -538,7 +559,7 @@ namespace PJ_CAJA_2
         private void btnConDes_Click(object sender, EventArgs e)
         {
             pnlElegirDes.Visible = false;
-
+            txtRecibidos1.SelectAll();
             pnlTransaccionCon.Visible = true;
             if (ClaseOp == "V")
             {
@@ -760,7 +781,7 @@ namespace PJ_CAJA_2
 
         private void HotKeysDesglose(object sender, KeyEventArgs e)
         {
-            HotKeysTxtBox(e.KeyCode, btnTranConCancelar);
+            HotKeysTxtBox(e.KeyCode, btnTranConAceptar);
         }
 
         private void txtRecibidos6_KeyDown(object sender, KeyEventArgs e)
@@ -859,23 +880,7 @@ namespace PJ_CAJA_2
 
         private void txtEntregar7_Leave(object sender, EventArgs e)
         {
-            if (txtTranConEntregar.Text == txtEntregarTotal.Text)
-            {
-                if (MessageBox.Show("¿QUIERES TERMINAR LA OPERACION?", "FINALIZAR", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
-                {
-                    pnlTransaccionCon.Visible = false;
-                }
-                else
-                {
-
-                    pnlTranConContinuar2.Visible = true;
-                    btnTranConSi2.Focus();
-                }
-            }
-            else
-            {
-                MessageBox.Show("LA CANTIDAD NO COINCIDE, ASEGURATE DE HABERLA ESCRITO CORRECTAMENTE", "CANTIDAD ERRONEA", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            btnTranConAceptar.PerformClick();
         }
 
         private void txtTranConTC_Leave(object sender, EventArgs e)
@@ -900,6 +905,61 @@ namespace PJ_CAJA_2
             txtTranConEntregar.Text = dblConversion.ToString();
             pnlTranConContinuar2.Visible = true;
             btnTranConSi2.Focus();
+        }
+
+        private void btnTranConAceptar_Click(object sender, EventArgs e)
+        {
+            if (txtTranConEntregar.Text == txtEntregarTotal.Text)
+            {
+                if (MessageBox.Show("¿QUIERES TERMINAR LA OPERACION?", "FINALIZAR", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                {
+                    pnlTransaccionCon.Visible = false;
+                }
+                else
+                {
+
+                    pnlTranConContinuar2.Visible = true;
+                    btnTranConSi2.Focus();
+                }
+            }
+            else
+            {
+                MessageBox.Show("LA CANTIDAD NO COINCIDE, ASEGURATE DE HABERLA ESCRITO CORRECTAMENTE", "CANTIDAD ERRONEA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtCantidad_KeyDown(object sender, KeyEventArgs e)
+        {
+            HotKeysTxtBox(e.KeyCode,btnCancContSin);
+        }
+
+        private void txtTC_KeyDown(object sender, KeyEventArgs e)
+        {
+            HotKeysTxtBox(e.KeyCode, btnCancContSin);
+        }
+
+        private void HotKeysMenu(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.NumPad1:
+                    btnVenta.PerformClick();
+                    break;
+                case Keys.NumPad2:
+                    btnCompra.PerformClick();
+                    break;
+                case Keys.F5:
+                    btnEntSal.PerformClick();
+                    break;
+                case Keys.F2:
+                    btnListOperaciones.PerformClick();
+                    break;
+                case Keys.F11:
+                    btnSumadora.PerformClick();
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

@@ -5,9 +5,10 @@ pnlTransaccionSin	-  265, 115
 pnlConSinFin	-  782, 412
 pnlMenu		-  246, 139
 pnlElegirDes	-  141, 92
+pnlContinuarSin	-  96, 259
 pnlEntSal		-  259, 135
 pnlEntSal		-  259, 135
-
+pnlTransaccionCon -  11, 94
 
 //Codigo para hotkeys
             switch (e.KeyChar)

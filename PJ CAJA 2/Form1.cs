@@ -28,8 +28,11 @@ namespace PJ_CAJA_2
             /*
             pnlSumadora.Visible = true;
             pnlEntSal.Visible = true;*/
-            frmMenu miMenu = new frmMenu();
+            /*frmMenu miMenu = new frmMenu();
             miMenu.Show();
+            
+            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
+            */
 
             //EVENTOS PARA TEXTBOXES DE SUMADORA
             foreach (Control miControl in pnlSumadora.Controls)
@@ -70,6 +73,7 @@ namespace PJ_CAJA_2
             this.WindowState = FormWindowState.Maximized;
             //Taskbar.Hide();
             */
+
         }
 
         //## BOTÓNES ##
@@ -94,9 +98,9 @@ namespace PJ_CAJA_2
                     {
                         if (!(mitxt.Text.Length == 4))
                         {
-                            if (mitxt.Text.Contains("."))
+                            if (!(mitxt.Text.Contains(".")))
                             {
-                                mitxt.Text = mitxt.Text + "";
+                                mitxt.Text = mitxt.Text + ".00";
                             }
                         }
                     }
@@ -370,6 +374,15 @@ namespace PJ_CAJA_2
             {
                 foreach (Control Micontrol in pnlSumadora.Controls)
                 {
+                    if (Micontrol is GroupBox) {
+                        foreach (Control mitxt in Micontrol.Controls)
+                        {
+                            if (mitxt is TextBox)
+                            {
+                                mitxt.Text = "00.00";
+                            }
+                        }
+                            }
                     if (Micontrol is TextBox)
                     {
                         Micontrol.Text = "00.00";
