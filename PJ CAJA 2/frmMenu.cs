@@ -24,6 +24,8 @@ namespace PJ_CAJA_2
         int[] BilletesP = { 1000, 500, 200, 100, 50, 20 };
         int[] BilletesD = { 100, 50, 20, 10, 5, 1 };
 
+        char chrDivisa='0';
+
         public frmMenu()
         {
             InitializeComponent();
@@ -33,12 +35,12 @@ namespace PJ_CAJA_2
             lblFecha.Text = DateTime.Now.ToString("dd/MM/yy");
             tmrHora.Interval = 1000;
             tmrHora.Start();
+            btnVenta.Focus();
 
             //####### PRUEBAS
-            //SE TIENE QUE ELIMINAR ELSONIDO DE LOS CONTROLES CAMBIANDO DE FOCO
+            //SE TIENE QUE ELIMINAR EL SONIDO DE LOS CONTROLES CAMBIANDO DE FOCO
             //            e.Handled = true;//elimina el sonido
-
-
+            
 
             foreach(Control mibtn in pnlMenu.Controls)
             {
@@ -99,8 +101,6 @@ namespace PJ_CAJA_2
                     }
                 }
             }
-
-
         }
         //## BOTÓNES ##
         //Botónes de venta y compra, solo deciden que clase de operacion se lleva a cabo
@@ -154,7 +154,7 @@ namespace PJ_CAJA_2
         private void btnNoContiSin_Click(object sender, EventArgs e)
         {
             pnlContinuarSin.Visible = false;
-            txtCantidad.Focus();
+            txtCantidad.SelectAll();
         }
 
         //Te permite ingresar una cantidad distinta en tipo de cambio
@@ -174,8 +174,18 @@ namespace PJ_CAJA_2
 
         private void btnAceptarSum_Click(object sender, EventArgs e)
         {
-
             pnlSumadora.Visible = false;
+            switch (chrDivisa)
+            {
+                case 'D':
+                    txtUmD.Text = txtSumaTotal.Text;
+                    txtCpD.Focus();
+                    break;
+                case 'P':
+                    txtUmP.Text = txtSumaTotal.Text;
+                    txtCpP.Focus();
+                    break;
+            }
             /*
              SE GUARDARAN LAS SUMAS?
              */
@@ -215,23 +225,23 @@ namespace PJ_CAJA_2
         private void btSumD_Click(object sender, EventArgs e)
         {
             pnlSumadora.Visible = true;
+            chrDivisa = 'D';
+            txtSuma1.Focus();
+            txtSuma1.SelectAll();
+
         }
 
         private void btnSumP_Click(object sender, EventArgs e)
         {
             pnlSumadora.Visible = true;
+            chrDivisa = 'P';
+            txtSuma1.Focus();
+            txtSuma1.SelectAll();
         }
 
         private void btnCancelarEntSal_Click(object sender, EventArgs e)
         {
             pnlEntSal.Visible = false;
-            foreach (Control miControl in pnlEntSal.Controls)
-            {
-                if (miControl is TextBox)
-                {
-                    miControl.Text = "00.00";
-                }
-            }
         }
 
         //## METODOS ##
@@ -246,14 +256,6 @@ namespace PJ_CAJA_2
                 default:
                     return 0;
             }
-        }
-
-        double Suma(double E)
-        {
-            double dblSuma = double.Parse(txtSumaTotal.Text);
-            dblSuma = E + dblSuma;
-            txtSumaTotal.Text = dblSuma.ToString();
-            return dblSuma;
         }
 
         //Metodo para moverse entre los TextBox, o regresar al menu anterior
@@ -357,6 +359,7 @@ namespace PJ_CAJA_2
 
         private void btnCancContSin_Click(object sender, EventArgs e)
         {
+            pnlContinuarSin.Visible = false;
             pnlTransaccionSin.Visible = false;
         }
 
@@ -382,31 +385,26 @@ namespace PJ_CAJA_2
         //Evento que verifica si se quiere cambiar o salir del control
         private void txtSuma1_KeyDown(object sender, KeyEventArgs e)
         {
-            Suma(double.Parse(txtSuma1.Text));
             HotKeysTxtBox(e.KeyCode, btnCancelarSum);
         }
 
         private void txtSuma2_KeyDown(object sender, KeyEventArgs e)
         {
-            Suma(double.Parse(txtSuma2.Text));
             HotKeysTxtBox(e.KeyCode, btnCancelarSum);
         }
 
         private void txtSuma3_KeyDown(object sender, KeyEventArgs e)
         {
-            Suma(double.Parse(txtSuma3.Text));
             HotKeysTxtBox(e.KeyCode, btnCancelarSum);
         }
 
         private void txtSuma4_KeyDown(object sender, KeyEventArgs e)
         {
-            Suma(double.Parse(txtSuma4.Text));
             HotKeysTxtBox(e.KeyCode, btnCancelarSum);
         }
 
         private void txtSuma5_KeyDown(object sender, KeyEventArgs e)
         {
-            Suma(double.Parse(txtSuma5.Text));
             HotKeysTxtBox(e.KeyCode, btnCancelarSum);
         }
 
@@ -421,13 +419,27 @@ namespace PJ_CAJA_2
 
         private void pnlSumadora_VisibleChanged(object sender, EventArgs e)
         {
-            if (this.Visible == false)
+            if (pnlSumadora.Visible)
             {
                 foreach (Control Micontrol in pnlSumadora.Controls)
                 {
                     if (Micontrol is TextBox)
                     {
                         Micontrol.Text = "00.00";
+                    }
+                }
+            }
+            else 
+            {
+                if (!pnlEntSal.Visible)
+                {
+                    if (ClaseOp == "V")
+                    {
+                        btnVenta.Focus();
+                    }
+                    else
+                    {
+                        btnCompra.Focus();
                     }
                 }
             }
@@ -484,7 +496,7 @@ namespace PJ_CAJA_2
                 double dblSuma = 0;
                 foreach (Control miControl in pnlSumadora.Controls)
                 {
-                    if (miControl is TextBox && miControl.Name != "txtSumaTotal")
+                    if (miControl is TextBox && miControl != txtSumaTotal)
                     {
                         if (miControl.Text == "" && miControl is TextBox mitxt)
                         {
@@ -874,7 +886,17 @@ namespace PJ_CAJA_2
                         miGrupo.Visible = false;
                     }
                 }
-                
+            }
+            else
+            {
+                if (ClaseOp == "V")
+                {
+                    btnVenta.Focus();
+                }
+                else
+                {
+                    btnCompra.Focus();
+                }
             }
         }
 
@@ -960,6 +982,135 @@ namespace PJ_CAJA_2
                 default:
                     break;
             }
+        }
+
+        private void btnSinDes_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode) {
+                case Keys.NumPad1:
+                    btnConDes.PerformClick();
+                    break;
+                case Keys.NumPad2:
+                    btnSinDes.PerformClick();
+                    break;
+                case Keys.Escape:
+                    pnlElegirDes.Visible = false;
+                    break;
+            }
+
+        }
+
+        private void btnConDes_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.NumPad1:
+                    btnConDes.PerformClick();
+                    break;
+                case Keys.NumPad2:
+                    btnSinDes.PerformClick();
+                    break;
+                case Keys.Escape:
+                    pnlElegirDes.Visible = false;
+                    break;
+            }
+        }
+
+        private void pnlElegirDes_VisibleChanged(object sender, EventArgs e)
+        {
+            if (!pnlElegirDes.Visible)
+            {
+                if (ClaseOp == "V")
+                {
+                    btnVenta.Focus();
+                }
+                else
+                {
+                    btnCompra.Focus();
+                }
+            }
+            else
+            {
+                btnConDes.Focus();
+            }
+        }
+
+        private void pnlTransaccionSin_VisibleChanged(object sender, EventArgs e)
+        {
+            if (pnlElegirDes.Visible)
+            {
+                txtCantidad.Text = "00.00";
+                txtTC.Text = dblTC.ToString();
+                txtConversion.Text = "00.00";
+                txtPago.Text = "00.00";
+                txtCambio.Text = "00.00";
+            }
+            else
+            {
+                if (ClaseOp == "V")
+                {
+                    btnVenta.Focus();
+                }
+                else
+                {
+                    btnCompra.Focus();
+                }
+            }
+        }
+
+        private void pnlEntSal_VisibleChanged(object sender, EventArgs e)
+        {
+            if (pnlEntSal.Visible)
+            {
+                foreach (Control micontrol in grpDolares.Controls)
+                {
+                    if(micontrol is TextBox)
+                    {
+                        micontrol.Text = "00.00";
+                    }
+                }
+                foreach (Control micontrol in grpPesos.Controls)
+                {
+                    if (micontrol is TextBox)
+                    {
+                        micontrol.Text = "00.00";
+                    }
+                }
+                rdbEntrada.Checked = false;
+                rdbEntrada.Checked = false;
+            }
+            else
+            {
+                if (ClaseOp == "V")
+                {
+                    btnVenta.Focus();
+                }
+                else
+                {
+                    btnCompra.Focus();
+                }
+            }
+        }
+
+        private void txtUmP_Click(object sender, EventArgs e)
+        {
+            btnSumP.PerformClick();
+        }
+
+        private void txtUmD_Click(object sender, EventArgs e)
+        {
+            btSumD.PerformClick();
+        }
+
+        private void txtMorP_KeyDown(object sender, KeyEventArgs e)
+        {
+            HotKeysTxtBox(e.KeyCode, btnCancelarEntSal);
+
+        }
+
+        private void btnAceptarEntSal_Click(object sender, EventArgs e)
+        {
+            pnlEntSal.Visible = false;
         }
     }
 }

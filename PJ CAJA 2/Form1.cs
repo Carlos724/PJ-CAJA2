@@ -28,7 +28,9 @@ namespace PJ_CAJA_2
             /*
             pnlSumadora.Visible = true;
             pnlEntSal.Visible = true;*/
-            /*frmMenu miMenu = new frmMenu();
+
+            /*
+            frmMenu miMenu = new frmMenu();
             miMenu.Show();
             
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
@@ -92,42 +94,25 @@ namespace PJ_CAJA_2
         {
             if (double.Parse(txtCompra.Text) < double.Parse(txtVenta.Text))
             {
-                foreach(Control micontrol in pnlTiposCambio.Controls)
+                //En este bloque de codigo de pretende agregar doble cero al final si es que el cajero no lo agrega.
+                foreach (Control miControl in pnlTiposCambio.Controls)
                 {
-                    if(micontrol is TextBox mitxt)
+                    if (miControl is TextBox)
                     {
-                        if (!(mitxt.Text.Length == 4))
+                        if (miControl.Text.Contains(".") && miControl.Text.Length < 5)
                         {
-                            if (!(mitxt.Text.Contains(".")))
+                            for (int i = 3; miControl.Text.Length != 5; i++)
                             {
-                                mitxt.Text = mitxt.Text + ".00";
+                                miControl.Text = miControl.Text + "0";
                             }
                         }
                     }
-                }
-                if (!txtCompra.Text.Contains("."))
-                {
-                    txtCompra.Text = txtCompra.Text + ".";
-                }
-                if (!txtVenta.Text.Contains("."))
-                {
-                    txtVenta.Text = txtVenta.Text + ".";
-                }
-                switch (txtCompra.Text.Length)
-                {
-                    case 3:
-                        txtCompra.Text = txtCompra.Text + "0";
-                        break;
-                    default:
-                        break;
                 }
                 Properties.Settings.Default.dblTCCompra_ = double.Parse(txtCompra.Text);
                 Properties.Settings.Default.dblTCVenta_ = double.Parse(txtVenta.Text);
                 Properties.Settings.Default.Save();
                 pnlEntSal.Visible = true;
                 pnlTiposCambio.Visible = false;
-                txtCpP.Focus();
-                pnlTiposCambio.Enabled = false;
                 txtMorD.Focus();
             }
             else
@@ -150,7 +135,7 @@ namespace PJ_CAJA_2
         {
             pnlTiposCambio.Visible = false;
             grpInicio.Enabled = true;
-            txtUsuario.Focus();
+            txtUsuario.SelectAll();
         }
 
         //Sumadora de dolares
@@ -481,5 +466,28 @@ namespace PJ_CAJA_2
             btnSumP.PerformClick();
         }
 
+        private void txtCompra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e != null)
+            {
+                if (!char.IsControl(e.KeyChar) && !char.IsNumber(e.KeyChar) && (e.KeyChar != '.'))
+                {
+                    
+                    e.Handled = true;
+                }
+            }
+            
+        }
+
+        private void txtVenta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e != null)
+            {
+                if (!char.IsControl(e.KeyChar) && !char.IsNumber(e.KeyChar) && (e.KeyChar != '.'))
+                {
+                    e.Handled = true;
+                }
+            }
+        }
     }
 }

@@ -204,6 +204,7 @@ namespace PJ_CAJA_2
             this.txtVenta.Text = "00.00";
             this.txtVenta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtVenta.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtVenta_KeyDown);
+            this.txtVenta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtVenta_KeyPress);
             // 
             // lblCambios
             // 
@@ -234,6 +235,7 @@ namespace PJ_CAJA_2
             this.txtCompra.Text = "00.00";
             this.txtCompra.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtCompra.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCompra_KeyDown);
+            this.txtCompra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCompra_KeyPress);
             // 
             // grpInicio
             // 
@@ -723,8 +725,8 @@ namespace PJ_CAJA_2
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1596, 686);
-            this.Controls.Add(this.pnlEntSal);
             this.Controls.Add(this.pnlTiposCambio);
+            this.Controls.Add(this.pnlEntSal);
             this.Controls.Add(this.btnSalida);
             this.Controls.Add(this.grpInicio);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
