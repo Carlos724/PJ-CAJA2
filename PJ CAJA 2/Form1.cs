@@ -10,18 +10,20 @@ using System.Windows.Forms;
 using System.Xml;
 using MySql.Data.MySqlClient;
 
+using System.Drawing.Printing;
+
 namespace PJ_CAJA_2
 {
     public partial class frmInicioSesion : Form
     {
-        Conexion conexionSQL = new Conexion();
+        ConexionInicial conexionSQL = new ConexionInicial();
         char chrDivisa = '0';
         public frmInicioSesion()
         {
             InitializeComponent();
 
-            conexionSQL.prueba = conexionSQL.LeerXML();
-            conexionSQL.cnnPrueba = new MySqlConnection(conexionSQL.prueba);
+            conexionSQL.datosXML = conexionSQL.LeerXML();
+            conexionSQL.cnnInicial = new MySqlConnection(conexionSQL.datosXML);
             timer1.Interval = 500;
             timer1.Start();
             //######PRUEBAS
@@ -29,12 +31,12 @@ namespace PJ_CAJA_2
             pnlSumadora.Visible = true;
             pnlEntSal.Visible = true;*/
 
-            /*
+            
             frmMenu miMenu = new frmMenu();
             miMenu.Show();
             
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
-            */
+            
 
             //EVENTOS PARA TEXTBOXES DE SUMADORA
             foreach (Control miControl in pnlSumadora.Controls)
@@ -113,6 +115,8 @@ namespace PJ_CAJA_2
                 Properties.Settings.Default.Save();
                 pnlEntSal.Visible = true;
                 pnlTiposCambio.Visible = false;
+                txtCpP.Focus();
+                pnlTiposCambio.Enabled = false;
                 txtMorD.Focus();
             }
             else
@@ -157,7 +161,7 @@ namespace PJ_CAJA_2
         //Aceptar los inicios, guarda las variables y abre el menu de operaciones
         private void btnAceptarInSa_Click(object sender, EventArgs e)
         {
-            VariablesGlobales.MessageBox_Show("Verificacion", "¿Estan correctos los inicios?", true, "#228b22");
+            VariablesGlobales.MessageBox_Show("Verificacion","¿Estan correctos los inicios?",true, "#18c71e", Properties.Resources.dinero);
             if (VariablesGlobales.ResultDialog == "YES")
             {
                 //SUMA UM Y CP
@@ -171,11 +175,21 @@ namespace PJ_CAJA_2
                 Properties.Settings.Default.dblEUmD_ = double.Parse(txtUmD.Text);
                 Properties.Settings.Default.dblEMorD_ = double.Parse(txtMorD.Text);
                 Properties.Settings.Default.Save();
-                conexionSQL.InsertarGenerico(0, "", "INI BILL", sumaD, sumaP, -1.0, 'X', -1.0, -1.0, -1.0, 'S', 'S');
-                conexionSQL.InsertarGenerico(0, "", "INI MOR", Properties.Settings.Default.dblEMorD_, Properties.Settings.Default.dblEMorP_, -1.0, 'X', -1.0, -1.0, -1.0, 'S', 'S');
+                conexionSQL.InsertarGenerico(3110, "Inicio", "INI BILL", sumaD, sumaP, -1.0, 'X', -1.0, -1.0, -1.0, 'S', 'S');
+                conexionSQL.InsertarGenerico(3120, "Inicio", "INI MOR", Properties.Settings.Default.dblEMorD_, Properties.Settings.Default.dblEMorP_, -1.0, 'X', -1.0, -1.0, -1.0, 'S', 'S');
                 frmMenu miMenu = new frmMenu();
                 miMenu.Show();
                 this.Close();
+
+                //Para guardar
+                /*
+                conexionSQL.InsertarGenerico((VariablesGlobales.NumFolio), "folio", "COMPRA", Properties.Settings.Default.dblEMorD_, Properties.Settings.Default.dblEMorP_, -1.0, 'X', -1.0, -1.0, -1.0, 'S', 'S');
+                VariablesGlobales.NumFolio++;
+                conexionSQL.InsertarGenerico((VariablesGlobales.NumFolio), "folio", "VENTA", Properties.Settings.Default.dblEMorD_, Properties.Settings.Default.dblEMorP_, -1.0, 'X', -1.0, -1.0, -1.0, 'S', 'S');
+                VariablesGlobales.NumFolio++;
+                conexionSQL.InsertarGenerico((VariablesGlobales.NumFolio), "folio", "COMPRA", Properties.Settings.Default.dblEMorD_, Properties.Settings.Default.dblEMorP_, -1.0, 'X', -1.0, -1.0, -1.0, 'S', 'S');
+                */
+
             }
             else
             {
@@ -344,6 +358,34 @@ namespace PJ_CAJA_2
             /*
              cosas de impresora
              */
+
+            try
+            {
+                Ticket ticket = new Ticket();
+                printDocument1 = new PrintDocument();
+                PrinterSettings ps = new PrinterSettings();
+                ticket.cantidades = new List<double>();
+                double dblSuma = 0;
+
+                foreach (Control miControl in pnlSumadora.Controls)
+                {
+                    if (miControl is TextBox && miControl.Name != "txtSumaTotal" && (double.Parse(miControl.Text) != 00.00))
+                    {
+                        dblSuma = double.Parse(miControl.Text) + dblSuma;
+                        ticket.cantidades.Add(double.Parse(miControl.Text));
+                    }
+                }
+
+                ticket.cantidades.Add(dblSuma);
+
+                printDocument1.PrinterSettings = ps;
+                printDocument1.PrintPage += ticket.ImprimirSumadora;
+                printDocument1.Print();
+            }
+            catch
+            {
+
+            }
         }
 
         //Botón de cancelado en sumadora, cambia su estado visible a falso

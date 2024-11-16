@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<MySqlConnection>
-    <Prueba Sucursal="600">
-        <Server>25.66.55.41</Server>
-        <Database>caja2</Database>
-        <Uid>root</Uid>
-        <Pwd>Passw0rd</Pwd>
-    </Prueba>
-</MySqlConnection>

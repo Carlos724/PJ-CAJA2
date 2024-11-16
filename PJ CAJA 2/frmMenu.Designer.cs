@@ -47,6 +47,7 @@ namespace PJ_CAJA_2
             this.btnSinDes = new System.Windows.Forms.Button();
             this.btnConDes = new System.Windows.Forms.Button();
             this.pnlTransaccionSin = new System.Windows.Forms.Panel();
+            this.btnTranSinCancelar = new System.Windows.Forms.Button();
             this.pnlContinuarSin = new System.Windows.Forms.Panel();
             this.btnCancContSin = new System.Windows.Forms.Button();
             this.btnEspContiSin = new System.Windows.Forms.Button();
@@ -115,14 +116,12 @@ namespace PJ_CAJA_2
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pnlTransaccionCon = new System.Windows.Forms.Panel();
-            this.btnTranConCancelar = new System.Windows.Forms.Button();
             this.pnlTranConContinuar2 = new System.Windows.Forms.Panel();
             this.btnTranConRegresar2 = new System.Windows.Forms.Button();
             this.btnTranConEspecial = new System.Windows.Forms.Button();
             this.btnTranConNo2 = new System.Windows.Forms.Button();
             this.btnTranConSi2 = new System.Windows.Forms.Button();
             this.lblTranConContinuar2 = new System.Windows.Forms.Label();
-            this.btnTranConAceptar = new System.Windows.Forms.Button();
             this.pnlTranConContinuar1 = new System.Windows.Forms.Panel();
             this.btnTranConImprimir1 = new System.Windows.Forms.Button();
             this.btnTranConRegresar1 = new System.Windows.Forms.Button();
@@ -191,6 +190,7 @@ namespace PJ_CAJA_2
             this.txtRecibidos3 = new System.Windows.Forms.TextBox();
             this.txtRecibidos2 = new System.Windows.Forms.TextBox();
             this.txtRecibidos1 = new System.Windows.Forms.TextBox();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.pnlMenu.SuspendLayout();
             this.pnlElegirDes.SuspendLayout();
             this.pnlTransaccionSin.SuspendLayout();
@@ -386,6 +386,7 @@ namespace PJ_CAJA_2
             // pnlTransaccionSin
             // 
             this.pnlTransaccionSin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlTransaccionSin.Controls.Add(this.btnTranSinCancelar);
             this.pnlTransaccionSin.Controls.Add(this.pnlContinuarSin);
             this.pnlTransaccionSin.Controls.Add(this.grpTranSinCambio);
             this.pnlTransaccionSin.Controls.Add(this.txtConversion);
@@ -401,6 +402,17 @@ namespace PJ_CAJA_2
             this.pnlTransaccionSin.TabIndex = 12;
             this.pnlTransaccionSin.Visible = false;
             this.pnlTransaccionSin.VisibleChanged += new System.EventHandler(this.pnlTransaccionSin_VisibleChanged);
+            // 
+            // btnTranSinCancelar
+            // 
+            this.btnTranSinCancelar.Location = new System.Drawing.Point(73, 13);
+            this.btnTranSinCancelar.Name = "btnTranSinCancelar";
+            this.btnTranSinCancelar.Size = new System.Drawing.Size(124, 30);
+            this.btnTranSinCancelar.TabIndex = 81;
+            this.btnTranSinCancelar.Text = "Cancelar";
+            this.btnTranSinCancelar.UseVisualStyleBackColor = true;
+            this.btnTranSinCancelar.Visible = false;
+            this.btnTranSinCancelar.Click += new System.EventHandler(this.btnTranSinCancelar_Click);
             // 
             // pnlContinuarSin
             // 
@@ -517,6 +529,7 @@ namespace PJ_CAJA_2
             this.txtPago.TabIndex = 19;
             this.txtPago.Text = "00.00";
             this.txtPago.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPago.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPago_KeyDown);
             this.txtPago.Leave += new System.EventHandler(this.txtPago_Leave);
             // 
             // txtConversion
@@ -668,7 +681,7 @@ namespace PJ_CAJA_2
             this.pnlSumadora.Controls.Add(this.txtSuma2);
             this.pnlSumadora.Controls.Add(this.txtSuma1);
             this.pnlSumadora.Controls.Add(this.lblSumadora);
-            this.pnlSumadora.Location = new System.Drawing.Point(545, 203);
+            this.pnlSumadora.Location = new System.Drawing.Point(173, 192);
             this.pnlSumadora.Name = "pnlSumadora";
             this.pnlSumadora.Size = new System.Drawing.Size(480, 332);
             this.pnlSumadora.TabIndex = 19;
@@ -1118,10 +1131,10 @@ namespace PJ_CAJA_2
             // groupBox1
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupBox1.Controls.Add(this.pnlEntSal);
-            this.groupBox1.Controls.Add(this.pnlConSinFin);
-            this.groupBox1.Controls.Add(this.pnlTransaccionSin);
             this.groupBox1.Controls.Add(this.pnlTransaccionCon);
+            this.groupBox1.Controls.Add(this.pnlConSinFin);
+            this.groupBox1.Controls.Add(this.pnlEntSal);
+            this.groupBox1.Controls.Add(this.pnlTransaccionSin);
             this.groupBox1.Controls.Add(this.lblUsuario);
             this.groupBox1.Controls.Add(this.btnSalir);
             this.groupBox1.Controls.Add(this.lblHora);
@@ -1136,9 +1149,7 @@ namespace PJ_CAJA_2
             // pnlTransaccionCon
             // 
             this.pnlTransaccionCon.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlTransaccionCon.Controls.Add(this.btnTranConCancelar);
             this.pnlTransaccionCon.Controls.Add(this.pnlTranConContinuar2);
-            this.pnlTransaccionCon.Controls.Add(this.btnTranConAceptar);
             this.pnlTransaccionCon.Controls.Add(this.pnlTranConContinuar1);
             this.pnlTransaccionCon.Controls.Add(this.lblNumFolio);
             this.pnlTransaccionCon.Controls.Add(this.lblTranConFolio);
@@ -1152,16 +1163,6 @@ namespace PJ_CAJA_2
             this.pnlTransaccionCon.TabIndex = 21;
             this.pnlTransaccionCon.Visible = false;
             this.pnlTransaccionCon.VisibleChanged += new System.EventHandler(this.pnlTransaccionCon_VisibleChanged);
-            // 
-            // btnTranConCancelar
-            // 
-            this.btnTranConCancelar.Location = new System.Drawing.Point(497, 345);
-            this.btnTranConCancelar.Name = "btnTranConCancelar";
-            this.btnTranConCancelar.Size = new System.Drawing.Size(112, 47);
-            this.btnTranConCancelar.TabIndex = 36;
-            this.btnTranConCancelar.Text = "Cancelar";
-            this.btnTranConCancelar.UseVisualStyleBackColor = true;
-            this.btnTranConCancelar.Click += new System.EventHandler(this.btnTranConCancelar_Click);
             // 
             // pnlTranConContinuar2
             // 
@@ -1230,16 +1231,6 @@ namespace PJ_CAJA_2
             this.lblTranConContinuar2.Size = new System.Drawing.Size(111, 24);
             this.lblTranConContinuar2.TabIndex = 30;
             this.lblTranConContinuar2.Text = "¿Continuar?";
-            // 
-            // btnTranConAceptar
-            // 
-            this.btnTranConAceptar.Location = new System.Drawing.Point(497, 293);
-            this.btnTranConAceptar.Name = "btnTranConAceptar";
-            this.btnTranConAceptar.Size = new System.Drawing.Size(112, 46);
-            this.btnTranConAceptar.TabIndex = 31;
-            this.btnTranConAceptar.Text = "Aceptar";
-            this.btnTranConAceptar.UseVisualStyleBackColor = true;
-            this.btnTranConAceptar.Click += new System.EventHandler(this.btnTranConAceptar_Click);
             // 
             // pnlTranConContinuar1
             // 
@@ -1370,6 +1361,7 @@ namespace PJ_CAJA_2
             this.txtEntCan6.Name = "txtEntCan6";
             this.txtEntCan6.Size = new System.Drawing.Size(67, 31);
             this.txtEntCan6.TabIndex = 25;
+            this.txtEntCan6.TabStop = false;
             this.txtEntCan6.Text = "0";
             this.txtEntCan6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1379,6 +1371,7 @@ namespace PJ_CAJA_2
             this.txtEntCan5.Name = "txtEntCan5";
             this.txtEntCan5.Size = new System.Drawing.Size(67, 31);
             this.txtEntCan5.TabIndex = 24;
+            this.txtEntCan5.TabStop = false;
             this.txtEntCan5.Text = "0";
             this.txtEntCan5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1388,6 +1381,7 @@ namespace PJ_CAJA_2
             this.txtEntCan4.Name = "txtEntCan4";
             this.txtEntCan4.Size = new System.Drawing.Size(67, 31);
             this.txtEntCan4.TabIndex = 23;
+            this.txtEntCan4.TabStop = false;
             this.txtEntCan4.Text = "0";
             this.txtEntCan4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1397,6 +1391,7 @@ namespace PJ_CAJA_2
             this.txtEntCan3.Name = "txtEntCan3";
             this.txtEntCan3.Size = new System.Drawing.Size(67, 31);
             this.txtEntCan3.TabIndex = 22;
+            this.txtEntCan3.TabStop = false;
             this.txtEntCan3.Text = "0";
             this.txtEntCan3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1406,6 +1401,7 @@ namespace PJ_CAJA_2
             this.txtEntCan2.Name = "txtEntCan2";
             this.txtEntCan2.Size = new System.Drawing.Size(67, 31);
             this.txtEntCan2.TabIndex = 21;
+            this.txtEntCan2.TabStop = false;
             this.txtEntCan2.Text = "0";
             this.txtEntCan2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1415,6 +1411,7 @@ namespace PJ_CAJA_2
             this.txtEntCan1.Name = "txtEntCan1";
             this.txtEntCan1.Size = new System.Drawing.Size(67, 31);
             this.txtEntCan1.TabIndex = 20;
+            this.txtEntCan1.TabStop = false;
             this.txtEntCan1.Text = "0";
             this.txtEntCan1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1453,7 +1450,7 @@ namespace PJ_CAJA_2
             this.txtEntregar7.Location = new System.Drawing.Point(153, 347);
             this.txtEntregar7.Name = "txtEntregar7";
             this.txtEntregar7.Size = new System.Drawing.Size(129, 31);
-            this.txtEntregar7.TabIndex = 16;
+            this.txtEntregar7.TabIndex = 7;
             this.txtEntregar7.Text = "00.00";
             this.txtEntregar7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtEntregar7.Leave += new System.EventHandler(this.txtEntregar7_Leave);
@@ -1539,7 +1536,7 @@ namespace PJ_CAJA_2
             this.lblEntregar1.Location = new System.Drawing.Point(19, 66);
             this.lblEntregar1.Name = "lblEntregar1";
             this.lblEntregar1.Size = new System.Drawing.Size(132, 25);
-            this.lblEntregar1.TabIndex = 7;
+            this.lblEntregar1.TabIndex = 89;
             this.lblEntregar1.Text = "[ 100 ]..........";
             // 
             // txtEntregar6
@@ -1710,6 +1707,7 @@ namespace PJ_CAJA_2
             this.txtRecCan6.Name = "txtRecCan6";
             this.txtRecCan6.Size = new System.Drawing.Size(67, 31);
             this.txtRecCan6.TabIndex = 25;
+            this.txtRecCan6.TabStop = false;
             this.txtRecCan6.Text = "0";
             this.txtRecCan6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1719,6 +1717,7 @@ namespace PJ_CAJA_2
             this.txtRecCan5.Name = "txtRecCan5";
             this.txtRecCan5.Size = new System.Drawing.Size(67, 31);
             this.txtRecCan5.TabIndex = 24;
+            this.txtRecCan5.TabStop = false;
             this.txtRecCan5.Text = "0";
             this.txtRecCan5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1728,6 +1727,7 @@ namespace PJ_CAJA_2
             this.txtRecCan4.Name = "txtRecCan4";
             this.txtRecCan4.Size = new System.Drawing.Size(67, 31);
             this.txtRecCan4.TabIndex = 23;
+            this.txtRecCan4.TabStop = false;
             this.txtRecCan4.Text = "0";
             this.txtRecCan4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1737,6 +1737,7 @@ namespace PJ_CAJA_2
             this.txtRecCan3.Name = "txtRecCan3";
             this.txtRecCan3.Size = new System.Drawing.Size(67, 31);
             this.txtRecCan3.TabIndex = 22;
+            this.txtRecCan3.TabStop = false;
             this.txtRecCan3.Text = "0";
             this.txtRecCan3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1746,6 +1747,7 @@ namespace PJ_CAJA_2
             this.txtRecCan2.Name = "txtRecCan2";
             this.txtRecCan2.Size = new System.Drawing.Size(67, 31);
             this.txtRecCan2.TabIndex = 21;
+            this.txtRecCan2.TabStop = false;
             this.txtRecCan2.Text = "0";
             this.txtRecCan2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1755,6 +1757,7 @@ namespace PJ_CAJA_2
             this.txtRecCan1.Name = "txtRecCan1";
             this.txtRecCan1.Size = new System.Drawing.Size(67, 31);
             this.txtRecCan1.TabIndex = 20;
+            this.txtRecCan1.TabStop = false;
             this.txtRecCan1.Text = "0";
             this.txtRecCan1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1793,9 +1796,10 @@ namespace PJ_CAJA_2
             this.txtRecibidos7.Location = new System.Drawing.Point(153, 347);
             this.txtRecibidos7.Name = "txtRecibidos7";
             this.txtRecibidos7.Size = new System.Drawing.Size(129, 31);
-            this.txtRecibidos7.TabIndex = 16;
+            this.txtRecibidos7.TabIndex = 7;
             this.txtRecibidos7.Text = "00.00";
             this.txtRecibidos7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtRecibidos7.Leave += new System.EventHandler(this.txtRecibidos7_Leave);
             // 
             // lblRecibido6
             // 
@@ -1878,7 +1882,7 @@ namespace PJ_CAJA_2
             this.lblRecibido1.Location = new System.Drawing.Point(19, 66);
             this.lblRecibido1.Name = "lblRecibido1";
             this.lblRecibido1.Size = new System.Drawing.Size(132, 25);
-            this.lblRecibido1.TabIndex = 7;
+            this.lblRecibido1.TabIndex = 89;
             this.lblRecibido1.Text = "[1000]..........";
             // 
             // txtRecibidos6
@@ -1889,7 +1893,6 @@ namespace PJ_CAJA_2
             this.txtRecibidos6.TabIndex = 6;
             this.txtRecibidos6.Text = "00";
             this.txtRecibidos6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtRecibidos6.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRecibidos6_KeyDown);
             // 
             // txtRecibidos5
             // 
@@ -2049,7 +2052,6 @@ namespace PJ_CAJA_2
         private System.Windows.Forms.TextBox txtSuma1;
         private System.Windows.Forms.Label lblSumadora;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.Panel pnlEntSal;
         private System.Windows.Forms.Button btnCancelarEntSal;
         private System.Windows.Forms.Button btnAceptarEntSal;
         private System.Windows.Forms.GroupBox grpDolares;
@@ -2148,14 +2150,15 @@ namespace PJ_CAJA_2
         private System.Windows.Forms.Button btnTranConSi1;
         private System.Windows.Forms.Label lblTranConContinuar1;
         private System.Windows.Forms.Button btnTranConImprimir1;
-        private System.Windows.Forms.Button btnTranConAceptar;
         private System.Windows.Forms.Panel pnlTranConContinuar2;
         private System.Windows.Forms.Button btnTranConRegresar2;
         private System.Windows.Forms.Button btnTranConEspecial;
         private System.Windows.Forms.Button btnTranConNo2;
         private System.Windows.Forms.Button btnTranConSi2;
         private System.Windows.Forms.Label lblTranConContinuar2;
-        private System.Windows.Forms.Button btnTranConCancelar;
         private System.Windows.Forms.GroupBox grpTranSinCambio;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        public System.Windows.Forms.Panel pnlEntSal;
+        private System.Windows.Forms.Button btnTranSinCancelar;
     }
 }
