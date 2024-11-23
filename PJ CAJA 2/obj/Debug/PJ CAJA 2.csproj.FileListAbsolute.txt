@@ -89,3 +89,5 @@ C:\Users\ale\Documents\PJ Caja2\PJ CAJA 2\bin\Debug\System.Threading.Tasks.Exten
 C:\Users\ale\Documents\PJ Caja2\PJ CAJA 2\obj\Debug\PJ_CAJA_2.frmAlerta.resources
 C:\Users\ale\Documents\PJ Caja2\PJ CAJA 2\obj\Debug\PJ CAJA 2.csproj.CopyComplete
 C:\Users\ale\Documents\PJ Caja2\PJ CAJA 2\obj\Debug\PJ_CAJA_2.Probando_ticket.resources
+C:\Users\ale\Documents\PJ Caja2\PJ CAJA 2\obj\Debug\PJ_CAJA_2.frmListadoOperacion.resources
+C:\Users\ale\Documents\PJ Caja2\PJ CAJA 2\obj\Debug\PJ_CAJA_2.frmCorteCaja.resources

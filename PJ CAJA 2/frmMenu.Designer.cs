@@ -46,6 +46,10 @@ namespace PJ_CAJA_2
             this.lblDes = new System.Windows.Forms.Label();
             this.btnSinDes = new System.Windows.Forms.Button();
             this.btnConDes = new System.Windows.Forms.Button();
+            this.pnlElegirDirecta = new System.Windows.Forms.Panel();
+            this.lblElegirDir = new System.Windows.Forms.Label();
+            this.btnIndirecta = new System.Windows.Forms.Button();
+            this.btnDirecta = new System.Windows.Forms.Button();
             this.pnlTransaccionSin = new System.Windows.Forms.Panel();
             this.btnTranSinCancelar = new System.Windows.Forms.Button();
             this.pnlContinuarSin = new System.Windows.Forms.Panel();
@@ -191,8 +195,10 @@ namespace PJ_CAJA_2
             this.txtRecibidos2 = new System.Windows.Forms.TextBox();
             this.txtRecibidos1 = new System.Windows.Forms.TextBox();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.btnCorte = new System.Windows.Forms.Button();
             this.pnlMenu.SuspendLayout();
             this.pnlElegirDes.SuspendLayout();
+            this.pnlElegirDirecta.SuspendLayout();
             this.pnlTransaccionSin.SuspendLayout();
             this.pnlContinuarSin.SuspendLayout();
             this.grpTranSinCambio.SuspendLayout();
@@ -383,6 +389,49 @@ namespace PJ_CAJA_2
             this.btnConDes.Click += new System.EventHandler(this.btnConDes_Click);
             this.btnConDes.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnConDes_KeyDown);
             // 
+            // pnlElegirDirecta
+            // 
+            this.pnlElegirDirecta.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlElegirDirecta.Controls.Add(this.lblElegirDir);
+            this.pnlElegirDirecta.Controls.Add(this.btnIndirecta);
+            this.pnlElegirDirecta.Controls.Add(this.btnDirecta);
+            this.pnlElegirDirecta.Location = new System.Drawing.Point(312, 205);
+            this.pnlElegirDirecta.Name = "pnlElegirDirecta";
+            this.pnlElegirDirecta.Size = new System.Drawing.Size(398, 151);
+            this.pnlElegirDirecta.TabIndex = 13;
+            this.pnlElegirDirecta.Visible = false;
+            // 
+            // lblElegirDir
+            // 
+            this.lblElegirDir.AutoSize = true;
+            this.lblElegirDir.Location = new System.Drawing.Point(51, 9);
+            this.lblElegirDir.Name = "lblElegirDir";
+            this.lblElegirDir.Size = new System.Drawing.Size(303, 25);
+            this.lblElegirDir.TabIndex = 8;
+            this.lblElegirDir.Text = "¿QUE METODO PREFIERES?";
+            // 
+            // btnIndirecta
+            // 
+            this.btnIndirecta.Location = new System.Drawing.Point(210, 54);
+            this.btnIndirecta.Name = "btnIndirecta";
+            this.btnIndirecta.Size = new System.Drawing.Size(167, 70);
+            this.btnIndirecta.TabIndex = 1;
+            this.btnIndirecta.Text = "[2] INDIRECTA";
+            this.btnIndirecta.UseVisualStyleBackColor = true;
+            this.btnIndirecta.Click += new System.EventHandler(this.btnIndirecta_Click);
+            this.btnIndirecta.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnIndirecta_KeyDown);
+            // 
+            // btnDirecta
+            // 
+            this.btnDirecta.Location = new System.Drawing.Point(17, 54);
+            this.btnDirecta.Name = "btnDirecta";
+            this.btnDirecta.Size = new System.Drawing.Size(167, 70);
+            this.btnDirecta.TabIndex = 0;
+            this.btnDirecta.Text = "[1] DIRECTA";
+            this.btnDirecta.UseVisualStyleBackColor = true;
+            this.btnDirecta.Click += new System.EventHandler(this.btnDirecta_Click);
+            this.btnDirecta.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnDirecta_KeyDown);
+            // 
             // pnlTransaccionSin
             // 
             this.pnlTransaccionSin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -396,7 +445,7 @@ namespace PJ_CAJA_2
             this.pnlTransaccionSin.Controls.Add(this.lblCantidad);
             this.pnlTransaccionSin.Controls.Add(this.lblTransSin);
             this.pnlTransaccionSin.Controls.Add(this.txtCantidad);
-            this.pnlTransaccionSin.Location = new System.Drawing.Point(250, 105);
+            this.pnlTransaccionSin.Location = new System.Drawing.Point(257, 122);
             this.pnlTransaccionSin.Name = "pnlTransaccionSin";
             this.pnlTransaccionSin.Size = new System.Drawing.Size(515, 400);
             this.pnlTransaccionSin.TabIndex = 12;
@@ -623,7 +672,7 @@ namespace PJ_CAJA_2
             this.pnlConSinFin.Controls.Add(this.btnSiSinFin);
             this.pnlConSinFin.Controls.Add(this.lblConSinFin);
             this.pnlConSinFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlConSinFin.Location = new System.Drawing.Point(709, 396);
+            this.pnlConSinFin.Location = new System.Drawing.Point(1108, 578);
             this.pnlConSinFin.Name = "pnlConSinFin";
             this.pnlConSinFin.Size = new System.Drawing.Size(253, 100);
             this.pnlConSinFin.TabIndex = 18;
@@ -681,7 +730,7 @@ namespace PJ_CAJA_2
             this.pnlSumadora.Controls.Add(this.txtSuma2);
             this.pnlSumadora.Controls.Add(this.txtSuma1);
             this.pnlSumadora.Controls.Add(this.lblSumadora);
-            this.pnlSumadora.Location = new System.Drawing.Point(173, 192);
+            this.pnlSumadora.Location = new System.Drawing.Point(545, 203);
             this.pnlSumadora.Name = "pnlSumadora";
             this.pnlSumadora.Size = new System.Drawing.Size(480, 332);
             this.pnlSumadora.TabIndex = 19;
@@ -1131,10 +1180,11 @@ namespace PJ_CAJA_2
             // groupBox1
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox1.Controls.Add(this.btnCorte);
             this.groupBox1.Controls.Add(this.pnlTransaccionCon);
-            this.groupBox1.Controls.Add(this.pnlConSinFin);
-            this.groupBox1.Controls.Add(this.pnlEntSal);
             this.groupBox1.Controls.Add(this.pnlTransaccionSin);
+            this.groupBox1.Controls.Add(this.pnlElegirDirecta);
+            this.groupBox1.Controls.Add(this.pnlEntSal);
             this.groupBox1.Controls.Add(this.lblUsuario);
             this.groupBox1.Controls.Add(this.btnSalir);
             this.groupBox1.Controls.Add(this.lblHora);
@@ -1939,11 +1989,24 @@ namespace PJ_CAJA_2
             this.txtRecibidos1.Text = "00";
             this.txtRecibidos1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // btnCorte
+            // 
+            this.btnCorte.Location = new System.Drawing.Point(331, 28);
+            this.btnCorte.Margin = new System.Windows.Forms.Padding(6);
+            this.btnCorte.Name = "btnCorte";
+            this.btnCorte.Size = new System.Drawing.Size(145, 57);
+            this.btnCorte.TabIndex = 22;
+            this.btnCorte.TabStop = false;
+            this.btnCorte.Text = "CORTE";
+            this.btnCorte.UseVisualStyleBackColor = true;
+            this.btnCorte.Click += new System.EventHandler(this.btnCorte_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1725, 810);
+            this.Controls.Add(this.pnlConSinFin);
             this.Controls.Add(this.pnlSumadora);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1959,6 +2022,8 @@ namespace PJ_CAJA_2
             this.pnlMenu.PerformLayout();
             this.pnlElegirDes.ResumeLayout(false);
             this.pnlElegirDes.PerformLayout();
+            this.pnlElegirDirecta.ResumeLayout(false);
+            this.pnlElegirDirecta.PerformLayout();
             this.pnlTransaccionSin.ResumeLayout(false);
             this.pnlTransaccionSin.PerformLayout();
             this.pnlContinuarSin.ResumeLayout(false);
@@ -2160,5 +2225,10 @@ namespace PJ_CAJA_2
         private System.Drawing.Printing.PrintDocument printDocument1;
         public System.Windows.Forms.Panel pnlEntSal;
         private System.Windows.Forms.Button btnTranSinCancelar;
+        private System.Windows.Forms.Panel pnlElegirDirecta;
+        private System.Windows.Forms.Label lblElegirDir;
+        private System.Windows.Forms.Button btnIndirecta;
+        private System.Windows.Forms.Button btnDirecta;
+        private System.Windows.Forms.Button btnCorte;
     }
 }

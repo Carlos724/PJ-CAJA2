@@ -99,7 +99,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConexionInicial.cs" />
-    <Compile Include="CrearTicket.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +110,18 @@
     </Compile>
     <Compile Include="frmAlerta.Designer.cs">
       <DependentUpon>frmAlerta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCorteCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCorteCaja.Designer.cs">
+      <DependentUpon>frmCorteCaja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListadoOperacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListadoOperacion.Designer.cs">
+      <DependentUpon>frmListadoOperacion.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMenu.cs">
       <SubType>Form</SubType>
@@ -134,6 +145,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAlerta.resx">
       <DependentUpon>frmAlerta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCorteCaja.resx">
+      <DependentUpon>frmCorteCaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListadoOperacion.resx">
+      <DependentUpon>frmListadoOperacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
@@ -179,6 +196,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\advertencia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\impresora.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pregunta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calcular.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gatdor.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\impresora.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\verificar.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cajaut.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

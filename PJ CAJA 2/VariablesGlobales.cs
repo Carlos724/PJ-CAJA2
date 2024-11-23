@@ -12,7 +12,7 @@ namespace PJ_CAJA_2
     class VariablesGlobales
     {
         public static string ResultDialog;
-        public static int NumFolio = 1;
+        public static int NumFolio = 0;
         public static int NumEntrada = 3200;
         public static int NumSalida = 5000;
 
@@ -30,15 +30,17 @@ namespace PJ_CAJA_2
             frm.picIcono.Image = imagen;
             frm.picIcono.BackColor = ColorTranslator.FromHtml(colorFondo);
 
-
             if (decision)
             {
                 frm.tbBotones.SelectedIndex = 1;
+                frm.btnConfirmar.Focus();
             }
             else if (decision == false)
             {
                 frm.tbBotones.SelectedIndex = 0;
+                frm.btnAceptar.Focus();
             }
+
             frm.ShowDialog();
 
             if (frm.DialogResult == DialogResult.OK)

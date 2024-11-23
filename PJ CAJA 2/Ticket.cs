@@ -11,13 +11,21 @@ using System.Windows.Forms;
 using System.Drawing.Printing;
 using System.Windows;
 
+using MySql.Data.MySqlClient;
+
 namespace PJ_CAJA_2
 {
     class Ticket
     {
 
+        ConexionInicial conexionSQL = new ConexionInicial();
 
         public List<double> cantidades;
+        public List<string> denominacion;
+        public List<string> datosFolio;
+        public List<string> datosCorte;
+        public List<string> datosFoliosCan;
+        public List<int> datosImpresora;
 
         public void DrawText(Graphics graphics, string leftText, string rightText, RectangleF availableSpace, Font font, Brush brush)
         {
@@ -45,24 +53,51 @@ namespace PJ_CAJA_2
             }
         }
 
+        public void DrawFolio(Graphics graphics, string leftText, string rightText,int x, int y, int width,int height, Font font, Brush brush, StringFormat sfFolios)
+        {
+            int width1 = (width / 2);
+            int x1 = x;  // Posición para el primer rectángulo
+            int x2 = x1 + 100;  // Posición para el segundo rectángulo (agregamos un espacio de 10px entre ellos)
+
+            // Texto en el primer rectángulo
+            graphics.DrawString(leftText, font, brush, new RectangleF(x1, y, width1, height) , sfFolios);
+
+            // Texto en el segundo rectángulo
+            graphics.DrawString(rightText, font, brush, new RectangleF(x2, y, width1, height), sfFolios);
+
+        }
+
         public void ImprimirCorte(object sender, PrintPageEventArgs e)
         {
             /*
              * Medidas para rollo mini
             int width = 200;
             int height = 20;
+            DrawFolio(e.Graphics, "$", cantidades[i].ToString("F2"), x, y += 20, width, height, font, drawBrush, sfFolios);
+
+                        datosImpresora.Add(Papel_width); 0
+                        datosImpresora.Add(Papel_height); 1
+                        datosImpresora.Add(Papel_height_Suma); 2
+                        datosImpresora.Add(Papel_y); 3
+                        datosImpresora.Add(Papel_x); 4
+                        datosImpresora.Add(Papel_tam_Corte); 5
+                        datosImpresora.Add(Papel_tam_Otro); 6
              */
+            conexionSQL.datosXML = conexionSQL.LeerXML();
+            conexionSQL.cnnInicial = new MySqlConnection(conexionSQL.datosXML);
 
             StringFormat sf = new StringFormat();
             sf.Alignment = StringAlignment.Center;
 
-            int width = 200;
-            int height = 20;
-            int y = 20;
-            int x = 15;
-            float tamaño = 10;
+            StringFormat sfFolios = new StringFormat();
+            sfFolios.Alignment = StringAlignment.Far;
+
+            int width = datosImpresora[0];
+            int height = datosImpresora[1];
+            int y = datosImpresora[3];
+            int x = datosImpresora[4];
+            float tamaño = datosImpresora[5];
             DateTime fecha = DateTime.Now;
-            DateTime hora = DateTime.Now;
 
             Font font = new Font("Lucida Fax", tamaño, FontStyle.Regular, GraphicsUnit.Point);
             SolidBrush drawBrush = new SolidBrush(Color.Black);
@@ -73,12 +108,13 @@ namespace PJ_CAJA_2
 
             e.Graphics.DrawString("", font, drawBrush, new RectangleF(x, y += 20, width, height));
             // Dibujar los textos
-            DrawText(e.Graphics, "Sucursal:", "PRUEBA", new RectangleF(x, y += 20, width, height), font, drawBrush);
-            DrawText(e.Graphics, "Cajero:", "PRUEBA", new RectangleF(x, y += 20, width, height), font, drawBrush);
-            DrawText(e.Graphics, "Total Folios:", "PRUEBA", new RectangleF(x, y += 20, width, height), font, drawBrush);
-            DrawText(e.Graphics, "Oper. Can:", "PRUEBA", new RectangleF(x, y += 20, width, height), font, drawBrush);
-            DrawText(e.Graphics, "Ini. Can:", "PRUEBA", new RectangleF(x, y += 20, width, height), font, drawBrush);
-            DrawText(e.Graphics, "Mov.Can:", "PRUEBA", new RectangleF(x, y += 20, width, height), font, drawBrush);
+
+            DrawFolio(e.Graphics, "Sucursal:", conexionSQL.sucursal, x, y += 20, width, height, font, drawBrush, sfFolios);
+            DrawText(e.Graphics, "Cajero:", Properties.Settings.Default.strUsuario_, new RectangleF(x, y += 20, width, height), font, drawBrush);
+            DrawText(e.Graphics, "Total Folios:", datosCorte[0].ToString(), new RectangleF(x, y += 20, width, height), font, drawBrush);
+            DrawText(e.Graphics, "Oper. Can:", datosCorte[1].ToString(), new RectangleF(x, y += 20, width, height), font, drawBrush);
+            DrawText(e.Graphics, "Ini. Can:", datosCorte[2].ToString(), new RectangleF(x, y += 20, width, height), font, drawBrush);
+            DrawText(e.Graphics, "Mov.Can:", datosCorte[3].ToString(), new RectangleF(x, y += 20, width, height), font, drawBrush);
 
             e.Graphics.DrawString("", font, drawBrush, new RectangleF(x, y += 20, width, height));
             e.Graphics.DrawString("------------------------", font, drawBrush, new RectangleF(x, y += 20, width, height), sf);
@@ -86,117 +122,251 @@ namespace PJ_CAJA_2
             e.Graphics.DrawString("", font, drawBrush, new RectangleF(x, y += 20, width, height));
             e.Graphics.DrawString("--PROMEDIOS--", font, drawBrush, new RectangleF(x, y += 20, width, height), sf);
 
-            DrawText(e.Graphics, "Dolares:", "PRUEBA", new RectangleF(x, y += 20, width, height), font, drawBrush);
-            DrawText(e.Graphics, "Tipo Compra:", "PRUEBA", new RectangleF(x, y += 20, width, height), font, drawBrush);
-            DrawText(e.Graphics, "Pesos:", "PRUEBA", new RectangleF(x, y += 20, width, height), font, drawBrush);
+            DrawText(e.Graphics, "Dolares:", double.Parse(datosCorte[4]).ToString("F2"), new RectangleF(x, y += 20, width, height), font, drawBrush);
+            DrawText(e.Graphics, "T.C:", datosCorte[5].ToString(), new RectangleF(x, y += 20, width, height), font, drawBrush);
+            DrawText(e.Graphics, "Pesos:", double.Parse(datosCorte[6]).ToString("F2"), new RectangleF(x, y += 20, width, height), font, drawBrush);
             e.Graphics.DrawString("", font, drawBrush, new RectangleF(x, y += 20, width, height));
 
-            DrawText(e.Graphics, "Pesos:", "PRUEBA", new RectangleF(x, y += 20, width, height), font, drawBrush);
-            DrawText(e.Graphics, "Tipo Venta:", "PRUEBA", new RectangleF(x, y += 20, width, height), font, drawBrush);
-            DrawText(e.Graphics, "Dolares:", "PRUEBA", new RectangleF(x, y += 20, width, height), font, drawBrush);
+            DrawText(e.Graphics, "Pesos:", double.Parse(datosCorte[9]).ToString("F2"), new RectangleF(x, y += 20, width, height), font, drawBrush);
+            DrawText(e.Graphics, "T.V:", datosCorte[8].ToString(), new RectangleF(x, y += 20, width, height), font, drawBrush);
+            DrawText(e.Graphics, "Dolares:", double.Parse(datosCorte[7]).ToString("F2"), new RectangleF(x, y += 20, width, height), font, drawBrush);
             e.Graphics.DrawString("", font, Brushes.Black, new RectangleF(x, y += 20, width, height));
 
 
             e.Graphics.DrawString("-- DIF C/V --", font, Brushes.Black, new RectangleF(x, y += 20, width, height), sf);
-            DrawText(e.Graphics, "USD:", "PRUEBA", new RectangleF(x, y += 20, width, height), font, drawBrush);
-            DrawText(e.Graphics, "MXP:", "PRUEBA", new RectangleF(x, y += 20, width, height), font, drawBrush);
+
+            double USD = double.Parse(datosCorte[10]);
+
+            if (USD > 0)
+            {
+                DrawText(e.Graphics, "USD: FAL", USD.ToString("F2"), new RectangleF(x, y += 20, width, height), font, drawBrush);
+            }
+            else if (double.Parse(datosCorte[10]) == 0)
+            {
+                DrawText(e.Graphics, "USD:", USD.ToString("F2"), new RectangleF(x, y += 20, width, height), font, drawBrush);
+            }
+            else if (double.Parse(datosCorte[10]) < 0)
+            {
+                DrawText(e.Graphics, "USD: SOB", USD.ToString("F2"), new RectangleF(x, y += 20, width, height), font, drawBrush);
+            }
+
+            double MXP = double.Parse(datosCorte[11]);
+
+            if (MXP > 0)
+            {
+                DrawText(e.Graphics, "MXP: FAL", MXP.ToString("F2"), new RectangleF(x, y += 20, width, height), font, drawBrush);
+            }
+            else if (double.Parse(datosCorte[11]) == 0)
+            {
+                DrawText(e.Graphics, "MXP:", MXP.ToString("F2"), new RectangleF(x, y += 20, width, height), font, drawBrush);
+            }
+            else if (double.Parse(datosCorte[11]) < 0)
+            {
+                DrawText(e.Graphics, "MXP: SOB", MXP.ToString("F2"), new RectangleF(x, y += 20, width, height), font, drawBrush);
+            }
 
             e.Graphics.DrawString("", font, Brushes.Black, new RectangleF(x, y += 20, width, height));
 
+            int numfoliocan = datosFoliosCan.Count();
             e.Graphics.DrawString("-- OPER. CANCELADAS --", font, Brushes.Black, new RectangleF(x, y += 20, width, height), sf);
-            DrawText(e.Graphics, "#Folio:1", hora.ToString("hh:mm tt"), new RectangleF(x, y += 20, width, height), font, drawBrush);
-            DrawText(e.Graphics, "Compra/Venta", "1180.00", new RectangleF(x + 10, y += 20, width, height), font, drawBrush);
-            DrawText(e.Graphics, "Tipo de cambio", "20.00", new RectangleF(x + 10, y += 20, width, height), font, drawBrush);
+
+            if (numfoliocan > 0)
+            {
+                for (int i = 0; i < numfoliocan; i++)
+                {
+                    Console.Write(i);
+                    DrawText(e.Graphics, "#Folio:"+datosFoliosCan[i], datosFoliosCan[i+=1], new RectangleF(x, y += 20, width, height), font, drawBrush);
+                    DrawText(e.Graphics, datosFoliosCan[i+=1], datosFoliosCan[i+=1], new RectangleF(x + 10, y += 20, width, height), font, drawBrush);
+                    DrawText(e.Graphics, "Tipo de cambio", datosFoliosCan[i+=1], new RectangleF(x + 10, y += 20, width, height), font, drawBrush);
+                }
+            }
+            else if(numfoliocan <= 0)
+            {
+                e.Graphics.DrawString("", font, Brushes.Black, new RectangleF(x, y += 20, width, height));
+                e.Graphics.DrawString("CERO CANCELADAS", font, Brushes.Black, new RectangleF(x, y += 20, width, height), sf);
+            }
 
             /*
-            Bitmap bmp = Properties.Resources.dinero;
-            e.Graphics.DrawImage(bmp,new RectangleF(0, y += 10, width, 120));
+             * Folios activos
+             * Folios cancelados
+             * Entradas/salidas canceladas
+             * Dolares compra
+             * Promedio tipo compra
+             * pesos compra (dolares compra * pesos compra)
+             * Dolares venta
+             * Promedio tipo venta
+             * pesos compra (dolares venta * pesos venta)
+             * 
+             * diferencia dolares
+             * diferencia pesos
+             * 
+             * lista operaciones canceladas
             */
         }
 
         public void ImprimirFolio(object sender, PrintPageEventArgs e)
         {
+            /*
+            datosImpresora.Add(Papel_width); 0
+            datosImpresora.Add(Papel_height); 1
+            datosImpresora.Add(Papel_height_Suma); 2
+            datosImpresora.Add(Papel_y); 3
+            datosImpresora.Add(Papel_x); 4
+            datosImpresora.Add(Papel_tam_Corte); 5
+            datosImpresora.Add(Papel_tam_Otro); 6
+ */
+            conexionSQL.datosXML = conexionSQL.LeerXML();
+            conexionSQL.cnnInicial = new MySqlConnection(conexionSQL.datosXML);
+            datosImpresora = conexionSQL.EjecutarSelectImpresora();
+
             StringFormat sf = new StringFormat();
             sf.Alignment = StringAlignment.Center;
 
-            int width = 200;
-            int height = 20;
-            int y = 20;
-            int x = 15;
-            float tamaño = 9;
-            DateTime fecha = DateTime.Now;
+            StringFormat sfFolios = new StringFormat();
+            sfFolios.Alignment = StringAlignment.Far;
+
+            int width = datosImpresora[0];
+            int height = datosImpresora[1];
+            int y = datosImpresora[3];
+            int x = datosImpresora[4];
+            float tamaño = datosImpresora[6];
             Font font = new Font("Lucida Fax", tamaño, FontStyle.Regular, GraphicsUnit.Point);
             SolidBrush drawBrush = new SolidBrush(Color.Black);
 
             e.Graphics.DrawString("CENTRO CAMBIARIO", font, Brushes.Black, new RectangleF(x, y, width, height + 10), sf);
             e.Graphics.DrawString("", font, Brushes.Black, new RectangleF(x, y += 10, width, height), sf);
-            DrawText(e.Graphics, "Cajero: PACO", "Folio:1", new RectangleF(x, y += 30, width, height), font, drawBrush);
-            e.Graphics.DrawString("" + fecha + "", font, Brushes.Black, new RectangleF(x, y += 20, width, height), sf);
+            DrawFolio(e.Graphics, "Cajero:", "Folio:", x, y += 20, width, height, font, drawBrush, sf);
+            DrawFolio(e.Graphics, Properties.Settings.Default.strUsuario_, ""+VariablesGlobales.NumFolio, x, y += 20, width, height, font, drawBrush, sf);
+
+            e.Graphics.DrawString("" + datosFolio[0] + "", font, Brushes.Black, new RectangleF(x, y += 20, width, height), sf);
             e.Graphics.DrawString("", font, Brushes.Black, new RectangleF(x, y += 10, width, height), sf);
-            e.Graphics.DrawString("--COMPRA/VENTA--", font, drawBrush, new RectangleF(x, y += 20, width, height), sf);
+            e.Graphics.DrawString("--"+datosFolio[1]+"--", font, drawBrush, new RectangleF(x, y += 20, width, height), sf);
             e.Graphics.DrawString("", font, Brushes.Black, new RectangleF(x, y += 10, width, height), sf);
-            DrawText(e.Graphics, "Dolares/Pesos", "PRUEBA", new RectangleF(x, y += 20, width, height), font, drawBrush);
-            DrawText(e.Graphics, "T.C/T.V", "PRUEBA", new RectangleF(x, y += 20, width, height), font, drawBrush);
-            DrawText(e.Graphics, "Pesos/Dolares", "PRUEBA", new RectangleF(x, y += 20, width, height), font, drawBrush);
-            DrawText(e.Graphics, "Efectivo", "PRUEBA", new RectangleF(x, y += 20, width, height), font, drawBrush);
-            DrawText(e.Graphics, "Cambio", "PRUEBA", new RectangleF(x, y += 20, width, height), font, drawBrush);
+
+            DrawFolio(e.Graphics, datosFolio[2], datosFolio[3], x, y += 20, width, height, font, drawBrush,sfFolios);
+            DrawFolio(e.Graphics, datosFolio[4], datosFolio[5], x, y += 20, width, height, font, drawBrush,sfFolios);
+
+            string simbolo = "-";
+            int repeticiones = (int)((width) / font.Size);
+            string textoLargo = new string(Enumerable.Repeat(simbolo, repeticiones).SelectMany(j => j).ToArray());
+            DrawFolio(e.Graphics, "", textoLargo, x, y += 10, width, height, font, drawBrush, sfFolios);
+
+            DrawFolio(e.Graphics, datosFolio[6], datosFolio[7], x, y += 20, width, height, font, drawBrush,sfFolios);
+            DrawFolio(e.Graphics, "Efectivo", datosFolio[8], x, y += 20, width, height, font, drawBrush,sfFolios);
+            DrawFolio(e.Graphics, "Cambio", datosFolio[9], x, y += 20, width, height, font, drawBrush,sfFolios);
             e.Graphics.DrawString("", font, Brushes.Black, new RectangleF(x, y += 15, width, height), sf);
             e.Graphics.DrawString("GRACIAS POR SU PREFERENCIA", font, Brushes.Black, new RectangleF(x, y += 20, width, height + 10), sf);
-
-            /*
-             * cajero: usuario 		folio: num
-compra/venta
-dolares00
-t.c/t.v
-pesos/dolares
-efectivo
-cambio
-fecha hora
-gracias por su preferencia
-
-             */
 
         }
 
         public void ImprimirSumadora(object sender, PrintPageEventArgs e)
         {
             /*
-             * sumadora
-________
-num
-num
-num
-num
-total
-
-fecha y hora
+            datosImpresora.Add(Papel_width); 0
+            datosImpresora.Add(Papel_height); 1
+            datosImpresora.Add(Papel_height_Suma); 2
+            datosImpresora.Add(Papel_y); 3
+            datosImpresora.Add(Papel_x); 4
+            datosImpresora.Add(Papel_tam_Corte); 5
+            datosImpresora.Add(Papel_tam_Otro); 6
              */
+            conexionSQL.datosXML = conexionSQL.LeerXML();
+            conexionSQL.cnnInicial = new MySqlConnection(conexionSQL.datosXML);
+            datosImpresora = conexionSQL.EjecutarSelectImpresora();
 
             double lastItem = cantidades.LastOrDefault();
             cantidades.Reverse(0,(cantidades.Count - 1));
 
             StringFormat sf = new StringFormat();
-            sf.Alignment = StringAlignment.Far;
+            sf.Alignment = StringAlignment.Center;
 
-            int width = 200;
-            int height = 20;
-            int y = 20;
-            int x = 15;
-            float tamaño = 9;
+            StringFormat sfFolios = new StringFormat();
+            sfFolios.Alignment = StringAlignment.Far;
+
+            int width = datosImpresora[0];
+            int height = datosImpresora[2];
+            int y = datosImpresora[3];
+            int x = datosImpresora[4];
+            float tamaño = datosImpresora[6];
             DateTime fecha = DateTime.Now;
             Font font = new Font("Lucida Fax", tamaño, FontStyle.Regular, GraphicsUnit.Point);
             SolidBrush drawBrush = new SolidBrush(Color.Black);
 
             e.Graphics.DrawString("SUMATORIA", font, Brushes.Black, new RectangleF(x, y, width, height + 10), sf);
             e.Graphics.DrawString("", font, Brushes.Black, new RectangleF(x, y += 10, width, height), sf);
-
+            //ToString("F2") = siempre tener dos decimales
 
             for (int i = 0; i < (cantidades.Count - 1); i++)
             {
-                e.Graphics.DrawString(cantidades[i].ToString(), font, drawBrush, new RectangleF(x, y += 20, width, height), sf);
+                DrawFolio(e.Graphics, "$", cantidades[i].ToString("F2"), x, y += 20, width, height, font, drawBrush, sfFolios);
             }
-            e.Graphics.DrawString("------------", font, drawBrush, new RectangleF(x, y += 20, width, height), sf);
-            e.Graphics.DrawString(lastItem.ToString(), font, Brushes.Black, new RectangleF(x, y += 10, width, height), sf);
+            // Definir el texto que quieres repetir, en este caso "-"
+            string simbolo = "-";
+
+            // Calcular cuántas veces se puede repetir el patrón dentro del ancho disponible
+            int repeticiones = (int)((width) / font.Size);  // Divide el ancho entre el tamaño de la fuente para obtener cuántas repeticiones caben
+
+            // Crear un string que contiene las repeticiones del patrón
+            string textoLargo = new string(Enumerable.Repeat(simbolo, repeticiones).SelectMany(j => j).ToArray());
+
+            // Dibujar el texto repetido en la posición deseada
+
+            DrawFolio(e.Graphics, "", textoLargo, x, y += 20, width, height, font, drawBrush, sfFolios);
+
+            DrawFolio(e.Graphics, "Total $", lastItem.ToString("F2"), x, y += 20, width, height, font, drawBrush, sfFolios);
+            e.Graphics.DrawString("", font, Brushes.Black, new RectangleF(x, y += 10, width, height), sf);
+            e.Graphics.DrawString("" + fecha + "", font, Brushes.Black, new RectangleF(x, y += 20, width, height), sf);
+        }
+
+        public void ImprimirDesgloce(object sender, PrintPageEventArgs e)
+        {
+            /*
+            datosImpresora.Add(Papel_width); 0
+            datosImpresora.Add(Papel_height); 1
+            datosImpresora.Add(Papel_height_Suma); 2
+            datosImpresora.Add(Papel_y); 3
+            datosImpresora.Add(Papel_x); 4
+            datosImpresora.Add(Papel_tam_Corte); 5
+            datosImpresora.Add(Papel_tam_Otro); 6
+             */
+            conexionSQL.datosXML = conexionSQL.LeerXML();
+            conexionSQL.cnnInicial = new MySqlConnection(conexionSQL.datosXML);
+            datosImpresora = conexionSQL.EjecutarSelectImpresora();
+
+            double lastItem = cantidades.LastOrDefault();
+            cantidades.Reverse(0, (cantidades.Count - 1));
+            denominacion.Reverse();
+
+            StringFormat sf = new StringFormat();
+            sf.Alignment = StringAlignment.Center;
+
+            StringFormat sfFolios = new StringFormat();
+            sfFolios.Alignment = StringAlignment.Far;
+
+            int width = datosImpresora[0];
+            int height = datosImpresora[1];
+            int y = datosImpresora[3];
+            int x = datosImpresora[4];
+            float tamaño = datosImpresora[6];
+            DateTime fecha = DateTime.Now;
+            Font font = new Font("Lucida Fax", tamaño, FontStyle.Regular, GraphicsUnit.Point);
+            SolidBrush drawBrush = new SolidBrush(Color.Black);
+
+            e.Graphics.DrawString("DESGLOSE", font, Brushes.Black, new RectangleF(x, y, width, height + 10), sf);
+            e.Graphics.DrawString("", font, Brushes.Black, new RectangleF(x, y += 10, width, height), sf);
+            DrawFolio(e.Graphics, "Denominacion", "Cantidad", x, y += 20, width, height, font, drawBrush, sf);
+
+            for (int i = 0; i < (cantidades.Count - 1); i++)
+            {
+                DrawFolio(e.Graphics, "[" + denominacion[i].ToString() + "] $", cantidades[i].ToString("F2"), x, y += 20, width, height, font, drawBrush, sfFolios);
+            }
+            string simbolo = "-";
+            int repeticiones = (int)((width) / font.Size);
+            string textoLargo = new string(Enumerable.Repeat(simbolo, repeticiones).SelectMany(j => j).ToArray());
+            DrawFolio(e.Graphics, "", textoLargo, x, y += 20, width, height, font, drawBrush, sfFolios);
+
+            DrawFolio(e.Graphics, "Total $", lastItem.ToString("F2"), x, y += 20, width, height, font, drawBrush, sfFolios);
+            e.Graphics.DrawString("" + fecha + "", font, Brushes.Black, new RectangleF(x, y += 20, width, height), sf);
 
         }
 

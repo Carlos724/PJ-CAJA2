@@ -10,24 +10,6 @@ pnlEntSal		-  259, 135
 pnlEntSal		-  259, 135
 pnlTransaccionCon -  11, 94
 
-//Codigo para hotkeys
-            switch (e.KeyChar)
-            {
-                case (char)Keys.Down:
-                    GetNextControl(txtSuma5, true).Focus();
-                    break;
+pnl sumadora en frmMenu - 545, 203
 
-                case (char)Keys.Up:
-                    GetNextControl(txtSuma5, false).Focus();
-                    break;
 
-                case (char)Keys.Enter:
-                    btnAceptar.Focus();
-                    break;
-
-                case (char)Keys.Escape:
-                    btnCancelar_Click(null, null);
-                    break;
-                default:
-                    break;
-            }

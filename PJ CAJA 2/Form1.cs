@@ -31,12 +31,12 @@ namespace PJ_CAJA_2
             pnlSumadora.Visible = true;
             pnlEntSal.Visible = true;*/
 
-            
+            /*
             frmMenu miMenu = new frmMenu();
             miMenu.Show();
             
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
-            
+           */
 
             //EVENTOS PARA TEXTBOXES DE SUMADORA
             foreach (Control miControl in pnlSumadora.Controls)
@@ -113,6 +113,7 @@ namespace PJ_CAJA_2
                 Properties.Settings.Default.dblTCCompra_ = double.Parse(txtCompra.Text);
                 Properties.Settings.Default.dblTCVenta_ = double.Parse(txtVenta.Text);
                 Properties.Settings.Default.Save();
+                conexionSQL.InsertarSesion();
                 pnlEntSal.Visible = true;
                 pnlTiposCambio.Visible = false;
                 txtCpP.Focus();
@@ -121,7 +122,8 @@ namespace PJ_CAJA_2
             }
             else
             {
-                MessageBox.Show("LA COMPRA NO PUEDE SER MAYOR QUE LA VENTA", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                VariablesGlobales.MessageBox_Show("ATENCION", "LA COMPRA NO PUEDE SER MAYOR QUE LA VENTA", false, "#a83252", Properties.Resources.advertencia);
+                //MessageBox.Show("LA COMPRA NO PUEDE SER MAYOR QUE LA VENTA", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtCompra.Focus();
                 txtCompra.SelectAll();
             }
@@ -180,15 +182,6 @@ namespace PJ_CAJA_2
                 frmMenu miMenu = new frmMenu();
                 miMenu.Show();
                 this.Close();
-
-                //Para guardar
-                /*
-                conexionSQL.InsertarGenerico((VariablesGlobales.NumFolio), "folio", "COMPRA", Properties.Settings.Default.dblEMorD_, Properties.Settings.Default.dblEMorP_, -1.0, 'X', -1.0, -1.0, -1.0, 'S', 'S');
-                VariablesGlobales.NumFolio++;
-                conexionSQL.InsertarGenerico((VariablesGlobales.NumFolio), "folio", "VENTA", Properties.Settings.Default.dblEMorD_, Properties.Settings.Default.dblEMorP_, -1.0, 'X', -1.0, -1.0, -1.0, 'S', 'S');
-                VariablesGlobales.NumFolio++;
-                conexionSQL.InsertarGenerico((VariablesGlobales.NumFolio), "folio", "COMPRA", Properties.Settings.Default.dblEMorD_, Properties.Settings.Default.dblEMorP_, -1.0, 'X', -1.0, -1.0, -1.0, 'S', 'S');
-                */
 
             }
             else
@@ -354,14 +347,10 @@ namespace PJ_CAJA_2
 
         private void btnImprimirSum_Click(object sender, EventArgs e)
         {
-
-            /*
-             cosas de impresora
-             */
-
             try
             {
                 Ticket ticket = new Ticket();
+                ticket.datosImpresora = conexionSQL.EjecutarSelectImpresora();
                 printDocument1 = new PrintDocument();
                 PrinterSettings ps = new PrinterSettings();
                 ticket.cantidades = new List<double>();
@@ -436,7 +425,7 @@ namespace PJ_CAJA_2
                         dblSuma = double.Parse(miControl.Text) + dblSuma;
                     }
                 }
-                txtSumaTotal.Text = dblSuma.ToString();
+                txtSumaTotal.Text = dblSuma.ToString("N4");
             }
             catch
             {
@@ -462,7 +451,7 @@ namespace PJ_CAJA_2
                         dblSuma = double.Parse(miControl.Text) + dblSuma;
                     }
                 }
-                txtTotalD.Text = dblSuma.ToString();
+                txtTotalD.Text = dblSuma.ToString("N4");
 
                 dblSuma = 0;
                 foreach (Control miControl in grpPesos.Controls)
@@ -477,7 +466,7 @@ namespace PJ_CAJA_2
                         dblSuma = double.Parse(miControl.Text) + dblSuma;
                     }
                 }
-                txtTotalP.Text = dblSuma.ToString();
+                txtTotalP.Text = dblSuma.ToString("N4");
             }
             catch
             {

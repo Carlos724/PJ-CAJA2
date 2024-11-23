@@ -35,6 +35,7 @@ namespace PJ_CAJA_2
             else if (sesion && (inicios == false))
             {
                 VariablesGlobales.MessageBox_Show("ATENCION", "NO INICIOS REGISTRADOS", false, "#a83252", Properties.Resources.advertencia);
+                
                 frmInicioSesion newsesion = new frmInicioSesion();
                 newsesion.pnlEntSal.Visible = true;
                 newsesion.pnlTiposCambio.Visible = false;
@@ -54,7 +55,11 @@ namespace PJ_CAJA_2
             /*
             Probando_ticket ticket = new Probando_ticket();
             ticket.FormClosed += MainForm_Closed;
-            ticket.Show();*/
+            ticket.Show();
+            frmCorteCaja corte = new frmCorteCaja();
+            corte.FormClosed += MainForm_Closed;
+            corte.Show();
+            */
             Application.Run();
         }
 

@@ -38,8 +38,8 @@ namespace PJ_CAJA_2
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.pnlAlerta = new System.Windows.Forms.Panel();
             this.lblMensaje = new System.Windows.Forms.Label();
-            this.picIcono = new System.Windows.Forms.PictureBox();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.picIcono = new System.Windows.Forms.PictureBox();
             this.tbBotones.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -49,10 +49,10 @@ namespace PJ_CAJA_2
             // 
             // lblTitulo
             // 
-            this.lblTitulo.Font = new System.Drawing.Font("Maiandra GD", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(0, 10);
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Location = new System.Drawing.Point(3, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(374, 25);
+            this.lblTitulo.Size = new System.Drawing.Size(374, 35);
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Titulo generico";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -82,9 +82,10 @@ namespace PJ_CAJA_2
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(144, 6);
+            this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAceptar.Location = new System.Drawing.Point(139, 3);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
+            this.btnAceptar.Size = new System.Drawing.Size(109, 38);
             this.btnAceptar.TabIndex = 0;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
@@ -104,9 +105,10 @@ namespace PJ_CAJA_2
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(248, 6);
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Location = new System.Drawing.Point(221, 6);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(109, 38);
             this.btnCancelar.TabIndex = 1;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -114,9 +116,10 @@ namespace PJ_CAJA_2
             // 
             // btnConfirmar
             // 
-            this.btnConfirmar.Location = new System.Drawing.Point(157, 6);
+            this.btnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirmar.Location = new System.Drawing.Point(52, 6);
             this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(75, 23);
+            this.btnConfirmar.Size = new System.Drawing.Size(109, 38);
             this.btnConfirmar.TabIndex = 0;
             this.btnConfirmar.Text = "Aceptar";
             this.btnConfirmar.UseVisualStyleBackColor = true;
@@ -125,9 +128,9 @@ namespace PJ_CAJA_2
             // pnlAlerta
             // 
             this.pnlAlerta.BackColor = System.Drawing.Color.Transparent;
+            this.pnlAlerta.Controls.Add(this.lblTitulo);
             this.pnlAlerta.Controls.Add(this.lblMensaje);
             this.pnlAlerta.Controls.Add(this.tbBotones);
-            this.pnlAlerta.Controls.Add(this.lblTitulo);
             this.pnlAlerta.Location = new System.Drawing.Point(-2, -1);
             this.pnlAlerta.Name = "pnlAlerta";
             this.pnlAlerta.Size = new System.Drawing.Size(369, 139);
@@ -135,27 +138,27 @@ namespace PJ_CAJA_2
             // 
             // lblMensaje
             // 
-            this.lblMensaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMensaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMensaje.Location = new System.Drawing.Point(0, 35);
             this.lblMensaje.Margin = new System.Windows.Forms.Padding(0);
             this.lblMensaje.Name = "lblMensaje";
-            this.lblMensaje.Size = new System.Drawing.Size(370, 60);
+            this.lblMensaje.Size = new System.Drawing.Size(352, 60);
             this.lblMensaje.TabIndex = 6;
             this.lblMensaje.Text = "Texto Generico";
             this.lblMensaje.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // picIcono
-            // 
-            this.picIcono.Location = new System.Drawing.Point(353, 12);
-            this.picIcono.Name = "picIcono";
-            this.picIcono.Size = new System.Drawing.Size(85, 93);
-            this.picIcono.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picIcono.TabIndex = 8;
-            this.picIcono.TabStop = false;
-            // 
             // printDialog1
             // 
             this.printDialog1.UseEXDialog = true;
+            // 
+            // picIcono
+            // 
+            this.picIcono.Location = new System.Drawing.Point(343, 12);
+            this.picIcono.Name = "picIcono";
+            this.picIcono.Size = new System.Drawing.Size(95, 93);
+            this.picIcono.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picIcono.TabIndex = 8;
+            this.picIcono.TabStop = false;
             // 
             // frmAlerta
             // 
@@ -178,9 +181,7 @@ namespace PJ_CAJA_2
         }
 
         #endregion
-        private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnConfirmar;
         public System.Windows.Forms.Label lblTitulo;
         public System.Windows.Forms.TabControl tbBotones;
         public System.Windows.Forms.TabPage tabPage1;
@@ -189,5 +190,7 @@ namespace PJ_CAJA_2
         public System.Windows.Forms.Label lblMensaje;
         public System.Windows.Forms.PictureBox picIcono;
         private System.Windows.Forms.PrintDialog printDialog1;
+        public System.Windows.Forms.Button btnAceptar;
+        public System.Windows.Forms.Button btnConfirmar;
     }
 }
